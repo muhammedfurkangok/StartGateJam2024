@@ -1,5 +1,4 @@
-﻿using System;
-using ScriptableObjects;
+﻿using ScriptableObjects;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -8,12 +7,14 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameConstants gameConstants;
     [SerializeField] private CinemachineCamera cinemachineCamera;
+    [SerializeField] private CinemachineBasicMultiChannelPerlin cinemachineNoise;
     [SerializeField] private Rigidbody rigidbody;
+    [SerializeField] private NoiseSettings walkNoiseSettings;
+    [SerializeField] private NoiseSettings runNoiseSettings;
 
     [Header("Input")]
     [SerializeField] private Vector2 moveInput;
     [SerializeField] private Vector2 lookInput;
-    [SerializeField] private bool isInteractKeyDown;
     [SerializeField] private bool isRunKey;
 
     [Header("Movement")]
@@ -65,20 +66,25 @@ public class PlayerController : MonoBehaviour
         cameraLocalEulerAngles.y = newCameraYAngle;
         cinemachineCamera.transform.localEulerAngles = cameraLocalEulerAngles;
     }
-    
+
     private void HandleMovement()
     {
         var targetSpeed = moveInput.magnitude > 0 ? (isRunKey ? gameConstants.playerRunSpeed : gameConstants.playerWalkSpeed) : 0f;
-        var inputDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-
-        var targetDirection = transform.TransformDirection(inputDirection);
+        var acceleration = isRunKey ? gameConstants.playerRunAcceleration : gameConstants.playerWalkAcceleration;
 
         currentSpeed = moveInput.magnitude > 0
-            ? Mathf.MoveTowards(currentSpeed, targetSpeed, gameConstants.playerAcceleration * Time.fixedDeltaTime)
+            ? Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.fixedDeltaTime)
             : Mathf.MoveTowards(currentSpeed, 0, gameConstants.playerDeceleration * Time.fixedDeltaTime);
 
-        var currentVelocity = targetDirection * currentSpeed;
-        var movement = currentVelocity * Time.fixedDeltaTime;
+        var inputDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
+        var targetDirection = transform.TransformDirection(inputDirection);
+        var movement = targetDirection * (currentSpeed * Time.fixedDeltaTime);
         rigidbody.MovePosition(rigidbody.position + movement);
+
+        cinemachineNoise.NoiseProfile = inputDirection.magnitude > 0
+            ? isRunKey
+                ? runNoiseSettings
+                : walkNoiseSettings
+            : null;
     }
 }

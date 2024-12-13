@@ -153,9 +153,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   cinemachineCamera: {fileID: 0}
+  cinemachineNoise: {fileID: 0}
   rigidbody: {fileID: 5422650730935243624}
+  walkNoiseSettings: {fileID: 11400000, guid: b79b277b7cbc96b43beda4ed34f769f6, type: 2}
+  runNoiseSettings: {fileID: 11400000, guid: 459b335d3e169054b80035dbfb82d84c, type: 2}
   moveInput: {x: 0, y: 0}
   lookInput: {x: 0, y: 0}
-  isInteractKeyDown: 0
   isRunKey: 0
   currentSpeed: 0
+  currentVelocity: {x: 0, y: 0, z: 0}
