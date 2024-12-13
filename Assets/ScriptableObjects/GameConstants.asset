@@ -18,5 +18,7 @@ MonoBehaviour:
   playerRunAcceleration: 15
   playerDeceleration: 20
   playerLookSensitivity: 10
-  cameraShakeIntensity: 20
-  cameraShakeSpeed: 20
+  grabLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  grabRange: 200

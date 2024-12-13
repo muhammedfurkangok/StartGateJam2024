@@ -13,8 +13,8 @@ namespace ScriptableObjects
         public float playerDeceleration;
         public float playerLookSensitivity;
 
-        [Header("Camera Shake Settings")]
-        public float cameraShakeIntensity = 0.1f;
-        public float cameraShakeSpeed = 2.0f;
+        [Header("Player Grab")]
+        public LayerMask grabLayer;
+        public float grabRange;
     }
 }
