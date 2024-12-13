@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerWalkSpeed: 5
   playerRunSpeed: 10
-  playerAcceleration: 10
+  playerWalkAcceleration: 10
+  playerRunAcceleration: 15
   playerDeceleration: 20
   playerLookSensitivity: 10
+  cameraShakeIntensity: 20
+  cameraShakeSpeed: 20

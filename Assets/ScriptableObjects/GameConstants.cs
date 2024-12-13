@@ -8,8 +8,13 @@ namespace ScriptableObjects
         [Header("Player Movement")]
         public float playerWalkSpeed;
         public float playerRunSpeed;
-        public float playerAcceleration;
+        public float playerWalkAcceleration;
+        public float playerRunAcceleration;
         public float playerDeceleration;
         public float playerLookSensitivity;
+
+        [Header("Camera Shake Settings")]
+        public float cameraShakeIntensity = 0.1f;
+        public float cameraShakeSpeed = 2.0f;
     }
 }
