@@ -12,26 +12,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private NoiseSettings walkNoiseSettings;
     [SerializeField] private NoiseSettings runNoiseSettings;
 
-    [Header("Input")]
-    [SerializeField] private Vector2 moveInput;
-    [SerializeField] private Vector2 lookInput;
-    [SerializeField] private bool isRunKey;
-
     [Header("Movement")]
     [SerializeField] private float currentSpeed;
 
-    private PlayerInputActions playerInputActions;
-
-    private void Start()
-    {
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Enable();
-        playerInputActions.Player.Enable();
-    }
-
     private void Update()
     {
-        GetInput();
         HandleMouseLook();
     }
 
@@ -40,17 +25,10 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
     }
 
-    private void GetInput()
-    {
-        moveInput = playerInputActions.Player.Move.ReadValue<Vector2>();
-        lookInput = playerInputActions.Player.Look.ReadValue<Vector2>();
-        isRunKey = playerInputActions.Player.Run.IsPressed();
-    }
-
     private void HandleMouseLook()
     {
         var mouseSensitivity = gameConstants.playerLookSensitivity;
-        var lookDelta = lookInput * (mouseSensitivity * Time.deltaTime);
+        var lookDelta = PlayerInputManager.Instance.GetLookInput() * (mouseSensitivity * Time.deltaTime);
 
         transform.Rotate(Vector3.up, lookDelta.x);
 
@@ -69,6 +47,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
+        var moveInput = PlayerInputManager.Instance.GetMoveInput();
+        var isRunKey = PlayerInputManager.Instance.IsRunKey();
+
         var targetSpeed = moveInput.magnitude > 0 ? (isRunKey ? gameConstants.playerRunSpeed : gameConstants.playerWalkSpeed) : 0f;
         var acceleration = isRunKey ? gameConstants.playerRunAcceleration : gameConstants.playerWalkAcceleration;
 
