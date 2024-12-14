@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineBasicMultiChannelPerlin cinemachineNoise;
     [SerializeField] private Rigidbody rigidbody;
-    [SerializeField] private NoiseSettings walkNoiseSettings;
-    [SerializeField] private NoiseSettings runNoiseSettings;
 
     [Header("Info")]
     [SerializeField] private float currentSpeed;
@@ -26,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
+        UpdateCameraNoise();
     }
 
     private void HandleInspection()
@@ -87,11 +86,28 @@ public class PlayerController : MonoBehaviour
         var targetDirection = transform.TransformDirection(inputDirection);
         var movement = targetDirection * (currentSpeed * Time.fixedDeltaTime);
         rigidbody.MovePosition(rigidbody.position + movement);
+    }
 
-        cinemachineNoise.NoiseProfile = inputDirection.magnitude > 0
+    private void UpdateCameraNoise()
+    {
+        var moveInput = PlayerInputManager.Instance.GetMoveInput();
+        var isRunKey = PlayerInputManager.Instance.IsRunKey();
+
+        var targetAmplitude = moveInput.magnitude > 0
             ? isRunKey
-                ? runNoiseSettings
-                : walkNoiseSettings
-            : null;
+                ? gameConstants.playerRunNoiseAmplitude
+                : gameConstants.playerWalkNoiseAmplitude
+            : 0f;
+
+        var targetFrequency = moveInput.magnitude > 0
+            ? isRunKey
+                ? gameConstants.playerRunNoiseFrequency
+                : gameConstants.playerWalkNoiseFrequency
+            : 0f;
+
+        var noiseChangeSpeed = isRunKey ? gameConstants.playerRunNoiseChangeSpeed : gameConstants.playerWalkNoiseChangeSpeed;
+
+        cinemachineNoise.AmplitudeGain = Mathf.MoveTowards(cinemachineNoise.AmplitudeGain, targetAmplitude, noiseChangeSpeed * Time.fixedDeltaTime);
+        cinemachineNoise.FrequencyGain = Mathf.MoveTowards(cinemachineNoise.FrequencyGain, targetFrequency, noiseChangeSpeed * Time.fixedDeltaTime);
     }
 }

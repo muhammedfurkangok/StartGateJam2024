@@ -15,6 +15,14 @@ namespace ScriptableObjects
         public float playerLookSensitivity;
         public float playerInspectSensitivity;
 
+        [Header("Player Noise")]
+        public float playerRunNoiseAmplitude;
+        public float playerWalkNoiseAmplitude;
+        public float playerRunNoiseFrequency;
+        public float playerWalkNoiseFrequency;
+        public float playerRunNoiseChangeSpeed;
+        public float playerWalkNoiseChangeSpeed;
+
         [Header("Player Grab")]
         public LayerMask grabLayer;
         public float grabRange;
