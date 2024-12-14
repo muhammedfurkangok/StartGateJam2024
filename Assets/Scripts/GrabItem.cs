@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GrabItem : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private GameConstants gameConstants;
+    [Header("References")] [SerializeField]
+    private GameConstants gameConstants;
+
     [SerializeField] private Rigidbody rigidbody;
 
     [Header("Parameters")]
@@ -61,7 +62,8 @@ public class GrabItem : MonoBehaviour
         snapTween?.Kill();
         snapRotationTween?.Kill();
 
-        enterInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetInspectPosition().position, gameConstants.grabItemEnterInspectDuration)
+        enterInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetInspectPosition().position,
+                gameConstants.grabItemEnterInspectDuration)
             .SetEase(gameConstants.grabItemEnterInspectEase);
     }
 
@@ -76,10 +78,12 @@ public class GrabItem : MonoBehaviour
         snapTween?.Kill();
         snapRotationTween?.Kill();
 
-        exitInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position, gameConstants.grabItemExitInspectDuration)
+        exitInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position,
+                gameConstants.grabItemExitInspectDuration)
             .SetEase(gameConstants.grabItemExitInspectEase);
 
-        exitInspectRotationTween = transform.DORotateQuaternion(preInspectRotation, gameConstants.grabItemExitInspectDuration)
+        exitInspectRotationTween = transform
+            .DORotateQuaternion(preInspectRotation, gameConstants.grabItemExitInspectDuration)
             .SetEase(gameConstants.grabItemExitInspectRotationEase);
     }
 
@@ -104,7 +108,8 @@ public class GrabItem : MonoBehaviour
 
         if (target == null)
         {
-            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized * (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
+            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized *
+                                        (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
             return;
         }
 
