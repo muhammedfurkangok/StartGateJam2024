@@ -3,6 +3,8 @@
     Properties
     {
         _InactiveColour ("Inactive Colour", Color) = (1, 1, 1, 1)
+        _DisplayMask ("Display Mask", Float) = 1
+        _MainTex ("Main Texture", 2D) = "white" {}
     }
     SubShader
     {
@@ -30,8 +32,7 @@
 
             sampler2D _MainTex;
             float4 _InactiveColour;
-            int displayMask; // set to 1 to display texture, otherwise will draw test colour
-            
+            float _DisplayMask;
 
             v2f vert (appdata v)
             {
@@ -44,11 +45,12 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 float2 uv = i.screenPos.xy / i.screenPos.w;
+                uv.y = 1.0 - uv.y; // Y eksenini ters çevir
                 fixed4 portalCol = tex2D(_MainTex, uv);
-                return portalCol * displayMask + _InactiveColour * (1-displayMask);
+                return portalCol * _DisplayMask + _InactiveColour * (1 - _DisplayMask);
             }
             ENDCG
         }
     }
-    Fallback "Standard" // for shadows
+    Fallback Off
 }
