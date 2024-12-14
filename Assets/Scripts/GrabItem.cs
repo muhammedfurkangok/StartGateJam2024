@@ -24,6 +24,12 @@ public class GrabItem : MonoBehaviour
         rigidbody.useGravity = target == null;
     }
 
+    public void ThrowItem(Vector3 direction)
+    {
+        SetTarget(null);
+        rigidbody.AddForce(direction * gameConstants.grabThrowForce, ForceMode.Impulse);
+    }
+
     private void Update()
     {
         if (target == null) return;

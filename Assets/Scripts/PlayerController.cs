@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         HandleInspection();
         HandleMouseLook();
+        HandleThrowing();
     }
 
     private void FixedUpdate()
@@ -32,6 +33,18 @@ public class PlayerController : MonoBehaviour
         if (!PlayerGrabManager.Instance.IsHoldingItem()) return;
         if (PlayerInputManager.Instance.IsRightClickDown() && !isInspecting) isInspecting = true;
         if (PlayerInputManager.Instance.IsRightClickUp() && isInspecting) isInspecting = false;
+    }
+
+    private void HandleThrowing()
+    {
+        if (isInspecting) return;
+        if (!PlayerGrabManager.Instance.IsHoldingItem()) return;
+
+        if (PlayerInputManager.Instance.IsLeftClickDown())
+        {
+            PlayerGrabManager.Instance.GetCurrentGrabItem().ThrowItem(transform.forward);
+            PlayerGrabManager.Instance.OnItemThrown();
+        }
     }
 
     private void HandleMouseLook()

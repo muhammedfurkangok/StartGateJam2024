@@ -26,5 +26,6 @@ namespace ScriptableObjects
         public float grabItemExitInspectDuration;
         public Ease grabItemExitInspectEase;
         public Ease grabItemExitInspectRotationEase;
+        public float grabThrowForce;
     }
 }

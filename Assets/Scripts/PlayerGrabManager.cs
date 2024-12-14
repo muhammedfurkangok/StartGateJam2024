@@ -19,6 +19,8 @@ public class PlayerGrabManager : MonoBehaviour
     public bool IsHoldingItem() => currentGrabItem != null;
     public Transform GetHoldPosition() => holdPosition;
     public Transform GetInspectPosition() => inspectPosition;
+    public GrabItem GetCurrentGrabItem() => currentGrabItem;
+    public void OnItemThrown() => currentGrabItem = null;
 
     public static PlayerGrabManager Instance;
 
