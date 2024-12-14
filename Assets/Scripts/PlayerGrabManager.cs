@@ -8,8 +8,10 @@ public class PlayerGrabManager : MonoBehaviour
     [SerializeField] private GameConstants gameConstants;
     [SerializeField] private Image crosshairImage;
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private Transform holdPosition;
 
     [Header("Info")]
+    [SerializeField] private GrabItem lookingGrabItem;
     [SerializeField] private GrabItem currentGrabItem;
 
     private void Start()
@@ -19,33 +21,38 @@ public class PlayerGrabManager : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerInputManager.Instance.IsInteractKeyDown())
-        {
-
-        }
-
         var crosshairRay = mainCamera.ScreenPointToRay(crosshairImage.rectTransform.position);
 
         if (!Physics.Raycast(crosshairRay, out var crosshairHit, gameConstants.grabRange, gameConstants.grabLayer))
         {
-            currentGrabItem = null;
+            lookingGrabItem = null;
             UpdateCrosshairAlpha();
 
             return;
         }
 
-        currentGrabItem = crosshairHit.collider.GetComponent<GrabItem>();
+        lookingGrabItem = crosshairHit.collider.GetComponent<GrabItem>();
         UpdateCrosshairAlpha();
 
-        if (currentGrabItem == null) return;
+        if (!PlayerInputManager.Instance.IsInteractKeyDown()) return;
 
+        if (currentGrabItem != null)
+        {
+            currentGrabItem.SetTarget(null);
+            currentGrabItem = null;
+        }
 
+        else if (lookingGrabItem != null)
+        {
+            currentGrabItem = lookingGrabItem;
+            currentGrabItem.SetTarget(holdPosition);
+        }
     }
 
     private void UpdateCrosshairAlpha()
     {
         var crosshairImageColor = crosshairImage.color;
-        crosshairImageColor.a = currentGrabItem != null ? 1f : 0.25f;
+        crosshairImageColor.a = lookingGrabItem != null ? 1f : 0.25f;
         crosshairImage.color = crosshairImageColor;
     }
 }

@@ -22,3 +22,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   grabRange: 200
+  grabForce: 10

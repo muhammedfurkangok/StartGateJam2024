@@ -16,5 +16,6 @@ namespace ScriptableObjects
         [Header("Player Grab")]
         public LayerMask grabLayer;
         public float grabRange;
+        public float grabForce;
     }
 }
