@@ -39,7 +39,7 @@ public class SubtitleAndVoiceManager : MonoBehaviour
 
         PlaySubtitle(0);
     }
-    
+
     public void PlaySubtitle(int index)
     {
         if (index < 0 || index >= subtitles.Count)
