@@ -8,6 +8,7 @@ public class GrabItem : MonoBehaviour
     private GameConstants gameConstants;
 
     [SerializeField] private Rigidbody rigidbody;
+    [SerializeField] private Collider collider;
 
     [Header("Parameters")]
     [SerializeField] private GrabItemType grabItemType;
@@ -96,8 +97,8 @@ public class GrabItem : MonoBehaviour
         var mouseX = InputManager.Instance.GetLookInput().x * gameConstants.playerInspectSensitivity * Time.deltaTime;
         var mouseY = InputManager.Instance.GetLookInput().y * gameConstants.playerInspectSensitivity * Time.deltaTime;
 
-        var rotationX = Quaternion.AngleAxis(mouseX, Vector3.up);
-        var rotationY = Quaternion.AngleAxis(-mouseY, Vector3.right);
+        var rotationX = Quaternion.AngleAxis(-mouseX, Vector3.up);
+        var rotationY = Quaternion.AngleAxis(mouseY, Vector3.right);
 
         transform.rotation = rotationX * rotationY * transform.rotation;
     }
@@ -125,10 +126,12 @@ public class GrabItem : MonoBehaviour
         rigidbody.angularVelocity = torqueAxis * angularMagnitude;
     }
 
-    public void TrySnap(Vector3 snapPosition)
+    public void TrySnap(GrabItemPosition grabItemPosition)
     {
         if (isSnapped) return;
         if (IsBeingGrabbed()) return;
+        if (grabItemPosition.IsCompleted()) return;
+        if (grabItemPosition.GetNeededGrabItemType() != grabItemType) return;
         if (rigidbody.linearVelocity.magnitude > gameConstants.grabItemSnapMaxVelocity) return;
 
         isSnapped = true;
@@ -139,10 +142,14 @@ public class GrabItem : MonoBehaviour
         rigidbody.linearVelocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
 
-        snapTween = transform.DOMove(snapPosition, gameConstants.grabItemSnapDuration)
+        snapTween = transform.DOMove(grabItemPosition.transform.position, gameConstants.grabItemSnapDuration)
             .SetEase(gameConstants.grabItemSnapEase);
 
         snapRotationTween = transform.DORotateQuaternion(Quaternion.identity, gameConstants.grabItemSnapDuration)
             .SetEase(gameConstants.grabItemSnapRotationEase);
+
+        grabItemPosition.SetCompleted();
+        rigidbody.useGravity = false;
+        rigidbody.Sleep();
     }
 }

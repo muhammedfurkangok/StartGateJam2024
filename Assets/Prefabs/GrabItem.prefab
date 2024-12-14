@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2771940982963012227}
   - component: {fileID: 6413749622374152076}
   - component: {fileID: 6218315651977820915}
+  - component: {fileID: 8023859461800414044}
   m_Layer: 7
   m_Name: GrabItem
   m_TagString: GrabItem
@@ -125,8 +126,9 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 6218315651977820915}
   grabItemType: 0
-  isBeingInspected: 0
   target: {fileID: 0}
+  isBeingInspected: 0
+  isSnapped: 0
   preInspectRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &6218315651977820915
 Rigidbody:
@@ -150,8 +152,22 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8023859461800414044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903845318481918935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d47255284fa4d8b8eb2b7b389253faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 6218315651977820915}
+  extraGravity: 10
