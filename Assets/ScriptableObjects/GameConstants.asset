@@ -23,3 +23,5 @@ MonoBehaviour:
     m_Bits: 4294967295
   grabRange: 200
   grabForce: 10
+  grabAngularForce: 1
+  grabReleaseDeceleration: 5

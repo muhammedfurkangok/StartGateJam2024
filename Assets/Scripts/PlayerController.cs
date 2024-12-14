@@ -2,7 +2,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class PlayerController : PortalTraveller
+public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameConstants gameConstants;

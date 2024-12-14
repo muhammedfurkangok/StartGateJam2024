@@ -17,5 +17,7 @@ namespace ScriptableObjects
         public LayerMask grabLayer;
         public float grabRange;
         public float grabForce;
+        public float grabAngularForce;
+        public float grabReleaseDeceleration;
     }
 }

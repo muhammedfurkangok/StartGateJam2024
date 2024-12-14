@@ -23,15 +23,16 @@ public class PlayerGrabManager : MonoBehaviour
     {
         var crosshairRay = mainCamera.ScreenPointToRay(crosshairImage.rectTransform.position);
 
-        if (!Physics.Raycast(crosshairRay, out var crosshairHit, gameConstants.grabRange, gameConstants.grabLayer))
+        if (Physics.Raycast(crosshairRay, out var crosshairHit, gameConstants.grabRange, gameConstants.grabLayer))
         {
-            lookingGrabItem = null;
-            UpdateCrosshairAlpha();
-
-            return;
+            lookingGrabItem = crosshairHit.collider.GetComponent<GrabItem>();
         }
 
-        lookingGrabItem = crosshairHit.collider.GetComponent<GrabItem>();
+        else
+        {
+            lookingGrabItem = null;
+        }
+
         UpdateCrosshairAlpha();
 
         if (!PlayerInputManager.Instance.IsInteractKeyDown()) return;

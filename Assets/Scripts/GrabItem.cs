@@ -10,33 +10,37 @@ public class GrabItem : MonoBehaviour
     [Header("Info")]
     [SerializeField] private Transform target;
 
+    private Quaternion originalRotation;
+
+    private void Start()
+    {
+        originalRotation = transform.rotation;
+    }
+
     public void SetTarget(Transform target)
     {
         this.target = target;
 
-        if (target == null)
-        {
-            rigidbody.linearVelocity = Vector3.zero;
-            rigidbody.angularVelocity = Vector3.zero;
-            rigidbody.useGravity = true;
-        }
-
-        else
-        {
-            rigidbody.useGravity = false;
-        }
+        rigidbody.useGravity = target == null;
     }
 
     private void FixedUpdate()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized * (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
+            return;
+        }
 
         var direction = target.position - transform.position;
         var distance = direction.magnitude;
-
         direction.Normalize();
-        var desiredVelocity = direction * (gameConstants.grabForce * distance);
 
-        rigidbody.linearVelocity = desiredVelocity;
+        var desiredLinearVelocity = direction * (gameConstants.grabForce * distance);
+        rigidbody.linearVelocity = desiredLinearVelocity;
+
+        var torqueAxis = Vector3.Cross(Vector3.up, direction).normalized;
+        var angularMagnitude = desiredLinearVelocity.magnitude * gameConstants.grabAngularForce;
+        rigidbody.angularVelocity = torqueAxis * angularMagnitude;
     }
 }
