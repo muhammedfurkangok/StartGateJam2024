@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class GrabItemPosition : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private MeshRenderer meshRenderer;
+
     [Header("Parameters")]
     [SerializeField] private GrabItemType neededGrabItemType;
 
@@ -11,7 +14,13 @@ public class GrabItemPosition : MonoBehaviour
     [SerializeField] private GrabItem currentGrabItem;
 
     public bool IsCompleted() => isCompleted;
-    public void GrabItemOnly_SetIsCompleted(bool value) => isCompleted = value;
+    public GrabItem GetCurrentGrabItem() => currentGrabItem;
+    public GrabItemType GetNeededGrabItemType() => neededGrabItemType;
+    public void SetCompleted()
+    {
+        isCompleted = true;
+        meshRenderer.enabled = false;
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -21,6 +30,6 @@ public class GrabItemPosition : MonoBehaviour
         var grabItem = other.GetComponent<GrabItem>();
         currentGrabItem = grabItem;
 
-        grabItem.TrySnap(transform.position);
+        grabItem.TrySnap(this);
     }
 }

@@ -6,6 +6,17 @@ namespace ScriptableObjects
     public enum GrabItemType
     {
         Cube,
+        LightPrism,
+        Screwdriver,
+        Screw,
+        DoorMain,
+        DoorFrameTop,
+        DoorFrame0,
+        DoorFrame1,
+        DoorHandleInside,
+        DoorHandleOutside,
+        DoorHingeTop,
+        DoorHingeDown,
     }
 
     //[CreateAssetMenu(fileName = "GameConstants", menuName = "GameConstants", order = 0)]
