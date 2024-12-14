@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private NoiseSettings walkNoiseSettings;
     [SerializeField] private NoiseSettings runNoiseSettings;
 
-    [Header("Movement")]
+    [Header("Info")]
     [SerializeField] private float currentSpeed;
+    [SerializeField] private bool isInspecting;
 
     private void Update()
     {
+        HandleInspection();
         HandleMouseLook();
     }
 
@@ -25,8 +27,17 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
     }
 
+    private void HandleInspection()
+    {
+        if (!PlayerGrabManager.Instance.IsHoldingItem()) return;
+        if (PlayerInputManager.Instance.IsRightClickDown() && !isInspecting) isInspecting = true;
+        if (PlayerInputManager.Instance.IsRightClickUp() && isInspecting) isInspecting = false;
+    }
+
     private void HandleMouseLook()
     {
+        if (isInspecting) return;
+
         var mouseSensitivity = gameConstants.playerLookSensitivity;
         var lookDelta = PlayerInputManager.Instance.GetLookInput() * (mouseSensitivity * Time.deltaTime);
 
@@ -47,6 +58,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (isInspecting) return;
+
         var moveInput = PlayerInputManager.Instance.GetMoveInput();
         var isRunKey = PlayerInputManager.Instance.IsRunKey();
 

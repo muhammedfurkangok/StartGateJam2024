@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 namespace ScriptableObjects
 {
@@ -12,6 +13,7 @@ namespace ScriptableObjects
         public float playerRunAcceleration;
         public float playerDeceleration;
         public float playerLookSensitivity;
+        public float playerInspectSensitivity;
 
         [Header("Player Grab")]
         public LayerMask grabLayer;
@@ -19,5 +21,10 @@ namespace ScriptableObjects
         public float grabForce;
         public float grabAngularForce;
         public float grabReleaseDeceleration;
+        public float grabItemEnterInspectDuration;
+        public Ease grabItemEnterInspectEase;
+        public float grabItemExitInspectDuration;
+        public Ease grabItemExitInspectEase;
+        public Ease grabItemExitInspectRotationEase;
     }
 }

@@ -1,4 +1,5 @@
-﻿using ScriptableObjects;
+﻿using System;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +10,23 @@ public class PlayerGrabManager : MonoBehaviour
     [SerializeField] private Image crosshairImage;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Transform holdPosition;
+    [SerializeField] private Transform inspectPosition;
 
     [Header("Info")]
     [SerializeField] private GrabItem lookingGrabItem;
     [SerializeField] private GrabItem currentGrabItem;
+
+    public bool IsHoldingItem() => currentGrabItem != null;
+    public Transform GetHoldPosition() => holdPosition;
+    public Transform GetInspectPosition() => inspectPosition;
+
+    public static PlayerGrabManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     private void Start()
     {
