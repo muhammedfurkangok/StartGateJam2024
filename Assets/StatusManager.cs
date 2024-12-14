@@ -60,7 +60,7 @@ public class StatusManager : MonoBehaviour
 
     private void ToggleTablet()
     {
-        tablet.transform.DOKill(); // Kill any ongoing animations
+        tablet.transform.DOKill(); 
 
         if (tabletActive)
         {
