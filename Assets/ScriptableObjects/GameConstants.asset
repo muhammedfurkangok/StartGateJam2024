@@ -19,6 +19,12 @@ MonoBehaviour:
   playerDeceleration: 20
   playerLookSensitivity: 10
   playerInspectSensitivity: 20
+  playerRunNoiseAmplitude: 1
+  playerWalkNoiseAmplitude: 1
+  playerRunNoiseFrequency: 2
+  playerWalkNoiseFrequency: 1
+  playerRunNoiseChangeSpeed: 15
+  playerWalkNoiseChangeSpeed: 10
   grabLayer:
     serializedVersion: 2
     m_Bits: 4294967295

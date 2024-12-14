@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineBasicMultiChannelPerlin cinemachineNoise;
     [SerializeField] private Rigidbody rigidbody;
-    [SerializeField] private NoiseSettings walkNoiseSettings;
-    [SerializeField] private NoiseSettings runNoiseSettings;
 
     [Header("Info")]
     [SerializeField] private float currentSpeed;
@@ -26,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
+        UpdateCameraNoise();
     }
 
     private void HandleInspection()
@@ -53,8 +52,6 @@ public class PlayerController : MonoBehaviour
 
         var mouseSensitivity = gameConstants.playerLookSensitivity;
         var lookDelta = PlayerInputManager.Instance.GetLookInput() * (mouseSensitivity * Time.deltaTime);
-
-        transform.Rotate(Vector3.up, lookDelta.x);
 
         var cameraLocalEulerAngles = cinemachineCamera.transform.localEulerAngles;
 
@@ -84,14 +81,37 @@ public class PlayerController : MonoBehaviour
             : Mathf.MoveTowards(currentSpeed, 0, gameConstants.playerDeceleration * Time.fixedDeltaTime);
 
         var inputDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-        var targetDirection = transform.TransformDirection(inputDirection);
+        var targetDirection = cinemachineCamera.transform.forward * inputDirection.z + cinemachineCamera.transform.right * inputDirection.x;
         var movement = targetDirection * (currentSpeed * Time.fixedDeltaTime);
         rigidbody.MovePosition(rigidbody.position + movement);
 
-        cinemachineNoise.NoiseProfile = inputDirection.magnitude > 0
+        var cameraForward = cinemachineCamera.transform.forward;
+        cameraForward.y = 0;
+        transform.forward = cameraForward;
+    }
+
+    private void UpdateCameraNoise()
+    {
+        if (isInspecting) return;
+
+        var moveInput = PlayerInputManager.Instance.GetMoveInput();
+        var isRunKey = PlayerInputManager.Instance.IsRunKey();
+
+        var targetAmplitude = moveInput.magnitude > 0
             ? isRunKey
-                ? runNoiseSettings
-                : walkNoiseSettings
-            : null;
+                ? gameConstants.playerRunNoiseAmplitude
+                : gameConstants.playerWalkNoiseAmplitude
+            : 0f;
+
+        var targetFrequency = moveInput.magnitude > 0
+            ? isRunKey
+                ? gameConstants.playerRunNoiseFrequency
+                : gameConstants.playerWalkNoiseFrequency
+            : 0f;
+
+        var noiseChangeSpeed = isRunKey ? gameConstants.playerRunNoiseChangeSpeed : gameConstants.playerWalkNoiseChangeSpeed;
+
+        cinemachineNoise.AmplitudeGain = Mathf.MoveTowards(cinemachineNoise.AmplitudeGain, targetAmplitude, noiseChangeSpeed * Time.fixedDeltaTime);
+        cinemachineNoise.FrequencyGain = Mathf.MoveTowards(cinemachineNoise.FrequencyGain, targetFrequency, noiseChangeSpeed * Time.fixedDeltaTime);
     }
 }
