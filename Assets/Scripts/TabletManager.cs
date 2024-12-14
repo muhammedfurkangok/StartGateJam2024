@@ -34,10 +34,7 @@ public class TabletManager : MonoBehaviour
         tabletPosition.y = gameConstants.tabletDownLocalY;
         tabletVisual.transform.localPosition = tabletPosition;
 
-        foreach (var sprite in sprites)
-        {
-            sprite.canvasRenderer.SetAlpha(0f);
-        }
+        UpdateIntelligence(0);
     }
 
     private void Update()
@@ -69,15 +66,16 @@ public class TabletManager : MonoBehaviour
         isTabletActive = !isTabletActive;
     }
 
-    public void IncreaseIntelligence(int amount)
+    public void UpdateIntelligence(int changeAmount)
     {
-        intelligenceLevel = Mathf.Clamp(intelligenceLevel + amount, gameConstants.minIntelligence, gameConstants.maxIntelligence);
+        intelligenceLevel = Mathf.Clamp(intelligenceLevel + changeAmount, gameConstants.minIntelligence, gameConstants.maxIntelligence);
         intelligenceText.text = intelligenceLevel.ToString("F0") + "%";
-    }
 
-    public void DecreaseIntelligence(int amount)
-    {
-        intelligenceLevel = Mathf.Clamp(intelligenceLevel - amount, gameConstants.minIntelligence, gameConstants.maxIntelligence);
-        intelligenceText.text = intelligenceLevel.ToString("F0") + "%";
+        var intelligenceIndex = intelligenceLevel / 10;
+        for (var i = 0; i < sprites.Length; i++)
+        {
+            var sprite = sprites[i];
+            sprite.enabled = i < intelligenceIndex;
+        }
     }
 }
