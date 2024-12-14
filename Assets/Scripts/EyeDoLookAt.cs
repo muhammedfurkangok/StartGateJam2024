@@ -1,11 +1,11 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
 public class EyeDoLookAt : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    [SerializeField] private Transform eyePivot;
-    [SerializeField] private Transform character; // Reference to the character
+    [SerializeField] private Transform eyeParent;
     [SerializeField] private Animator characterAnimator;
     [SerializeField] private float minBlinkTime = 0.2f;
     [SerializeField] private float maxBlinkTime = 1f;
@@ -13,20 +13,12 @@ public class EyeDoLookAt : MonoBehaviour
     private void Start()
     {
         StartCoroutine(BlinkRoutine());
+        transform.rotation.eulerAngles.Set(105, 0, 0);
     }
 
     private void Update()
     {
-        // Calculate the direction from the eye pivot to the target
-        Vector3 direction = (target.position - eyePivot.position).normalized;
-        direction.x = 0; // Keep the eye pivot upright
-
-        // Make the eye pivot look at the target
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        eyePivot.rotation = lookRotation;
-
-        // Apply the character's rotation to the eye pivot
-        transform.rotation = character.rotation * eyePivot.rotation;
+        eyeParent.LookAt(target.position);
     }
 
     private IEnumerator BlinkRoutine()
