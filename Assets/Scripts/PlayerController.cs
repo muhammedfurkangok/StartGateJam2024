@@ -53,8 +53,6 @@ public class PlayerController : MonoBehaviour
         var mouseSensitivity = gameConstants.playerLookSensitivity;
         var lookDelta = PlayerInputManager.Instance.GetLookInput() * (mouseSensitivity * Time.deltaTime);
 
-        transform.Rotate(Vector3.up, lookDelta.x);
-
         var cameraLocalEulerAngles = cinemachineCamera.transform.localEulerAngles;
 
         var newCameraYAngle = cameraLocalEulerAngles.y + lookDelta.x;
@@ -83,13 +81,19 @@ public class PlayerController : MonoBehaviour
             : Mathf.MoveTowards(currentSpeed, 0, gameConstants.playerDeceleration * Time.fixedDeltaTime);
 
         var inputDirection = new Vector3(moveInput.x, 0, moveInput.y).normalized;
-        var targetDirection = transform.TransformDirection(inputDirection);
+        var targetDirection = cinemachineCamera.transform.forward * inputDirection.z + cinemachineCamera.transform.right * inputDirection.x;
         var movement = targetDirection * (currentSpeed * Time.fixedDeltaTime);
         rigidbody.MovePosition(rigidbody.position + movement);
+
+        var cameraForward = cinemachineCamera.transform.forward;
+        cameraForward.y = 0;
+        transform.forward = cameraForward;
     }
 
     private void UpdateCameraNoise()
     {
+        if (isInspecting) return;
+
         var moveInput = PlayerInputManager.Instance.GetMoveInput();
         var isRunKey = PlayerInputManager.Instance.IsRunKey();
 
