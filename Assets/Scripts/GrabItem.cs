@@ -28,6 +28,7 @@ public class GrabItem : MonoBehaviour
     public GrabItemType GetGrabItemType() => grabItemType;
     public bool IsBeingGrabbed() => target != null;
     public bool GetIsBeingInspected() => isBeingInspected;
+    public float GetRigidbodyVelocityMagnitude() => rigidbody.linearVelocity.magnitude;
 
     public void SetTarget(Transform target)
     {

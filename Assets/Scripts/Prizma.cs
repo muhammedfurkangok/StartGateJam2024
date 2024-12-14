@@ -9,7 +9,7 @@ public class Prizma : MonoBehaviour
 
     private void Update()
     {
-        if (grabItem.GetRigidbodyVelocityMagnitude() < 0.1f && !grabItem.IsBeignGrabbed())
+        if (grabItem.GetRigidbodyVelocityMagnitude() < 0.1f && !grabItem.IsBeingGrabbed())
         {
             CheckPrizmaReflect();
         }
