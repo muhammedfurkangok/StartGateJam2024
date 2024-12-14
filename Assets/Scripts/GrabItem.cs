@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class GrabItem : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private GameConstants gameConstants;
+    [Header("References")] [SerializeField]
+    private GameConstants gameConstants;
+
     [SerializeField] private Rigidbody rigidbody;
 
-    [Header("Info")]
-    [SerializeField] private bool IsBeingInspected;
+    [Header("Info")] [SerializeField] private bool IsBeingInspected;
     [SerializeField] private Transform target;
     [SerializeField] private Quaternion preInspectRotation;
 
@@ -49,7 +49,8 @@ public class GrabItem : MonoBehaviour
         exitInspectTween?.Kill();
         exitInspectRotationTween?.Kill();
 
-        enterInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetInspectPosition().position, gameConstants.grabItemEnterInspectDuration)
+        enterInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetInspectPosition().position,
+                gameConstants.grabItemEnterInspectDuration)
             .SetEase(gameConstants.grabItemEnterInspectEase);
     }
 
@@ -62,10 +63,12 @@ public class GrabItem : MonoBehaviour
         exitInspectTween?.Kill();
         exitInspectRotationTween?.Kill();
 
-        exitInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position, gameConstants.grabItemExitInspectDuration)
+        exitInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position,
+                gameConstants.grabItemExitInspectDuration)
             .SetEase(gameConstants.grabItemExitInspectEase);
 
-        exitInspectRotationTween = transform.DORotateQuaternion(preInspectRotation, gameConstants.grabItemExitInspectDuration)
+        exitInspectRotationTween = transform
+            .DORotateQuaternion(preInspectRotation, gameConstants.grabItemExitInspectDuration)
             .SetEase(gameConstants.grabItemExitInspectRotationEase);
     }
 
@@ -90,7 +93,8 @@ public class GrabItem : MonoBehaviour
 
         if (target == null)
         {
-            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized * (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
+            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized *
+                                        (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
             return;
         }
 
@@ -104,5 +108,15 @@ public class GrabItem : MonoBehaviour
         var torqueAxis = Vector3.Cross(Vector3.up, direction).normalized;
         var angularMagnitude = desiredLinearVelocity.magnitude * gameConstants.grabAngularForce;
         rigidbody.angularVelocity = torqueAxis * angularMagnitude;
+    }
+
+    public bool IsBeignGrabbed()
+    {
+        return target != null;
+    }
+
+    public int GetRigidbodyVelocityMagnitude()
+    {
+        return (int)rigidbody.linearVelocity.magnitude;
     }
 }
