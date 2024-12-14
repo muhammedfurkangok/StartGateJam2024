@@ -1,14 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Febucci.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
-public class SubtitleAndSoundSystem : MonoBehaviour
+public class SubtitleAndVoiceManager : MonoBehaviour
 {
-    [System.Serializable]
+    [Serializable]
     public class SubtitleEntry
     {
         public string text;
@@ -17,14 +17,17 @@ public class SubtitleAndSoundSystem : MonoBehaviour
         public UnityEvent onDisplay;
     }
 
-    public TypewriterByCharacter typewriter;
-    public TextMeshProUGUI subtitleText;
-    public AudioSource audioSource;
-    public List<SubtitleEntry> subtitles;
+    [Header("Subtitles")]
+    [SerializeField] private List<SubtitleEntry> subtitles;
+
+    [Header("References")]
+    [SerializeField] private TypewriterByCharacter typewriter;
+    [SerializeField] private TextMeshProUGUI subtitleText;
+    [SerializeField] private AudioSource audioSource;
 
     private Coroutine subtitleCoroutine;
 
-    void Start()
+    private void Start()
     {
         if (subtitleText == null || audioSource == null)
         {
@@ -36,8 +39,7 @@ public class SubtitleAndSoundSystem : MonoBehaviour
 
         PlaySubtitle(0);
     }
-
-
+    
     public void PlaySubtitle(int index)
     {
         if (index < 0 || index >= subtitles.Count)
@@ -64,7 +66,7 @@ public class SubtitleAndSoundSystem : MonoBehaviour
 
         typewriter.ShowText(entry.text);
 
-        float duration = Mathf.Max(entry.displayDuration, entry.audioClip != null ? entry.audioClip.length : 0);
+        var duration = Mathf.Max(entry.displayDuration, entry.audioClip != null ? entry.audioClip.length : 0);
         yield return new WaitForSeconds(duration);
 
         subtitleText.text = "";
