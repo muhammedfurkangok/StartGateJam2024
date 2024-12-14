@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
+    public enum GrabItemType
+    {
+        Cube,
+    }
+
     //[CreateAssetMenu(fileName = "GameConstants", menuName = "GameConstants", order = 0)]
     public class GameConstants : ScriptableObject
     {
@@ -50,5 +55,11 @@ namespace ScriptableObjects
         public Ease tabletMoveDownEase;
         public float tabletUpLocalY;
         public float tabletDownLocalY;
+
+        [Header("Grab Item Snap")]
+        public float grabItemSnapMaxVelocity;
+        public float grabItemSnapDuration;
+        public Ease grabItemSnapEase;
+        public Ease grabItemSnapRotationEase;
     }
 }

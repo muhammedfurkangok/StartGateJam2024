@@ -31,7 +31,7 @@ MonoBehaviour:
   playerRunNoiseChangeSpeed: 15
   grabLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 251
   grabRange: 200
   grabForce: 10
   grabAngularForce: 1
@@ -49,3 +49,7 @@ MonoBehaviour:
   tabletMoveDownEase: 3
   tabletUpLocalY: 0
   tabletDownLocalY: -2
+  grabItemSnapMaxVelocity: 2
+  grabItemSnapDuration: 0.2
+  grabItemSnapEase: 2
+  grabItemSnapRotationEase: 3
