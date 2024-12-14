@@ -96,13 +96,6 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateCameraNoise()
     {
-        if (isInspecting || TabletManager.Instance.IsTabletActive())
-        {
-            cinemachineNoise.AmplitudeGain = 0f;
-            cinemachineNoise.FrequencyGain = 0f;
-            return;
-        }
-
         var moveInput = InputManager.Instance.GetMoveInput();
         var isRunKey = InputManager.Instance.IsRunKey();
 
@@ -110,13 +103,13 @@ public class PlayerController : MonoBehaviour
             ? isRunKey
                 ? gameConstants.playerRunNoiseAmplitude
                 : gameConstants.playerWalkNoiseAmplitude
-            : 0f;
+            : gameConstants.playerIdleNoiseAmplitude;
 
         var targetFrequency = moveInput.magnitude > 0
             ? isRunKey
                 ? gameConstants.playerRunNoiseFrequency
                 : gameConstants.playerWalkNoiseFrequency
-            : 0f;
+            : gameConstants.playerIdleNoiseFrequency;
 
         var noiseChangeSpeed = isRunKey ? gameConstants.playerRunNoiseChangeSpeed : gameConstants.playerWalkNoiseChangeSpeed;
 
