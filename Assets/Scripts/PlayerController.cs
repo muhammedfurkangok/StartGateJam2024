@@ -29,7 +29,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleInspection()
     {
+        if (TabletManager.Instance.IsTabletActive()) return;
         if (!PlayerGrabManager.Instance.IsHoldingItem()) return;
+
         if (InputManager.Instance.IsRightClickDown() && !isInspecting) isInspecting = true;
         if (InputManager.Instance.IsRightClickUp() && isInspecting) isInspecting = false;
     }
@@ -94,8 +96,12 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateCameraNoise()
     {
-        if (isInspecting) return;
-        if (TabletManager.Instance.IsTabletActive()) return;
+        if (isInspecting || TabletManager.Instance.IsTabletActive())
+        {
+            cinemachineNoise.AmplitudeGain = 0f;
+            cinemachineNoise.FrequencyGain = 0f;
+            return;
+        }
 
         var moveInput = InputManager.Instance.GetMoveInput();
         var isRunKey = InputManager.Instance.IsRunKey();

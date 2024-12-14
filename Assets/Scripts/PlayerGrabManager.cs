@@ -52,6 +52,7 @@ public class PlayerGrabManager : MonoBehaviour
         UpdateCrosshairAlpha();
 
         if (!InputManager.Instance.IsInteractKeyDown()) return;
+        if (TabletManager.Instance.IsTabletActive()) return;
 
         if (currentGrabItem != null)
         {
