@@ -41,7 +41,7 @@ MonoBehaviour:
   grabItemExitInspectRotationEase: 3
   grabThrowForce: 10
   minIntelligence: 0
-  maxIntelligence: 0
+  maxIntelligence: 100
   tabletMoveDuration: 0.3
   tabletMoveUpEase: 2
   tabletMoveDownEase: 3
