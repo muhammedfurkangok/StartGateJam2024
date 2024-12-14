@@ -2,7 +2,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class PlayerController : PortalTraveller
+public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameConstants gameConstants;
@@ -12,12 +12,15 @@ public class PlayerController : PortalTraveller
     [SerializeField] private NoiseSettings walkNoiseSettings;
     [SerializeField] private NoiseSettings runNoiseSettings;
 
-    [Header("Movement")]
+    [Header("Info")]
     [SerializeField] private float currentSpeed;
+    [SerializeField] private bool isInspecting;
 
     private void Update()
     {
+        HandleInspection();
         HandleMouseLook();
+        HandleThrowing();
     }
 
     private void FixedUpdate()
@@ -25,8 +28,29 @@ public class PlayerController : PortalTraveller
         HandleMovement();
     }
 
+    private void HandleInspection()
+    {
+        if (!PlayerGrabManager.Instance.IsHoldingItem()) return;
+        if (PlayerInputManager.Instance.IsRightClickDown() && !isInspecting) isInspecting = true;
+        if (PlayerInputManager.Instance.IsRightClickUp() && isInspecting) isInspecting = false;
+    }
+
+    private void HandleThrowing()
+    {
+        if (isInspecting) return;
+        if (!PlayerGrabManager.Instance.IsHoldingItem()) return;
+
+        if (PlayerInputManager.Instance.IsLeftClickDown())
+        {
+            PlayerGrabManager.Instance.GetCurrentGrabItem().ThrowItem(transform.forward);
+            PlayerGrabManager.Instance.OnItemThrown();
+        }
+    }
+
     private void HandleMouseLook()
     {
+        if (isInspecting) return;
+
         var mouseSensitivity = gameConstants.playerLookSensitivity;
         var lookDelta = PlayerInputManager.Instance.GetLookInput() * (mouseSensitivity * Time.deltaTime);
 
@@ -47,6 +71,8 @@ public class PlayerController : PortalTraveller
 
     private void HandleMovement()
     {
+        if (isInspecting) return;
+
         var moveInput = PlayerInputManager.Instance.GetMoveInput();
         var isRunKey = PlayerInputManager.Instance.IsRunKey();
 

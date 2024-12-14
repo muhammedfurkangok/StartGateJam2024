@@ -1,4 +1,5 @@
-﻿using ScriptableObjects;
+﻿using System;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +10,25 @@ public class PlayerGrabManager : MonoBehaviour
     [SerializeField] private Image crosshairImage;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Transform holdPosition;
+    [SerializeField] private Transform inspectPosition;
 
     [Header("Info")]
     [SerializeField] private GrabItem lookingGrabItem;
     [SerializeField] private GrabItem currentGrabItem;
+
+    public bool IsHoldingItem() => currentGrabItem != null;
+    public Transform GetHoldPosition() => holdPosition;
+    public Transform GetInspectPosition() => inspectPosition;
+    public GrabItem GetCurrentGrabItem() => currentGrabItem;
+    public void OnItemThrown() => currentGrabItem = null;
+
+    public static PlayerGrabManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -23,15 +39,16 @@ public class PlayerGrabManager : MonoBehaviour
     {
         var crosshairRay = mainCamera.ScreenPointToRay(crosshairImage.rectTransform.position);
 
-        if (!Physics.Raycast(crosshairRay, out var crosshairHit, gameConstants.grabRange, gameConstants.grabLayer))
+        if (Physics.Raycast(crosshairRay, out var crosshairHit, gameConstants.grabRange, gameConstants.grabLayer))
         {
-            lookingGrabItem = null;
-            UpdateCrosshairAlpha();
-
-            return;
+            lookingGrabItem = crosshairHit.collider.GetComponent<GrabItem>();
         }
 
-        lookingGrabItem = crosshairHit.collider.GetComponent<GrabItem>();
+        else
+        {
+            lookingGrabItem = null;
+        }
+
         UpdateCrosshairAlpha();
 
         if (!PlayerInputManager.Instance.IsInteractKeyDown()) return;

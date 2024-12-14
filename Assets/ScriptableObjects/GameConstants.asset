@@ -18,8 +18,17 @@ MonoBehaviour:
   playerRunAcceleration: 15
   playerDeceleration: 20
   playerLookSensitivity: 10
+  playerInspectSensitivity: 20
   grabLayer:
     serializedVersion: 2
     m_Bits: 4294967295
   grabRange: 200
   grabForce: 10
+  grabAngularForce: 1
+  grabReleaseDeceleration: 5
+  grabItemEnterInspectDuration: 0.1
+  grabItemEnterInspectEase: 2
+  grabItemExitInspectDuration: 0.1
+  grabItemExitInspectEase: 3
+  grabItemExitInspectRotationEase: 3
+  grabThrowForce: 10
