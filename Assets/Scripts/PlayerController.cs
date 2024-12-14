@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     private void HandleInspection()
     {
         if (!PlayerGrabManager.Instance.IsHoldingItem()) return;
-        if (PlayerInputManager.Instance.IsRightClickDown() && !isInspecting) isInspecting = true;
-        if (PlayerInputManager.Instance.IsRightClickUp() && isInspecting) isInspecting = false;
+        if (InputManager.Instance.IsRightClickDown() && !isInspecting) isInspecting = true;
+        if (InputManager.Instance.IsRightClickUp() && isInspecting) isInspecting = false;
     }
 
     private void HandleThrowing()
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if (isInspecting) return;
         if (!PlayerGrabManager.Instance.IsHoldingItem()) return;
 
-        if (PlayerInputManager.Instance.IsLeftClickDown())
+        if (InputManager.Instance.IsLeftClickDown())
         {
             PlayerGrabManager.Instance.GetCurrentGrabItem().ThrowItem(transform.forward);
             PlayerGrabManager.Instance.OnItemThrown();
@@ -49,9 +49,10 @@ public class PlayerController : MonoBehaviour
     private void HandleMouseLook()
     {
         if (isInspecting) return;
+        if (TabletManager.Instance.IsTabletActive()) return;
 
         var mouseSensitivity = gameConstants.playerLookSensitivity;
-        var lookDelta = PlayerInputManager.Instance.GetLookInput() * (mouseSensitivity * Time.deltaTime);
+        var lookDelta = InputManager.Instance.GetLookInput() * (mouseSensitivity * Time.deltaTime);
 
         var cameraLocalEulerAngles = cinemachineCamera.transform.localEulerAngles;
 
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
         var newCameraXAngle = cameraLocalEulerAngles.x - lookDelta.y;
         if (newCameraXAngle > 180) newCameraXAngle -= 360;
-        newCameraXAngle = Mathf.Clamp(newCameraXAngle, -90, 90);
+        newCameraXAngle = Mathf.Clamp(newCameraXAngle, gameConstants.playerMinLook, gameConstants.playerMaxLook);
 
         cameraLocalEulerAngles.x = newCameraXAngle;
         cameraLocalEulerAngles.y = newCameraYAngle;
@@ -69,9 +70,10 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         if (isInspecting) return;
+        if (TabletManager.Instance.IsTabletActive()) return;
 
-        var moveInput = PlayerInputManager.Instance.GetMoveInput();
-        var isRunKey = PlayerInputManager.Instance.IsRunKey();
+        var moveInput = InputManager.Instance.GetMoveInput();
+        var isRunKey = InputManager.Instance.IsRunKey();
 
         var targetSpeed = moveInput.magnitude > 0 ? (isRunKey ? gameConstants.playerRunSpeed : gameConstants.playerWalkSpeed) : 0f;
         var acceleration = isRunKey ? gameConstants.playerRunAcceleration : gameConstants.playerWalkAcceleration;
@@ -93,9 +95,10 @@ public class PlayerController : MonoBehaviour
     private void UpdateCameraNoise()
     {
         if (isInspecting) return;
+        if (TabletManager.Instance.IsTabletActive()) return;
 
-        var moveInput = PlayerInputManager.Instance.GetMoveInput();
-        var isRunKey = PlayerInputManager.Instance.IsRunKey();
+        var moveInput = InputManager.Instance.GetMoveInput();
+        var isRunKey = InputManager.Instance.IsRunKey();
 
         var targetAmplitude = moveInput.magnitude > 0
             ? isRunKey

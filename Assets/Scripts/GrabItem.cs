@@ -33,8 +33,8 @@ public class GrabItem : MonoBehaviour
     private void Update()
     {
         if (target == null) return;
-        if (PlayerInputManager.Instance.IsRightClickDown() && !IsBeingInspected) EnterInspectMode();
-        if (PlayerInputManager.Instance.IsRightClickUp() && IsBeingInspected) ExitInspectMode();
+        if (InputManager.Instance.IsRightClickDown() && !IsBeingInspected) EnterInspectMode();
+        if (InputManager.Instance.IsRightClickUp() && IsBeingInspected) ExitInspectMode();
 
         if (IsBeingInspected && target != null) Inspect();
     }
@@ -75,8 +75,8 @@ public class GrabItem : MonoBehaviour
         if (exitInspectTween != null && exitInspectTween.IsActive()) return;
         if (exitInspectRotationTween != null && exitInspectRotationTween.IsActive()) return;
 
-        var mouseX = PlayerInputManager.Instance.GetLookInput().x * gameConstants.playerInspectSensitivity * Time.deltaTime;
-        var mouseY = PlayerInputManager.Instance.GetLookInput().y * gameConstants.playerInspectSensitivity * Time.deltaTime;
+        var mouseX = InputManager.Instance.GetLookInput().x * gameConstants.playerInspectSensitivity * Time.deltaTime;
+        var mouseY = InputManager.Instance.GetLookInput().y * gameConstants.playerInspectSensitivity * Time.deltaTime;
 
         var rotationX = Quaternion.AngleAxis(mouseX, Vector3.up);
         var rotationY = Quaternion.AngleAxis(-mouseY, Vector3.right);

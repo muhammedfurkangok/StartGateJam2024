@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class PlayerInputManager : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
-    public static PlayerInputManager Instance;
+    public static InputManager Instance;
 
     private PlayerInputActions playerInputActions;
 
@@ -23,4 +23,5 @@ public class PlayerInputManager : MonoBehaviour
     public bool IsRightClickDown() => playerInputActions.Player.RightClick.WasPressedThisFrame();
     public bool IsRightClickUp() => playerInputActions.Player.RightClick.WasReleasedThisFrame();
     public bool IsLeftClickDown() => playerInputActions.Player.LeftClick.WasPressedThisFrame();
+    public bool IsTabletKeyDown() => playerInputActions.Player.Tablet.WasPressedThisFrame();
 }

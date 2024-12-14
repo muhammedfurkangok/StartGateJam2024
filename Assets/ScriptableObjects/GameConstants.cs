@@ -12,6 +12,10 @@ namespace ScriptableObjects
         public float playerWalkAcceleration;
         public float playerRunAcceleration;
         public float playerDeceleration;
+
+        [Header("Player Look")]
+        public float playerMinLook;
+        public float playerMaxLook;
         public float playerLookSensitivity;
         public float playerInspectSensitivity;
 
@@ -35,5 +39,14 @@ namespace ScriptableObjects
         public Ease grabItemExitInspectEase;
         public Ease grabItemExitInspectRotationEase;
         public float grabThrowForce;
+
+        [Header("Tablet")]
+        public int minIntelligence;
+        public int maxIntelligence;
+        public float tabletMoveDuration;
+        public Ease tabletMoveUpEase;
+        public Ease tabletMoveDownEase;
+        public float tabletUpLocalY;
+        public float tabletDownLocalY;
     }
 }
