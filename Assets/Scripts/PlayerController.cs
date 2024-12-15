@@ -144,12 +144,12 @@ public class PlayerController : MonoBehaviour
         if (isWaitingForSound) return;
         if (walkSounds.Length == 0) return;
 
-        if (!audioSource.isPlaying && currentSpeed > 0.15)
+        if (!audioSource.isPlaying && currentSpeed > 0.4f)
         {
             await PlayNextWalkSound();
         }
 
-        else if (currentSpeed <= 0.15)
+        else if (currentSpeed <= 0.4f)
         {
             audioSource.Stop();
         }

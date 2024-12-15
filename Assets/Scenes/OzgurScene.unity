@@ -2041,10 +2041,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 2918107512948746599}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
       propertyPath: cinemachineNoise
       value: 
       objectReference: {fileID: 1586110300}
@@ -2054,72 +2050,12 @@ PrefabInstance:
       objectReference: {fileID: 320912689}
     - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
       propertyPath: walkSounds.Array.size
-      value: 16
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
       propertyPath: 'walkSounds.Array.data[0]'
       value: 
-      objectReference: {fileID: 8300000, guid: c28c9caaebebbeb4a9ba1ee97caa0777, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: a5c5f7dd9ab4f8647b68d17dabbfb151, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[2]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 8ae2e4c4deef2944bb1c59c95a55eab7, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[3]'
-      value: 
-      objectReference: {fileID: 8300000, guid: a3693a8439d55fd4eaa3e384dc654121, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[4]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 6b44797645b793b45acb1ea5c804558c, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[5]'
-      value: 
-      objectReference: {fileID: 8300000, guid: ef6efa8d7b25cb74591e56b25f78b781, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[6]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 1f0fa0ac5e8f00b4ca0e44846b54e15b, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[7]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 9442d889203b2714f81dd2739cb46ac7, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[8]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 70ed18fba7c030d4d9be14dbdcb40956, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[9]'
-      value: 
-      objectReference: {fileID: 8300000, guid: d00834cad06b08644957dead70cdc6c8, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[10]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 554497982fcca504db9f13eaf3eb99d6, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[11]'
-      value: 
-      objectReference: {fileID: 8300000, guid: a05940e02e31e7a4284058d5e852df3a, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[12]'
-      value: 
-      objectReference: {fileID: 8300000, guid: dd7468d8f4718334981499a0301861e2, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[13]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 86a83d52231aec44792e213cd4f99e43, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[14]'
-      value: 
-      objectReference: {fileID: 8300000, guid: a5e9b48c06b53a44aaba3a10febd1d06, type: 3}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[15]'
-      value: 
-      objectReference: {fileID: 8300000, guid: ce033647f8f421747b582e52ce7c9c22, type: 3}
+      objectReference: {fileID: 8300000, guid: a3f7fdb4948278044ac56e8c846769ad, type: 3}
     - target: {fileID: 8447941364697784447, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
       propertyPath: mainCamera
       value: 
@@ -2139,118 +2075,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3207673835842293608, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2918107512948746599}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
---- !u!1 &2918107512948746591 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3207673835842293608, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-  m_PrefabInstance: {fileID: 2918107512948746590}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2918107512948746598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 361857039102436712, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
   m_PrefabInstance: {fileID: 2918107512948746590}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &2918107512948746599
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2918107512948746591}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -3265750865325282214, guid: 4dbf5c3dd8752434aa14d45d333995c8, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &4204979333250095566
 PrefabInstance:
   m_ObjectHideFlags: 0

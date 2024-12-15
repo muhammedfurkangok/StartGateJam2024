@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using ScriptableObjects;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class TabletManager : MonoBehaviour
 
     [Header("Info")]
     [SerializeField] private bool isTabletActive;
+    [SerializeField] private bool isPlayingCompleteAnimation;
 
     public Transform GetTabletVisual() => tabletVisual.transform;
     public bool IsTabletActive() => isTabletActive;
@@ -35,19 +37,21 @@ public class TabletManager : MonoBehaviour
         tabletPosition.y = gameConstants.tabletDownLocalY;
         tabletVisual.transform.localPosition = tabletPosition;
 
-        UpdateIntelligence(0);
+        intelligenceLevel = 30;
+        intelligenceText.text = intelligenceLevel.ToString("F0") + "%";
     }
 
     private void Update()
     {
         if (PlayerController.Instance.IsInspecting() || PlayerGrabManager.Instance.IsHoldingItem()) return;
         if (!InputManager.Instance.IsTabletKeyDown()) return;
-        
-        ToggleTablet();
+
+        ToggleTablet(false);
     }
 
-    private void ToggleTablet()
+    private void ToggleTablet(bool isComplete)
     {
+        if (isPlayingCompleteAnimation && !isComplete) return;
         tabletVisual.transform.DOKill();
 
         if (isTabletActive)
@@ -61,22 +65,30 @@ public class TabletManager : MonoBehaviour
         {
             tabletVisual.gameObject.SetActive(true);
             tabletVisual.transform.DOLocalMoveY(gameConstants.tabletUpLocalY, gameConstants.tabletMoveDuration)
-                .SetEase(gameConstants.tabletMoveUpEase);
+                .SetEase(gameConstants.tabletMoveUpEase)
+                .OnComplete(async () =>
+                {
+                    if (!isComplete) return;
+                    await UniTask.WaitForSeconds(gameConstants.tabletAlphaDuration);
+                    ToggleTablet(true);
+                });
         }
 
         isTabletActive = !isTabletActive;
     }
 
-    public void UpdateIntelligence(int changeAmount)
+    private void IncreaseIntelligence()
     {
-        intelligenceLevel = Mathf.Clamp(intelligenceLevel + changeAmount, gameConstants.minIntelligence, gameConstants.maxIntelligence);
+        intelligenceLevel += 10;
         intelligenceText.text = intelligenceLevel.ToString("F0") + "%";
 
         var intelligenceIndex = intelligenceLevel / 10;
         for (var i = 0; i < sprites.Length; i++)
         {
             var sprite = sprites[i];
-            sprite.enabled = i < intelligenceIndex;
+            if (i > intelligenceIndex) sprite.DOFade(1, gameConstants.tabletAlphaDuration).SetEase(gameConstants.tabletAlphaEase);
         }
+
+        ToggleTablet(true);
     }
 }
