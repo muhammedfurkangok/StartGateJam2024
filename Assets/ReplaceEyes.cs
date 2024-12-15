@@ -7,6 +7,7 @@ public class ReplaceEyes : MonoBehaviour
 
     private void Start()
     {
+        if(children is null) return;
         foreach (Transform child in children)
         {
             Transform bucket = child;
