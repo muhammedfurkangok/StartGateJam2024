@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/HospitalScene.unity
+    guid: 9148630ad5346b94d82dd56bc5cb6e40
+  - enabled: 1
+    path: Assets/Scenes/EyeScene.unity
+    guid: c9400b84d880ef8428e1d7be899f125c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: a7af6ed562db02b439584cb1cc805654, type: 3}
   m_UseUCBPForAssetBundles: 0

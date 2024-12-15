@@ -1,4 +1,6 @@
-﻿using ScriptableObjects;
+﻿using System.Linq;
+using Cysharp.Threading.Tasks;
+using ScriptableObjects;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -9,10 +11,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CinemachineCamera cinemachineCamera;
     [SerializeField] private CinemachineBasicMultiChannelPerlin cinemachineNoise;
     [SerializeField] private Rigidbody rigidbody;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] walkSounds;
 
     [Header("Info")]
     [SerializeField] private float currentSpeed;
     [SerializeField] private bool isInspecting;
+    [SerializeField] private bool isWaitingForSound;
 
     public bool IsInspecting() => isInspecting;
 
@@ -29,6 +34,7 @@ public class PlayerController : MonoBehaviour
         HandleInspection();
         HandleMouseLook();
         HandleThrowing();
+        ToggleSound().Forget();
     }
 
     private void FixedUpdate()
@@ -131,5 +137,36 @@ public class PlayerController : MonoBehaviour
 
         cinemachineNoise.AmplitudeGain = Mathf.MoveTowards(cinemachineNoise.AmplitudeGain, targetAmplitude, noiseChangeSpeed * Time.fixedDeltaTime);
         cinemachineNoise.FrequencyGain = Mathf.MoveTowards(cinemachineNoise.FrequencyGain, targetFrequency, noiseChangeSpeed * Time.fixedDeltaTime);
+    }
+
+    private async UniTask ToggleSound()
+    {
+        if (isWaitingForSound) return;
+        if (walkSounds.Length == 0) return;
+
+        if (!audioSource.isPlaying && currentSpeed > 0.4f)
+        {
+            await PlayNextWalkSound();
+        }
+
+        else if (currentSpeed <= 0.4f)
+        {
+            audioSource.Stop();
+        }
+    }
+
+    private async UniTask PlayNextWalkSound()
+    {
+        if (isWaitingForSound) return;
+
+        isWaitingForSound = true;
+
+        var randomIndex = Random.Range(0, walkSounds.Length);
+        audioSource.clip = walkSounds[randomIndex];
+        audioSource.Play();
+
+        await UniTask.WaitForSeconds(gameConstants.playerWalkingSoundInterval);
+
+        isWaitingForSound = false;
     }
 }

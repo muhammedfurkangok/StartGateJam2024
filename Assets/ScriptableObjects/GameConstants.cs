@@ -28,6 +28,7 @@ namespace ScriptableObjects
         public float playerWalkAcceleration;
         public float playerRunAcceleration;
         public float playerDeceleration;
+        public float playerWalkingSoundInterval;
 
         [Header("Player Look")]
         public float playerMinLook;
@@ -60,13 +61,13 @@ namespace ScriptableObjects
         public LayerMask grabItemExcludeLayers;
 
         [Header("Tablet")]
-        public int minIntelligence;
-        public int maxIntelligence;
         public float tabletMoveDuration;
         public Ease tabletMoveUpEase;
         public Ease tabletMoveDownEase;
         public float tabletUpLocalY;
         public float tabletDownLocalY;
+        public float tabletAlphaDuration;
+        public Ease tabletAlphaEase;
 
         [Header("Grab Item Snap")]
         public float grabItemPositionColliderSizeMultiplier;
