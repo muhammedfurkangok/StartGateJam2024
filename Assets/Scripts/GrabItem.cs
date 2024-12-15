@@ -19,7 +19,6 @@ public class GrabItem : MonoBehaviour
     [SerializeField] private bool isBeingInspected;
     [SerializeField] private bool isSnapped;
     [SerializeField] private GrabItemPosition grabItemPosition;
-    [SerializeField] private Quaternion preInspectRotation;
 
     private Tween enterInspectTween;
     private Tween exitInspectTween;
@@ -96,7 +95,6 @@ public class GrabItem : MonoBehaviour
     private void EnterInspectMode()
     {
         isBeingInspected = true;
-        preInspectRotation = transform.rotation;
         rigidbody.isKinematic = true;
 
         enterInspectTween?.Kill();
@@ -124,10 +122,6 @@ public class GrabItem : MonoBehaviour
         exitInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position,
                 gameConstants.grabItemExitInspectDuration)
             .SetEase(gameConstants.grabItemExitInspectEase);
-
-        exitInspectRotationTween = transform
-            .DORotateQuaternion(preInspectRotation, gameConstants.grabItemExitInspectDuration)
-            .SetEase(gameConstants.grabItemExitInspectRotationEase);
     }
 
     private void Inspect()

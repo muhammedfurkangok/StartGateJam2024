@@ -27,7 +27,7 @@ public class GrabItemPosition : MonoBehaviour
     private void Start()
     {
         defaultColor = meshRenderer.material.color;
-        collider.size *= gameConstants.grabItemPositionColliderSizeMultiplier;
+        collider.size += Vector3.one * gameConstants.grabItemPositionColliderSizeOffset;
     }
 
     public void SetCompleted(bool willBeCompleted)
@@ -45,6 +45,12 @@ public class GrabItemPosition : MonoBehaviour
         var grabItem = other.GetComponent<GrabItem>();
         currentGrabItem = grabItem;
 
+        if (grabItem.GetGrabItemType() != neededGrabItemType)
+        {
+            currentGrabItem = null;
+            return;
+        }
+
         PlayColorChangeAnimation(true);
         grabItem.TrySnap(this);
     }
@@ -53,6 +59,7 @@ public class GrabItemPosition : MonoBehaviour
     {
         if (isCompleted) return;
         if (!other.CompareTag("GrabItem")) return;
+        if (currentGrabItem == null) return;
         if (other != currentGrabItem.GrabItemPositionOnly_GetCollider()) return;
 
         PlayColorChangeAnimation(true);
