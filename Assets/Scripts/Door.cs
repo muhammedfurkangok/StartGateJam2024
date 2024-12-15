@@ -75,6 +75,13 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player") && willoadSceneOnTrigger)
         {
             PlayerPrefs.SetInt("first_scene", sceneIndexToLoad);
+
+            var completedScenes = PlayerPrefs.GetInt("completed_scenes", 0);
+            completedScenes++;
+            PlayerPrefs.SetInt("completed_scenes", completedScenes);
+
+            if (completedScenes == 2) sceneIndexToLoad = 5;
+
             SceneManager.LoadScene(sceneIndexToLoad);
         }
     }
