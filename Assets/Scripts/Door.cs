@@ -80,7 +80,7 @@ public class Door : MonoBehaviour
             completedScenes++;
             PlayerPrefs.SetInt("completed_scenes", completedScenes);
 
-            if (completedScenes == 2) sceneIndexToLoad = 6;
+            if (completedScenes == 4) sceneIndexToLoad = 6;
 
             SceneManager.LoadScene(sceneIndexToLoad);
         }
