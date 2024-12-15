@@ -13582,6 +13582,10 @@ PrefabInstance:
       propertyPath: 'doors.Array.data[1]'
       value: 
       objectReference: {fileID: 715622917}
+    - target: {fileID: 561922391358843163, guid: f1f09ed44c8a508498161d08ba19cd42, type: 3}
+      propertyPath: 'rightLeftLookDurations.Array.data[1]'
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3493639691025808353, guid: f1f09ed44c8a508498161d08ba19cd42, type: 3}
       propertyPath: m_Name
       value: EyeCutsceneManager
