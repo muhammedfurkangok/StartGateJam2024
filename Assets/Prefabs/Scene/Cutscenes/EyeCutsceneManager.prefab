@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerEyeAnimator: {fileID: 0}
   playerCamera: {fileID: 0}
+  player: {fileID: 0}
   blinkDuration: 3.5
   rightLeftLookRotations:
   - {x: -20, y: 40, z: 0}
@@ -54,7 +55,7 @@ MonoBehaviour:
   - {x: 0, y: -90, z: 0}
   rightLeftLookDurations:
   - 2
-  - 5
+  - 4
   - 4
   - 2
   rightLeftLookEases: 04000000040000000400000004000000
@@ -66,9 +67,10 @@ MonoBehaviour:
   tabletDownDuration: 1
   tabletDownEase: 3
   tabletLastWaitDuration: 0
+  doorLookPos: {fileID: 0}
   doors:
   - {fileID: 0}
   - {fileID: 0}
   doorsUpPosition: 0
-  doorsUpDuration: 1
+  doorsUpDuration: 3
   doorsUpEase: 3
