@@ -27,7 +27,7 @@ public class GrabItemPosition : MonoBehaviour
     private void Start()
     {
         defaultColor = meshRenderer.material.color;
-        collider.size *= gameConstants.grabItemPositionColliderSizeMultiplier;
+        collider.size += Vector3.one * gameConstants.grabItemPositionColliderSizeOffset;
     }
 
     public void SetCompleted(bool willBeCompleted)

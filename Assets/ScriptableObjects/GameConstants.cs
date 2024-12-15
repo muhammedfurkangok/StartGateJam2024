@@ -56,7 +56,6 @@ namespace ScriptableObjects
         public Ease grabItemEnterInspectEase;
         public float grabItemExitInspectDuration;
         public Ease grabItemExitInspectEase;
-        public Ease grabItemExitInspectRotationEase;
         public float grabThrowForce;
         public LayerMask grabItemExcludeLayers;
 
@@ -70,7 +69,7 @@ namespace ScriptableObjects
         public Ease tabletAlphaEase;
 
         [Header("Grab Item Snap")]
-        public float grabItemPositionColliderSizeMultiplier;
+        public float grabItemPositionColliderSizeOffset;
         public float grabItemSnapMaxVelocity;
         public float grabItemSnapDuration;
         public Ease grabItemSnapEase;

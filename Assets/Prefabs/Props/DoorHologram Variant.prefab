@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   meshRenderer: {fileID: 5223814974100381068}
-  collider: {fileID: 0}
+  collider: {fileID: 7588557167744768298}
   neededGrabItemType: 4
   isCompleted: 0
   currentGrabItem: {fileID: 0}
@@ -406,6 +406,11 @@ MonoBehaviour:
 --- !u!23 &2398539047310848724 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4375987874929842200, guid: 1e3cedb3881d871439b1ccabff3f25c7, type: 3}
+  m_PrefabInstance: {fileID: 2158336135867263692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2855209815639316585 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 4209824914848494245, guid: 1e3cedb3881d871439b1ccabff3f25c7, type: 3}
   m_PrefabInstance: {fileID: 2158336135867263692}
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &3352920375258017105 stripped
@@ -471,11 +476,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   meshRenderer: {fileID: 9217466452989055734}
-  collider: {fileID: 0}
+  collider: {fileID: 2855209815639316585}
   neededGrabItemType: 6
   isCompleted: 0
   currentGrabItem: {fileID: 0}
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!65 &5679712321653560157 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 5990235023399205265, guid: 1e3cedb3881d871439b1ccabff3f25c7, type: 3}
+  m_PrefabInstance: {fileID: 2158336135867263692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6086870443875537905 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5299359266439133501, guid: 1e3cedb3881d871439b1ccabff3f25c7, type: 3}
@@ -519,7 +529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   meshRenderer: {fileID: 4356978675127899244}
-  collider: {fileID: 0}
+  collider: {fileID: 5679712321653560157}
   neededGrabItemType: 7
   isCompleted: 0
   currentGrabItem: {fileID: 0}
@@ -527,6 +537,11 @@ MonoBehaviour:
 --- !u!23 &7519126017117816019 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8478798164209790495, guid: 1e3cedb3881d871439b1ccabff3f25c7, type: 3}
+  m_PrefabInstance: {fileID: 2158336135867263692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7588557167744768298 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8411611185449415654, guid: 1e3cedb3881d871439b1ccabff3f25c7, type: 3}
   m_PrefabInstance: {fileID: 2158336135867263692}
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &7593323856981975552 stripped
