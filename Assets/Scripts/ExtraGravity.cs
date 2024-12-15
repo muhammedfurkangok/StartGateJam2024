@@ -10,6 +10,6 @@ public class ExtraGravity : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody.AddForce(Vector3.down * extraGravity);
+        if (rigidbody.useGravity) rigidbody.AddForce(Vector3.down * extraGravity);
     }
 }

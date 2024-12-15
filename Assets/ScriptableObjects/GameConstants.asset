@@ -34,7 +34,7 @@ MonoBehaviour:
     m_Bits: 251
   grabRange: 200
   grabForce: 10
-  grabAngularForce: 1
+  grabAngularForce: 0
   grabReleaseDeceleration: 5
   grabItemEnterInspectDuration: 0.1
   grabItemEnterInspectEase: 2

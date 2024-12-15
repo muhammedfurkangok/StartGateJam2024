@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GrabItem : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private GameConstants gameConstants;
+    [Header("References")] [SerializeField]
+    private GameConstants gameConstants;
+
     [SerializeField] private Rigidbody rigidbody;
+    [SerializeField] private Collider collider;
 
     [Header("Parameters")]
     [SerializeField] private GrabItemType grabItemType;
@@ -26,6 +28,7 @@ public class GrabItem : MonoBehaviour
     public GrabItemType GetGrabItemType() => grabItemType;
     public bool IsBeingGrabbed() => target != null;
     public bool GetIsBeingInspected() => isBeingInspected;
+    public float GetRigidbodyVelocityMagnitude() => rigidbody.linearVelocity.magnitude;
 
     public void SetTarget(Transform target)
     {
@@ -61,7 +64,8 @@ public class GrabItem : MonoBehaviour
         snapTween?.Kill();
         snapRotationTween?.Kill();
 
-        enterInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetInspectPosition().position, gameConstants.grabItemEnterInspectDuration)
+        enterInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetInspectPosition().position,
+                gameConstants.grabItemEnterInspectDuration)
             .SetEase(gameConstants.grabItemEnterInspectEase);
     }
 
@@ -76,10 +80,12 @@ public class GrabItem : MonoBehaviour
         snapTween?.Kill();
         snapRotationTween?.Kill();
 
-        exitInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position, gameConstants.grabItemExitInspectDuration)
+        exitInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position,
+                gameConstants.grabItemExitInspectDuration)
             .SetEase(gameConstants.grabItemExitInspectEase);
 
-        exitInspectRotationTween = transform.DORotateQuaternion(preInspectRotation, gameConstants.grabItemExitInspectDuration)
+        exitInspectRotationTween = transform
+            .DORotateQuaternion(preInspectRotation, gameConstants.grabItemExitInspectDuration)
             .SetEase(gameConstants.grabItemExitInspectRotationEase);
     }
 
@@ -92,8 +98,8 @@ public class GrabItem : MonoBehaviour
         var mouseX = InputManager.Instance.GetLookInput().x * gameConstants.playerInspectSensitivity * Time.deltaTime;
         var mouseY = InputManager.Instance.GetLookInput().y * gameConstants.playerInspectSensitivity * Time.deltaTime;
 
-        var rotationX = Quaternion.AngleAxis(mouseX, Vector3.up);
-        var rotationY = Quaternion.AngleAxis(-mouseY, Vector3.right);
+        var rotationX = Quaternion.AngleAxis(-mouseX, Vector3.up);
+        var rotationY = Quaternion.AngleAxis(mouseY, Vector3.right);
 
         transform.rotation = rotationX * rotationY * transform.rotation;
     }
@@ -104,7 +110,8 @@ public class GrabItem : MonoBehaviour
 
         if (target == null)
         {
-            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized * (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
+            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized *
+                                        (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
             return;
         }
 
@@ -120,10 +127,12 @@ public class GrabItem : MonoBehaviour
         rigidbody.angularVelocity = torqueAxis * angularMagnitude;
     }
 
-    public void TrySnap(Vector3 snapPosition)
+    public void TrySnap(GrabItemPosition grabItemPosition)
     {
         if (isSnapped) return;
         if (IsBeingGrabbed()) return;
+        if (grabItemPosition.IsCompleted()) return;
+        if (grabItemPosition.GetNeededGrabItemType() != grabItemType) return;
         if (rigidbody.linearVelocity.magnitude > gameConstants.grabItemSnapMaxVelocity) return;
 
         isSnapped = true;
@@ -134,10 +143,14 @@ public class GrabItem : MonoBehaviour
         rigidbody.linearVelocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
 
-        snapTween = transform.DOMove(snapPosition, gameConstants.grabItemSnapDuration)
+        snapTween = transform.DOMove(grabItemPosition.transform.position, gameConstants.grabItemSnapDuration)
             .SetEase(gameConstants.grabItemSnapEase);
 
         snapRotationTween = transform.DORotateQuaternion(Quaternion.identity, gameConstants.grabItemSnapDuration)
             .SetEase(gameConstants.grabItemSnapRotationEase);
+
+        grabItemPosition.SetCompleted();
+        rigidbody.useGravity = false;
+        rigidbody.Sleep();
     }
 }
