@@ -46,13 +46,12 @@ public class VoiceAndSubtitleManager : MonoBehaviour
 
     private void Start()
     {
+        if (typewriter != null) typewriter.ShowText(" ");
+
         if (subtitleText == null || audioSource == null)
         {
             Debug.LogError("Subtitle Text or AudioSource is not assigned.");
-            return;
         }
-
-        subtitleText.text = "";
     }
 
     public void Play(VoiceType voiceType)
@@ -69,13 +68,14 @@ public class VoiceAndSubtitleManager : MonoBehaviour
 
     private IEnumerator DisplaySubtitle(VoiceEntry entry)
     {
+        typewriter.ShowText(entry.text);
+        
         if (entry.audioClip != null)
         {
             audioSource.clip = entry.audioClip;
             audioSource.Play();
         }
 
-        typewriter.ShowText(entry.text);
 
         var duration = Mathf.Max(entry.displayDuration, entry.audioClip != null ? entry.audioClip.length : 0);
         yield return new WaitForSeconds(duration);

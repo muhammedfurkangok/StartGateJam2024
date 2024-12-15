@@ -56,7 +56,6 @@ namespace ScriptableObjects
         public Ease grabItemEnterInspectEase;
         public float grabItemExitInspectDuration;
         public Ease grabItemExitInspectEase;
-        public Ease grabItemExitInspectRotationEase;
         public float grabThrowForce;
         public LayerMask grabItemExcludeLayers;
 
@@ -70,7 +69,7 @@ namespace ScriptableObjects
         public Ease tabletAlphaEase;
 
         [Header("Grab Item Snap")]
-        public float grabItemPositionColliderSizeMultiplier;
+        public float grabItemPositionColliderSizeOffset;
         public float grabItemSnapMaxVelocity;
         public float grabItemSnapDuration;
         public Ease grabItemSnapEase;
@@ -78,6 +77,18 @@ namespace ScriptableObjects
         public Color snapColor;
         public float snapColorChangeDuration;
         public Ease snapColorChangeEase;
+
+        [Header("Door")]
+        public Vector3 doorOpenRotation;
+        public float doorOpenDuration;
+        public Ease doorOpenEase;
+        public Vector3 doorCloseRotation;
+        public float doorCloseDuration;
+        public Ease doorCloseEase;
+
+        [Header("Player Interact")]
+        public float playerInteractRange;
+        public LayerMask playerInteractLayer;
 
         [Header("General")]
         public Color transparentColor;

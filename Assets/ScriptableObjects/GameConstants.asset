@@ -33,7 +33,7 @@ MonoBehaviour:
   grabLayer:
     serializedVersion: 2
     m_Bits: 251
-  grabRange: 200
+  grabRange: 5
   grabForce: 10
   grabAngularForce: 0
   grabReleaseDeceleration: 5
@@ -41,7 +41,6 @@ MonoBehaviour:
   grabItemEnterInspectEase: 2
   grabItemExitInspectDuration: 0.1
   grabItemExitInspectEase: 3
-  grabItemExitInspectRotationEase: 3
   grabThrowForce: 10
   grabItemExcludeLayers:
     serializedVersion: 2
@@ -53,7 +52,7 @@ MonoBehaviour:
   tabletDownLocalY: -2
   tabletAlphaDuration: 2
   tabletAlphaEase: 3
-  grabItemPositionColliderSizeMultiplier: 2
+  grabItemPositionColliderSizeOffset: 1
   grabItemSnapMaxVelocity: 2
   grabItemSnapDuration: 0.2
   grabItemSnapEase: 2
@@ -61,4 +60,14 @@ MonoBehaviour:
   snapColor: {r: 0.3932329, g: 0.8018868, b: 0.2004717, a: 0.5803922}
   snapColorChangeDuration: 0.1
   snapColorChangeEase: 3
+  doorOpenRotation: {x: 0, y: 90, z: 0}
+  doorOpenDuration: 0.4
+  doorOpenEase: 2
+  doorCloseRotation: {x: 0, y: 0, z: 0}
+  doorCloseDuration: 0.4
+  doorCloseEase: 3
+  playerInteractRange: 5
+  playerInteractLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   transparentColor: {r: 0, g: 0, b: 0, a: 0}
