@@ -30,6 +30,7 @@ public class GrabItem : MonoBehaviour
     public bool GetIsBeingInspected() => isBeingInspected;
     public float GetRigidbodyVelocityMagnitude() => rigidbody.linearVelocity.magnitude;
     public Collider GrabItemPositionOnly_GetCollider() => collider;
+    public bool IsSnapped() => isSnapped;
 
     public void SetTarget(Transform target)
     {
