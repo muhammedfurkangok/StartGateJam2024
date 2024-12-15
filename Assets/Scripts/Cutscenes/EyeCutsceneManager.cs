@@ -77,6 +77,7 @@ namespace Cutscenes
          
             await playerCamera.transform.DOLookAt(doorLookPos.transform.position, 0.5f);
             playerEyeAnimator.SetTrigger("CutsceneOpen");
+            SoundManager.Instance.PlayOneShotSound(SoundType.Explosion);
             DOVirtual.Float(0, 1, 0.75f, value => playerCamera.Lens.FieldOfView = Mathf.Lerp(60, 45, value));
             playerCamera.transform.DOShakeRotation( 2f, 1f, 10, 35f, false);
             foreach (var door in doors)

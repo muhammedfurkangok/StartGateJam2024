@@ -46,7 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainAudioSource: {fileID: 6832262761628287265}
-  gameSounds: []
+  gameSounds:
+  - key: 0
+    clip: {fileID: 8300000, guid: 1b67513802acdd44f85708d3e39c7f02, type: 3}
+    externalAudioSource: {fileID: 0}
 --- !u!82 &6832262761628287265
 AudioSource:
   m_ObjectHideFlags: 0
