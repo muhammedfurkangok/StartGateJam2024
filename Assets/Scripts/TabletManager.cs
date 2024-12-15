@@ -43,12 +43,12 @@ public class TabletManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P)) IncreaseIntelligence(1);
+
         if (PlayerController.Instance.IsInspecting() || PlayerGrabManager.Instance.IsHoldingItem()) return;
         if (!InputManager.Instance.IsTabletKeyDown()) return;
 
         ToggleTablet(false);
-
-        if (Input.GetKeyDown(KeyCode.P)) IncreaseIntelligence(1);
     }
 
     private void ToggleTablet(bool isComplete)
