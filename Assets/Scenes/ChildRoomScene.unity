@@ -2436,11 +2436,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289953582}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &313706350 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6238075684086944361, guid: 313e013337b3e9e47af71c82450ba0f7, type: 3}
-  m_PrefabInstance: {fileID: 1565380463}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &319913560
 GameObject:
   m_ObjectHideFlags: 0
@@ -14479,14 +14474,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 226865000525012304, guid: 313e013337b3e9e47af71c82450ba0f7, type: 3}
-      propertyPath: gameSounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 226865000525012304, guid: 313e013337b3e9e47af71c82450ba0f7, type: 3}
-      propertyPath: gameSounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a9b4a2388592b664ea27afa4200cf0ee, type: 3}
     - target: {fileID: 6238075684086944361, guid: 313e013337b3e9e47af71c82450ba0f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14527,20 +14514,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6832262761628287265, guid: 313e013337b3e9e47af71c82450ba0f7, type: 3}
-      propertyPath: m_Volume
-      value: 0.28
-      objectReference: {fileID: 0}
     - target: {fileID: 7524247803013168172, guid: 313e013337b3e9e47af71c82450ba0f7, type: 3}
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6238075684086944361, guid: 313e013337b3e9e47af71c82450ba0f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3720876915807065110}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 313e013337b3e9e47af71c82450ba0f7, type: 3}
 --- !u!1 &1569166141
@@ -15781,7 +15761,6 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 1685060435}
   collider: {fileID: 1685060439}
-  parenter: {fileID: 0}
   grabItemType: 2
   parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -21582,7 +21561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 313706350}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3867042168337976474
 MeshRenderer:
@@ -22734,6 +22713,7 @@ SceneRoots:
   - {fileID: 552661100}
   - {fileID: 226576430}
   - {fileID: 1570969544}
+  - {fileID: 3720876915807065110}
   - {fileID: 1565380463}
   - {fileID: 1510616120}
   - {fileID: 525497677}
