@@ -46,13 +46,13 @@ public class VoiceAndSubtitleManager : MonoBehaviour
 
     private void Start()
     {
+        typewriter.ShowText(" ");
+
         if (subtitleText == null || audioSource == null)
         {
             Debug.LogError("Subtitle Text or AudioSource is not assigned.");
             return;
         }
-
-        subtitleText.text = "";
     }
 
     public void Play(VoiceType voiceType)
