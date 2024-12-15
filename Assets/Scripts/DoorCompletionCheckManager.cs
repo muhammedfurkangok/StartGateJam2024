@@ -95,8 +95,6 @@ public class DoorCompletionCheckManager : MonoBehaviour
             isAllDoorsCompleted = true;
             OnAllDoorsComplete().Forget();
         }
-
-        if (Input.GetKeyDown(KeyCode.P)) OnAllDoorsComplete().Forget();
     }
 
     private void OnFirstDoorComplete()
