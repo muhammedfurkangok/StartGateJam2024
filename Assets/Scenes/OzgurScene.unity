@@ -699,7 +699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047811466193259647, guid: 8b94c348becd2b0498ee2f3ed26b500b, type: 3}
       propertyPath: m_Name
-      value: DoorHologram Variant
+      value: DoorHologram
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1816,6 +1816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dff571479e4cc18e6928a65989858a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
   neededGrabItemType: 0
   isCompleted: 0
   currentGrabItem: {fileID: 0}

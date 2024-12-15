@@ -2,7 +2,8 @@
 
 public class GameManager : MonoBehaviour
 {
-    private bool isPaused;
+    [Header("Info")]
+    [SerializeField] private bool isPaused;
 
     public static GameManager Instance;
 

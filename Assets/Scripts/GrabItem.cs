@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class GrabItem : MonoBehaviour
 {
-    [Header("References")] [SerializeField]
-    private GameConstants gameConstants;
-
+    [Header("References")]
+    [SerializeField] private GameConstants gameConstants;
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private Collider collider;
+    [SerializeField] private Transform parenter;
 
     [Header("Parameters")]
     [SerializeField] private GrabItemType grabItemType;
+    [SerializeField] private Vector3 parenterOffset;
 
     [Header("Info")]
     [SerializeField] private Transform target;
@@ -33,8 +34,19 @@ public class GrabItem : MonoBehaviour
     public void SetTarget(Transform target)
     {
         this.target = target;
-        rigidbody.useGravity = target == null;
-        if (target != null) isSnapped = false;
+
+        if (target != null)
+        {
+            isSnapped = false;
+            rigidbody.useGravity = false;
+            collider.excludeLayers = gameConstants.grabItemExcludeLayers;
+        }
+
+        else
+        {
+            rigidbody.useGravity = true;
+            collider.excludeLayers = 0;
+        }
     }
 
     public void ThrowItem(Vector3 direction)
@@ -50,6 +62,28 @@ public class GrabItem : MonoBehaviour
         if (InputManager.Instance.IsRightClickUp() && isBeingInspected) ExitInspectMode();
 
         if (isBeingInspected && target != null) Inspect();
+    }
+
+    private void FixedUpdate()
+    {
+        if (isBeingInspected) return;
+
+        if (target == null)
+        {
+            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized * (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
+            return;
+        }
+
+        var direction = target.position - transform.position;
+        var distance = direction.magnitude;
+        direction.Normalize();
+
+        var desiredLinearVelocity = direction * (gameConstants.grabForce * distance);
+        rigidbody.linearVelocity = desiredLinearVelocity;
+
+        var torqueAxis = Vector3.Cross(Vector3.up, direction).normalized;
+        var angularMagnitude = desiredLinearVelocity.magnitude * gameConstants.grabAngularForce;
+        rigidbody.angularVelocity = torqueAxis * angularMagnitude;
     }
 
     private void EnterInspectMode()
@@ -104,29 +138,6 @@ public class GrabItem : MonoBehaviour
         transform.rotation = rotationX * rotationY * transform.rotation;
     }
 
-    private void FixedUpdate()
-    {
-        if (isBeingInspected) return;
-
-        if (target == null)
-        {
-            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized *
-                                        (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
-            return;
-        }
-
-        var direction = target.position - transform.position;
-        var distance = direction.magnitude;
-        direction.Normalize();
-
-        var desiredLinearVelocity = direction * (gameConstants.grabForce * distance);
-        rigidbody.linearVelocity = desiredLinearVelocity;
-
-        var torqueAxis = Vector3.Cross(Vector3.up, direction).normalized;
-        var angularMagnitude = desiredLinearVelocity.magnitude * gameConstants.grabAngularForce;
-        rigidbody.angularVelocity = torqueAxis * angularMagnitude;
-    }
-
     public void TrySnap(GrabItemPosition grabItemPosition)
     {
         if (isSnapped) return;
@@ -150,7 +161,21 @@ public class GrabItem : MonoBehaviour
             .SetEase(gameConstants.grabItemSnapRotationEase);
 
         grabItemPosition.SetCompleted();
-        rigidbody.useGravity = false;
-        rigidbody.Sleep();
+        rigidbody.isKinematic = true;
+        gameObject.tag = "Untagged";
+    }
+
+    private void GoParenterPivot()
+    {
+        if (parenter == null) return;
+        transform.position += parenterOffset;
+        parenter.position -= parenterOffset;
+    }
+
+    private void GoNormalPivot()
+    {
+        if (parenter == null) return;
+        transform.position -= parenterOffset;
+        parenter.position += parenterOffset;
     }
 }

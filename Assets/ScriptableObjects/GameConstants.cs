@@ -57,6 +57,7 @@ namespace ScriptableObjects
         public Ease grabItemExitInspectEase;
         public Ease grabItemExitInspectRotationEase;
         public float grabThrowForce;
+        public LayerMask grabItemExcludeLayers;
 
         [Header("Tablet")]
         public int minIntelligence;

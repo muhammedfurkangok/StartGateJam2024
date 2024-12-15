@@ -42,6 +42,9 @@ MonoBehaviour:
   grabItemExitInspectEase: 3
   grabItemExitInspectRotationEase: 3
   grabThrowForce: 10
+  grabItemExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
   minIntelligence: 0
   maxIntelligence: 100
   tabletMoveDuration: 0.3
