@@ -702,6 +702,10 @@ PrefabInstance:
       value: DividedDoor_1
       objectReference: {fileID: 0}
     - target: {fileID: 6809810252415956232, guid: 1e3cedb3881d871439b1ccabff3f25c7, type: 3}
+      propertyPath: willoadSceneOnTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809810252415956232, guid: 1e3cedb3881d871439b1ccabff3f25c7, type: 3}
       propertyPath: isGrabItemsEnabledOnStart
       value: 0
       objectReference: {fileID: 0}

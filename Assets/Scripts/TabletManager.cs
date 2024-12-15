@@ -90,5 +90,7 @@ public class TabletManager : MonoBehaviour
         }
 
         ToggleTablet(true);
+
+        SoundManager.Instance.PlayOneShotSound(SoundType.Intel);
     }
 }

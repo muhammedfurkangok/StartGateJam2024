@@ -8,7 +8,6 @@ public class GrabItem : MonoBehaviour
     [SerializeField] private GameConstants gameConstants;
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private Collider collider;
-    [SerializeField] private Transform parenter;
 
     [Header("Parameters")]
     [SerializeField] private GrabItemType grabItemType;
@@ -169,19 +168,5 @@ public class GrabItem : MonoBehaviour
 
         grabItemPosition.SetCompleted(true);
         rigidbody.isKinematic = true;
-    }
-
-    private void GoParenterPivot()
-    {
-        if (parenter == null) return;
-        transform.position += parenterOffset;
-        parenter.position -= parenterOffset;
-    }
-
-    private void GoNormalPivot()
-    {
-        if (parenter == null) return;
-        transform.position -= parenterOffset;
-        parenter.position += parenterOffset;
     }
 }
