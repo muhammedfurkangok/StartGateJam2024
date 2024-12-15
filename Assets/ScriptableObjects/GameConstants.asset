@@ -17,7 +17,7 @@ MonoBehaviour:
   playerWalkAcceleration: 5
   playerRunAcceleration: 15
   playerDeceleration: 20
-  playerWalkingSoundInterval: 0.2
+  playerWalkingSoundInterval: 0.5
   playerMinLook: -90
   playerMaxLook: 90
   playerLookSensitivity: 10
@@ -46,13 +46,13 @@ MonoBehaviour:
   grabItemExcludeLayers:
     serializedVersion: 2
     m_Bits: 8
-  minIntelligence: 0
-  maxIntelligence: 100
   tabletMoveDuration: 0.3
   tabletMoveUpEase: 2
   tabletMoveDownEase: 3
   tabletUpLocalY: 0
   tabletDownLocalY: -2
+  tabletAlphaDuration: 2
+  tabletAlphaEase: 3
   grabItemPositionColliderSizeMultiplier: 2
   grabItemSnapMaxVelocity: 2
   grabItemSnapDuration: 0.2

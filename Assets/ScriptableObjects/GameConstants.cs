@@ -61,13 +61,13 @@ namespace ScriptableObjects
         public LayerMask grabItemExcludeLayers;
 
         [Header("Tablet")]
-        public int minIntelligence;
-        public int maxIntelligence;
         public float tabletMoveDuration;
         public Ease tabletMoveUpEase;
         public Ease tabletMoveDownEase;
         public float tabletUpLocalY;
         public float tabletDownLocalY;
+        public float tabletAlphaDuration;
+        public Ease tabletAlphaEase;
 
         [Header("Grab Item Snap")]
         public float grabItemPositionColliderSizeMultiplier;
