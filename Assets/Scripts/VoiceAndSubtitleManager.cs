@@ -18,6 +18,7 @@ public enum VoiceType
     ChildRoom3,
     ChildRoom4,
     ChildRoom5,
+    LastRoom,
 }
 
 [Serializable]
@@ -51,7 +52,7 @@ public class VoiceAndSubtitleManager : MonoBehaviour
 
     private void Start()
     {
-        if (typewriter != null) typewriter.ShowText(" ");
+        if (typewriter != null && !typewriter.isShowingText) typewriter.ShowText(" ");
 
         if (subtitleText == null || audioSource == null)
         {
