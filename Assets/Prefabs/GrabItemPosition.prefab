@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ddfcf677aea127e49b06280d9f26286c, type: 2}
+  - {fileID: 2100000, guid: 7b481cf78e539f049b2a7210e9f1979c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,6 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dff571479e4cc18e6928a65989858a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameConstants: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  collider: {fileID: 0}
   neededGrabItemType: 0
   isCompleted: 0
   currentGrabItem: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}

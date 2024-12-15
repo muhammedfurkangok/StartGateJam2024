@@ -133,7 +133,6 @@ MonoBehaviour:
   isBeingInspected: 0
   isSnapped: 0
   grabItemPosition: {fileID: 0}
-  preInspectRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &4307563590688236845
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -288,7 +287,6 @@ MonoBehaviour:
   isBeingInspected: 0
   isSnapped: 0
   grabItemPosition: {fileID: 0}
-  preInspectRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &3388154249378521920
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -484,7 +482,6 @@ MonoBehaviour:
   isBeingInspected: 0
   isSnapped: 0
   grabItemPosition: {fileID: 0}
-  preInspectRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &6006035367881155984
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -745,7 +742,6 @@ MonoBehaviour:
   isBeingInspected: 0
   isSnapped: 0
   grabItemPosition: {fileID: 0}
-  preInspectRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &3475865230440309552
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -920,7 +916,6 @@ MonoBehaviour:
   isBeingInspected: 0
   isSnapped: 0
   grabItemPosition: {fileID: 0}
-  preInspectRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &171299737577632388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1095,7 +1090,6 @@ MonoBehaviour:
   isBeingInspected: 0
   isSnapped: 0
   grabItemPosition: {fileID: 0}
-  preInspectRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &8848694685325935525
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1249,7 +1243,6 @@ MonoBehaviour:
   isBeingInspected: 0
   isSnapped: 0
   grabItemPosition: {fileID: 0}
-  preInspectRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &5108539773991252734
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1357,6 +1350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3587731139440515461}
+  - component: {fileID: 6809810252415956232}
   m_Layer: 7
   m_Name: DividedDoor
   m_TagString: GrabItem
@@ -1381,6 +1375,41 @@ Transform:
   - {fileID: 8986297064857386938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6809810252415956232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628910038752044723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb47d395ae14545978c2f8db4692350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
+  grabItems:
+  - {fileID: 7619623361854820061}
+  - {fileID: 7280858628070682888}
+  - {fileID: 814959271240143017}
+  - {fileID: 8446927818313961509}
+  - {fileID: 4277690202416295653}
+  - {fileID: 3363676089347274682}
+  - {fileID: 8607496611217570019}
+  - {fileID: 7995771060257223521}
+  grabItemRigidbodies:
+  - {fileID: 5108539773991252734}
+  - {fileID: 2642475265283144219}
+  - {fileID: 8848694685325935525}
+  - {fileID: 6006035367881155984}
+  - {fileID: 3475865230440309552}
+  - {fileID: 171299737577632388}
+  - {fileID: 4307563590688236845}
+  - {fileID: 3388154249378521920}
+  rotateDoor: {fileID: 3022141556470423356}
+  isGrabItemsEnabledOnStart: 1
+  sceneIndexToLoad: 0
+  isOpen: 0
 --- !u!1 &6651952518333545749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,7 +1588,6 @@ MonoBehaviour:
   isBeingInspected: 0
   isSnapped: 0
   grabItemPosition: {fileID: 0}
-  preInspectRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &2642475265283144219
 Rigidbody:
   m_ObjectHideFlags: 0

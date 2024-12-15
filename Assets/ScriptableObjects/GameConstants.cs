@@ -78,6 +78,18 @@ namespace ScriptableObjects
         public float snapColorChangeDuration;
         public Ease snapColorChangeEase;
 
+        [Header("Door")]
+        public Vector3 doorOpenRotation;
+        public float doorOpenDuration;
+        public Ease doorOpenEase;
+        public Vector3 doorCloseRotation;
+        public float doorCloseDuration;
+        public Ease doorCloseEase;
+
+        [Header("Player Interact")]
+        public float playerInteractRange;
+        public LayerMask playerInteractLayer;
+
         [Header("General")]
         public Color transparentColor;
     }

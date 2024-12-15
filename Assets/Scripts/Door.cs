@@ -1,5 +1,75 @@
-﻿using UnityEngine;
+﻿using System;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using ScriptableObjects;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Door
+public class Door : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private GameConstants gameConstants;
+    [SerializeField] private GrabItem[] grabItems;
+    [SerializeField] private Rigidbody[] grabItemRigidbodies;
+    [SerializeField] private Transform rotateDoor;
+
+    [Header("Parameters")]
+    [SerializeField] private bool isGrabItemsEnabledOnStart;
+    [SerializeField] private int sceneIndexToLoad;
+
+    [Header("Info")]
+    [SerializeField] private bool isOpen;
+
+    private void Start()
+    {
+        if (!isGrabItemsEnabledOnStart)
+        {
+            foreach (var grabItem in grabItems) grabItem.enabled = false;
+            foreach (var rigidbody in grabItemRigidbodies) rigidbody.isKinematic = true;
+        }
+    }
+
+    public void ToggleDoor()
+    {
+        print("ToggleDoor");
+        if (isOpen) CloseDoor().Forget();
+        else OpenDoor().Forget();
+    }
+
+    private async UniTask OpenDoor()
+    {
+        isOpen = true;
+
+        var rotateDoorParentParent = rotateDoor.parent.parent;
+        var rotateDoorParent = rotateDoor.parent;
+        rotateDoor.SetParent(rotateDoor.parent.parent);
+        rotateDoorParent.SetParent(rotateDoor);
+
+        await rotateDoor.DORotate(gameConstants.doorOpenRotation, gameConstants.doorOpenDuration)
+            .SetEase(gameConstants.doorOpenEase);
+
+        rotateDoor.SetParent(rotateDoorParent);
+        rotateDoorParent.SetParent(rotateDoorParentParent);
+    }
+
+    private async UniTask CloseDoor()
+    {
+        isOpen = false;
+
+        var rotateDoorParentParent = rotateDoor.parent.parent;
+        var rotateDoorParent = rotateDoor.parent;
+        rotateDoor.SetParent(rotateDoor.parent.parent);
+        rotateDoorParent.SetParent(rotateDoor);
+
+        await rotateDoor.DORotate(gameConstants.doorCloseRotation, gameConstants.doorCloseDuration)
+            .SetEase(gameConstants.doorCloseEase);
+
+        rotateDoor.SetParent(rotateDoorParent);
+        rotateDoorParent.SetParent(rotateDoorParentParent);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player")) SceneManager.LoadScene(sceneIndexToLoad);
+    }
 }

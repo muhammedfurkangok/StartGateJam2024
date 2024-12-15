@@ -1,5 +1,4 @@
-﻿using System;
-using ScriptableObjects;
+﻿using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -63,6 +62,13 @@ public class PlayerGrabManager : MonoBehaviour
         else if (lookingGrabItem != null)
         {
             currentGrabItem = lookingGrabItem;
+
+            if (currentGrabItem.enabled == false)
+            {
+                currentGrabItem = null;
+                return;
+            }
+
             currentGrabItem.SetTarget(holdPosition);
         }
     }
