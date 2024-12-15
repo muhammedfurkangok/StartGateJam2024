@@ -2048,14 +2048,6 @@ PrefabInstance:
       propertyPath: cinemachineCamera
       value: 
       objectReference: {fileID: 320912689}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: walkSounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5973713606500366909, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
-      propertyPath: 'walkSounds.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: a3f7fdb4948278044ac56e8c846769ad, type: 3}
     - target: {fileID: 8447941364697784447, guid: 4001647e391f04b43a12cae8ae143650, type: 3}
       propertyPath: mainCamera
       value: 

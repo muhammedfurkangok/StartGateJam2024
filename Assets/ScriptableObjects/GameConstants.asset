@@ -41,7 +41,6 @@ MonoBehaviour:
   grabItemEnterInspectEase: 2
   grabItemExitInspectDuration: 0.1
   grabItemExitInspectEase: 3
-  grabItemExitInspectRotationEase: 3
   grabThrowForce: 10
   grabItemExcludeLayers:
     serializedVersion: 2
@@ -53,7 +52,7 @@ MonoBehaviour:
   tabletDownLocalY: -2
   tabletAlphaDuration: 2
   tabletAlphaEase: 3
-  grabItemPositionColliderSizeMultiplier: 2
+  grabItemPositionColliderSizeOffset: 1
   grabItemSnapMaxVelocity: 2
   grabItemSnapDuration: 0.2
   grabItemSnapEase: 2
