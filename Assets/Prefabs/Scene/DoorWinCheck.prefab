@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2422596828406247852}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.6770592, w: 0.73592865}
+  m_LocalRotation: {x: 0, y: 0, z: -0.6770622, w: 0.73592585}
   m_LocalPosition: {x: -13.375833, y: 6.9, z: -1.7877426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -85.229}
 --- !u!114 &7561857584339396811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d3b9a2145b4cf999dcce3f3ab41527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstDoorItems:
+  firstDoorItemPositions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  secondDoorItems:
+  secondDoorItemPositions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  thirdDoorItems:
+  thirdDoorItemPositions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -74,6 +74,14 @@ MonoBehaviour:
   firstDoorParticle: {fileID: 0}
   secondDoorParticle: {fileID: 0}
   thirdDoorParticle: {fileID: 0}
+  completionDoor: {fileID: 0}
+  playerCamera: {fileID: 0}
+  blinkAnimator: {fileID: 0}
+  completionDoorMoveDuration: 0.5
+  completionDoorMoveEase: 2
+  playerLookAtDuration: 1
+  playerLookAtEase: 2
   firstDoorCompleted: 0
   secondDoorCompleted: 0
   thirdDoorCompleted: 0
+  isAllDoorsCompleted: 0

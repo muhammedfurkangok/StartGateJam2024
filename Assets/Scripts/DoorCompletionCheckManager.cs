@@ -7,12 +7,12 @@ using UnityEngine;
 public class DoorCompletionCheckManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GrabItem[] firstDoorItems;
-    [SerializeField] private GrabItem[] secondDoorItems;
-    [SerializeField] private GrabItem[] thirdDoorItems;
-    [SerializeField] private Transform firstDoorParticle;
-    [SerializeField] private Transform secondDoorParticle;
-    [SerializeField] private Transform thirdDoorParticle;
+    [SerializeField] private GrabItemPosition[] firstDoorItemPositions;
+    [SerializeField] private GrabItemPosition[] secondDoorItemPositions;
+    [SerializeField] private GrabItemPosition[] thirdDoorItemPositions;
+    [SerializeField] private Patroller firstDoorParticle;
+    [SerializeField] private Patroller secondDoorParticle;
+    [SerializeField] private Patroller thirdDoorParticle;
 
     [Header("Completion References")]
     [SerializeField] private Transform completionDoor;
@@ -36,9 +36,9 @@ public class DoorCompletionCheckManager : MonoBehaviour
         if (!firstDoorCompleted)
         {
             var isAllFirstDoorItemsGrabbed = true;
-            foreach (var grabItem in firstDoorItems)
+            foreach (var grabItemPosition in firstDoorItemPositions)
             {
-                if (!grabItem.IsSnapped())
+                if (!grabItemPosition.IsCompleted())
                 {
                     isAllFirstDoorItemsGrabbed = false;
                     break;
@@ -55,9 +55,9 @@ public class DoorCompletionCheckManager : MonoBehaviour
         if (!secondDoorCompleted)
         {
             var isAllSecondDoorItemsGrabbed = true;
-            foreach (var grabItem in secondDoorItems)
+            foreach (var grabItemPosition in secondDoorItemPositions)
             {
-                if (!grabItem.IsSnapped())
+                if (!grabItemPosition.IsCompleted())
                 {
                     isAllSecondDoorItemsGrabbed = false;
                     break;
@@ -74,9 +74,9 @@ public class DoorCompletionCheckManager : MonoBehaviour
         if (!thirdDoorCompleted)
         {
             var isAllThirdDoorItemsGrabbed = true;
-            foreach (var grabItem in thirdDoorItems)
+            foreach (var grabItemPosition in thirdDoorItemPositions)
             {
-                if (!grabItem.IsSnapped())
+                if (!grabItemPosition.IsCompleted())
                 {
                     isAllThirdDoorItemsGrabbed = false;
                     break;
@@ -101,18 +101,21 @@ public class DoorCompletionCheckManager : MonoBehaviour
     {
         TabletManager.Instance.IncreaseIntelligence(1);
         VoiceAndSubtitleManager.Instance.Play(VoiceType.DoorRoomCross);
+        firstDoorParticle.StartPathing();
     }
 
     private void OnSecondDoorComplete()
     {
         TabletManager.Instance.IncreaseIntelligence(1);
         VoiceAndSubtitleManager.Instance.Play(VoiceType.DoorRoomBone);
+        secondDoorParticle.StartPathing();
     }
 
     private void OnThirdDoorComplete()
     {
         TabletManager.Instance.IncreaseIntelligence(1);
         VoiceAndSubtitleManager.Instance.Play(VoiceType.DoorRoomMusic);
+        thirdDoorParticle.StartPathing();
     }
 
     private async UniTask OnAllDoorsComplete()
