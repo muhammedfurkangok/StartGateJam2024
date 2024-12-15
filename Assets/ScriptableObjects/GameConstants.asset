@@ -26,7 +26,7 @@ MonoBehaviour:
   playerWalkNoiseAmplitude: 0.75
   playerRunNoiseAmplitude: 1
   playerIdleNoiseFrequency: 0.75
-  playerWalkNoiseFrequency: 2
+  playerWalkNoiseFrequency: 1.2
   playerRunNoiseFrequency: 1
   playerWalkNoiseChangeSpeed: 10
   playerRunNoiseChangeSpeed: 15
