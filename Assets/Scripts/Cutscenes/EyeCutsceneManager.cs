@@ -75,9 +75,9 @@ namespace Cutscenes
 
             await UniTask.WaitForSeconds(tabletLastWaitDuration);
          
-            player.transform.DOLocalRotate( doorLookPos.transform.position, 0.5f); //todo buraya bakabilir mi lütfen
+            await playerCamera.transform.DOLookAt(doorLookPos.transform.position, 0.5f);
             playerEyeAnimator.SetTrigger("CutsceneOpen");
-            DOVirtual.Float( 0, 1, 0.75f, _ => playerCamera.Lens.FieldOfView = Mathf.Lerp( 60, 45, _));
+            DOVirtual.Float(0, 1, 0.75f, value => playerCamera.Lens.FieldOfView = Mathf.Lerp(60, 45, value));
             playerCamera.transform.DOShakeRotation( 2f, 1f, 10, 35f, false);
             foreach (var door in doors)
             {
@@ -86,7 +86,7 @@ namespace Cutscenes
             }
 
             await UniTask.WaitForSeconds(doorsUpDuration);
-            DOVirtual.Float( 0, 1, 0.75f, _ => playerCamera.Lens.FieldOfView = Mathf.Lerp( 45, 60, _));
+            DOVirtual.Float(0, 1, 0.75f, value => playerCamera.Lens.FieldOfView = Mathf.Lerp(45, 60, value));
             playerEyeAnimator.SetTrigger("CutsceneClose");
 
             InputManager.Instance.isInputOverride = false;
