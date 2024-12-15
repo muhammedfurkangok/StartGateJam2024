@@ -69,13 +69,14 @@ public class VoiceAndSubtitleManager : MonoBehaviour
 
     private IEnumerator DisplaySubtitle(VoiceEntry entry)
     {
+        typewriter.ShowText(entry.text);
+        
         if (entry.audioClip != null)
         {
             audioSource.clip = entry.audioClip;
             audioSource.Play();
         }
 
-        typewriter.ShowText(entry.text);
 
         var duration = Mathf.Max(entry.displayDuration, entry.audioClip != null ? entry.audioClip.length : 0);
         yield return new WaitForSeconds(duration);

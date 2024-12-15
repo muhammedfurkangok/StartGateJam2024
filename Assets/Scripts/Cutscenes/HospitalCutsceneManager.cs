@@ -80,6 +80,7 @@ namespace Cutscenes
 
             InputManager.Instance.overrideMoveInput = Vector2.up;
 
+            VoiceAndSubtitleManager.Instance.Play(VoiceType.Hospital1);
             await UniTask.WaitForSeconds(walkDuration);
 
             InputManager.Instance.overrideMoveInput = Vector2.zero;
@@ -97,7 +98,7 @@ namespace Cutscenes
             {
                 playerCamera.transform.DOLookAt(lookRightTarget.transform.position, 0.5f).SetEase(Ease.InOutSine);
             });
-            VoiceAndSubtitleManager.Instance.Play(VoiceType.Hospital2);
+
 
             await UniTask.WaitForSeconds(voiceWaitDuration);
 
