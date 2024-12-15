@@ -5,7 +5,7 @@ using Febucci.UI;
 using TMPro;
 using UnityEngine;
 
-public enum SubtitleType
+public enum VoiceType
 {
     Hospital1,
     Hospital2,
@@ -16,18 +16,18 @@ public enum SubtitleType
 }
 
 [Serializable]
-public class SubtitleEntry
+public class VoiceEntry
 {
-    public SubtitleType subtitleType;
+    public VoiceType voiceType;
     public string text;
     public AudioClip audioClip;
     public float displayDuration;
 }
 
-public class SubtitleAndVoiceManager : MonoBehaviour
+public class VoiceAndSubtitleManager : MonoBehaviour
 {
     [Header("Subtitles")]
-    [SerializeField] private List<SubtitleEntry> subtitles;
+    [SerializeField] private List<VoiceEntry> subtitles;
 
     [Header("References")]
     [SerializeField] private TypewriterByCharacter typewriter;
@@ -36,7 +36,7 @@ public class SubtitleAndVoiceManager : MonoBehaviour
 
     private Coroutine subtitleCoroutine;
 
-    public static SubtitleAndVoiceManager Instance;
+    public static VoiceAndSubtitleManager Instance;
 
     private void Awake()
     {
@@ -55,9 +55,9 @@ public class SubtitleAndVoiceManager : MonoBehaviour
         subtitleText.text = "";
     }
 
-    public void PlaySubtitle(SubtitleType subtitleType)
+    public void Play(VoiceType voiceType)
     {
-        var index = subtitles.FindIndex(x => x.subtitleType == subtitleType);
+        var index = subtitles.FindIndex(x => x.voiceType == voiceType);
         if (index == -1)
         {
             Debug.LogError("Subtitle type not found.");
@@ -67,7 +67,7 @@ public class SubtitleAndVoiceManager : MonoBehaviour
         subtitleCoroutine = StartCoroutine(DisplaySubtitle(subtitles[index]));
     }
 
-    private IEnumerator DisplaySubtitle(SubtitleEntry entry)
+    private IEnumerator DisplaySubtitle(VoiceEntry entry)
     {
         if (entry.audioClip != null)
         {

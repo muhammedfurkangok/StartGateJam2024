@@ -99,7 +99,7 @@ namespace Cutscenes
 
             await UniTask.WaitForSeconds(waitBetweenHealthCheckAndVoiceDuration);
 
-            SubtitleAndVoiceManager.Instance.PlaySubtitle(SubtitleType.Hospital1);
+            VoiceAndSubtitleManager.Instance.Play(VoiceType.Hospital2);
 
             await UniTask.WaitForSeconds(voiceWaitDuration);
 

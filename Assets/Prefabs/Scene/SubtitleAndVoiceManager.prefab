@@ -46,10 +46,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtitles:
-  - subtitleType: 0
+  - voiceType: 0
     text: "Haydi Halil, bir hasta daha, her zaman yapt\u0131\u011F\u0131n gibi..."
     audioClip: {fileID: 8300000, guid: c92d87b9b7e72f74cb1ba65f1a70b04c, type: 3}
     displayDuration: 4
+  - voiceType: 2
+    text: "Tamam. Bir kere daha buraday\u0131m. Sorunu bul, d\xFCzelt, d\xF6n...
+      Basitmi\u015F gibi. Hata yaparsam daha zor olur ama buraday\u0131m, hadi bakal\u0131m."
+    audioClip: {fileID: 8300000, guid: 72e119abda73a8843b197d076b812419, type: 3}
+    displayDuration: 14.58
+  - voiceType: 3
+    text: "Tablet?.. Kendine gel Halil! G\xF6z\xFCn burada olmal\u0131. Buradan her\u015Feyi
+      takip ediyorum. Hastan\u0131n durumu, stress seviyesi... Yanl\u0131\u015F yaparsam
+      geri bildirimi buradan al\u0131r\u0131m. Do\u011Fru yaparsam... \u0130lerleriz.
+      Acele etme."
+    audioClip: {fileID: 8300000, guid: c7bcee3d4828c8045a6fa06fd38d1f45, type: 3}
+    displayDuration: 15
   typewriter: {fileID: 0}
   subtitleText: {fileID: 0}
   audioSource: {fileID: -7456524655920765288}
