@@ -7,6 +7,7 @@ namespace ScriptableObjects
     {
         Cube,
         LightPrism,
+        Teddy,
         Screwdriver,
         Screw,
         DoorMain,

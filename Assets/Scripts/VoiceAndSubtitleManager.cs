@@ -13,6 +13,11 @@ public enum VoiceType
     Eye2,
     EyeCloseDistance,
     EyeDoNothing,
+    ChildRoom1,
+    ChildRoom2,
+    ChildRoom3,
+    ChildRoom4,
+    ChildRoom5,
 }
 
 [Serializable]
