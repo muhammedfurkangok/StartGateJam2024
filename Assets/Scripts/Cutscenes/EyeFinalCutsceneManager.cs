@@ -49,6 +49,7 @@ namespace Cutscenes
         {
             playerEyeAnimator.SetTrigger(CutsceneOpen);
             InputManager.Instance.isInputOverride = true;
+            VoiceAndSubtitleManager.Instance.Play(VoiceType.LastRoom);
 
             await playerCamera.transform.DORotate(lookUpTarget, lookUpDuration)
                 .SetEase(lookUpEase);

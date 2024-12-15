@@ -62,6 +62,22 @@ MonoBehaviour:
       yaparsam geri bildirimi buradan al\u0131r\u0131m. Do\u011Fru yaparsam, \u0130lerleriz"
     audioClip: {fileID: 8300000, guid: c7bcee3d4828c8045a6fa06fd38d1f45, type: 3}
     displayDuration: 15
+  - voiceType: 6
+    text: "Sorunun bir k\u0131sm\u0131 burada.\xC7ocukluk An\u0131lar\u0131nda"
+    audioClip: {fileID: 8300000, guid: b460c96e36c83f3439a26d48fb276151, type: 3}
+    displayDuration: 4
+  - voiceType: 7
+    text: "Buran\u0131n daha ayd\u0131nl\u0131k olmas\u0131 gerekirdi."
+    audioClip: {fileID: 8300000, guid: 7eaec05664b6b3341873d0e62980f0e1, type: 3}
+    displayDuration: 5
+  - voiceType: 8
+    text: Aha
+    audioClip: {fileID: 8300000, guid: 6140c94dfe8ec704aacfe5745ebdc27b, type: 3}
+    displayDuration: 1
+  - voiceType: 9
+    text: "Hmm..Para mutlulu\u011Fu nadiren sat\u0131n alabiliyor oysa ki."
+    audioClip: {fileID: 8300000, guid: 9351c25d686e62b4eb8aa1f37bd01a4b, type: 3}
+    displayDuration: 3
   typewriter: {fileID: 0}
   subtitleText: {fileID: 0}
   audioSource: {fileID: -7456524655920765288}

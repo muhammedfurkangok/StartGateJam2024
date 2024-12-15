@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 453715316339260935, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 25
+      value: 118.5
       objectReference: {fileID: 0}
     - target: {fileID: 453715316339260935, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -812,17 +812,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 408643760}
     - target: {fileID: 7867531444995452158, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
-      propertyPath: subtitles.Array.data[1].text
-      value: "...Tamam. Bir kere daha buraday\u0131m. Sorunu bul, d\xFCzelt, d\xF6n...
-        Basitmi\u015F gibi.\\n Hata yaparsam daha zor olur ama buraday\u0131m, hadi
-        bakal\u0131m."
+      propertyPath: subtitles.Array.size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7867531444995452158, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
-      propertyPath: subtitles.Array.data[2].text
-      value: "Tablet?.. Kendine gel Halil! G\xF6z\xFCn burada olmal\u0131. Buradan
-        her\u015Feyi takip ediyorum. \\nHastan\u0131n durumu, stress seviyesi, Yanl\u0131\u015F
-        yaparsam geri bildirimi buradan al\u0131r\u0131m. Do\u011Fru yaparsam, \u0130lerleriz.
-        Acele etme."
+      propertyPath: subtitles.Array.data[7].text
+      value: "Hayat, bir sahne gibi \xF6n\xFCne bir\xE7ok kap\u0131 a\xE7ar.\\n  
+        Her kap\u0131n\u0131n ard\u0131nda bir ba\u015Fka kap\u0131 daha vard\u0131r.\\n  
+        Y\xFCr\xFCrs\xFCn; belki yorulmu\u015Fsundur, belki vazge\xE7mek i\xE7in
+        bahaneler pe\u015Fini b\u0131rakm\u0131yordur.\\n   Ama yine de y\xFCr\xFCrs\xFCn,
+        \xE7\xFCnk\xFC insan y\xFCr\xFCmek zorundad\u0131r.\\n   Ve kap\u0131lar,
+        bu y\xFCr\xFCy\xFC\u015Fteki bir sonraki durak, bir sonraki hedeften ba\u015Fka
+        bir \u015Fey de\u011Fildir.\\n "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867531444995452158, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
+      propertyPath: subtitles.Array.data[7].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bffaace267162e54382747f61cb54795, type: 3}
+    - target: {fileID: 7867531444995452158, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
+      propertyPath: subtitles.Array.data[7].voiceType
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867531444995452158, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
+      propertyPath: subtitles.Array.data[7].displayDuration
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8561078123423536672, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2537,6 +2550,10 @@ PrefabInstance:
       propertyPath: playerEyeAnimator
       value: 
       objectReference: {fileID: 97140215}
+    - target: {fileID: 6630645660529856558, guid: 933f5c670d141c44391abb757246ea20, type: 3}
+      propertyPath: waitBetweenLookAndFinalDuration
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
