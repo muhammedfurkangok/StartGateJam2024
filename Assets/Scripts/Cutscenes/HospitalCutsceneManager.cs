@@ -102,10 +102,11 @@ namespace Cutscenes
 
             await UniTask.WaitForSeconds(voiceWaitDuration);
 
-
             await DOVirtual.Float(playerCamera.Lens.FieldOfView, wideFov, wideFovDuration, value =>
                     playerCamera.Lens.FieldOfView = value)
                 .SetEase(wideFovEase);
+
+            SoundManager.Instance.PlayOneShotSound(SoundType.Fov);
 
             await DOVirtual.Float(playerCamera.Lens.FieldOfView, narrowFov, narrowFovDuration, value =>
                     playerCamera.Lens.FieldOfView = value)
