@@ -72,6 +72,10 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && willoadSceneOnTrigger) SceneManager.LoadScene(sceneIndexToLoad);
+        if (other.CompareTag("Player") && willoadSceneOnTrigger)
+        {
+            PlayerPrefs.SetInt("first_scene", sceneIndexToLoad);
+            SceneManager.LoadScene(sceneIndexToLoad);
+        }
     }
 }

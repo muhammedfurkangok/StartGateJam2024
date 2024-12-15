@@ -14,6 +14,7 @@ public class EyeDoLookAt : MonoBehaviour
     {
         StartCoroutine(BlinkRoutine());
         transform.rotation.eulerAngles.Set(105, 0, 0);
+        target = FindFirstObjectByType<PlayerController>().transform;
     }
 
     private void Update()
