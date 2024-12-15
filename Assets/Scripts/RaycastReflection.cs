@@ -40,7 +40,7 @@ public class RaycastReflection : MonoBehaviour
                     break;
                 }
 
-                if (hit.collider.tag != "Prizma")
+                if (hit.collider.tag != "GrabItem")
                     break;
             }
             else
