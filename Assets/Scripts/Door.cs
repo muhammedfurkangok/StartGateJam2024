@@ -15,10 +15,13 @@ public class Door : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] private bool isGrabItemsEnabledOnStart;
+    [SerializeField] private bool willoadSceneOnTrigger;
     [SerializeField] private int sceneIndexToLoad;
 
     [Header("Info")]
     [SerializeField] private bool isOpen;
+
+    private Tween rotateTween;
 
     private void Start()
     {
@@ -31,13 +34,12 @@ public class Door : MonoBehaviour
 
     public void ToggleDoor()
     {
-        print("ToggleDoor");
-        if (isOpen) CloseDoor().Forget();
-        else OpenDoor().Forget();
+        OpenDoor().Forget();
     }
 
     private async UniTask OpenDoor()
     {
+        if (isOpen) return;
         isOpen = true;
 
         var rotateDoorParentParent = rotateDoor.parent.parent;
@@ -45,7 +47,7 @@ public class Door : MonoBehaviour
         rotateDoor.SetParent(rotateDoor.parent.parent);
         rotateDoorParent.SetParent(rotateDoor);
 
-        await rotateDoor.DORotate(gameConstants.doorOpenRotation, gameConstants.doorOpenDuration)
+        await rotateDoor.DOLocalRotate(gameConstants.doorOpenRotation, gameConstants.doorOpenDuration)
             .SetEase(gameConstants.doorOpenEase);
 
         rotateDoor.SetParent(rotateDoorParent);
@@ -61,7 +63,7 @@ public class Door : MonoBehaviour
         rotateDoor.SetParent(rotateDoor.parent.parent);
         rotateDoorParent.SetParent(rotateDoor);
 
-        await rotateDoor.DORotate(gameConstants.doorCloseRotation, gameConstants.doorCloseDuration)
+        await rotateDoor.DOLocalRotate(gameConstants.doorCloseRotation, gameConstants.doorCloseDuration)
             .SetEase(gameConstants.doorCloseEase);
 
         rotateDoor.SetParent(rotateDoorParent);
@@ -70,6 +72,6 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) SceneManager.LoadScene(sceneIndexToLoad);
+        if (other.CompareTag("Player") && willoadSceneOnTrigger) SceneManager.LoadScene(sceneIndexToLoad);
     }
 }
