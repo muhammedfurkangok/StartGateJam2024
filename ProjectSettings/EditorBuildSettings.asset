@@ -11,6 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EyeScene.unity
     guid: c9400b84d880ef8428e1d7be899f125c
+  - enabled: 1
+    path: Assets/Scenes/ChildRoomScene.unity
+    guid: 02dc3fa7962d578428fd7485f2053360
+  - enabled: 1
+    path: Assets/Scenes/WorkshopRoomScene.unity
+    guid: 2c9638f13f3edc848b9b91a085951b84
+  - enabled: 1
+    path: Assets/Scenes/EyeScene_Low_Eyes.unity
+    guid: 06981d4db326f8841be367d4cc325644
+  - enabled: 1
+    path: Assets/Scenes/EyeScene_FinalCutscene.unity
+    guid: 590d3ec5e0246794daace638f65f85e6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: a7af6ed562db02b439584cb1cc805654, type: 3}
   m_UseUCBPForAssetBundles: 0
