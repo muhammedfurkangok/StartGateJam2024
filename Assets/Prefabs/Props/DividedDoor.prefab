@@ -126,7 +126,6 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 4307563590688236845}
   collider: {fileID: 7219692729232034907}
-  parenter: {fileID: 0}
   grabItemType: 10
   parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -214,6 +213,7 @@ Transform:
   - {fileID: 7741619867371669572}
   - {fileID: 6961847828561523015}
   - {fileID: 2564934356243571902}
+  - {fileID: 4288420695187241320}
   m_Father: {fileID: 454888010823405250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8245938431370523061
@@ -284,7 +284,6 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 3388154249378521920}
   collider: {fileID: 8411611185449415654}
-  parenter: {fileID: 0}
   grabItemType: 4
   parenterOffset: {x: -2, y: 5, z: -0.065}
   target: {fileID: 0}
@@ -479,7 +478,6 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 6006035367881155984}
   collider: {fileID: 8400080367333738700}
-  parenter: {fileID: 0}
   grabItemType: 8
   parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -553,12 +551,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120849431727511681}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000003774895, y: -0.00000020861623, z: -7.875044e-15, w: 1}
-  m_LocalPosition: {x: -1.0092546, y: 3.7425961, z: 0.2483936}
+  m_LocalRotation: {x: 3.5527137e-15, y: -0.0000006854533, z: -1.6254613e-14, w: 1}
+  m_LocalPosition: {x: -0.0641176, y: 1.2456033, z: 0.18339121}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 454888010823405250}
+  m_Father: {fileID: 5218299190725551803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6839541145547073442
 MeshFilter:
@@ -739,7 +737,6 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 3475865230440309552}
   collider: {fileID: 7517654241564095680}
-  parenter: {fileID: 0}
   grabItemType: 9
   parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -913,7 +910,6 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 171299737577632388}
   collider: {fileID: 3707592888640440221}
-  parenter: {fileID: 0}
   grabItemType: 11
   parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -1087,7 +1083,6 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 8848694685325935525}
   collider: {fileID: 1990821835745968714}
-  parenter: {fileID: 0}
   grabItemType: 5
   parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -1240,7 +1235,6 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 5108539773991252734}
   collider: {fileID: 4209824914848494245}
-  parenter: {fileID: 0}
   grabItemType: 6
   parenterOffset: {x: 0, y: 5, z: 0}
   target: {fileID: 0}
@@ -1353,6 +1347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3587731139440515461}
   - component: {fileID: 6809810252415956232}
+  - component: {fileID: 4491501709807979998}
   m_Layer: 7
   m_Name: DividedDoor
   m_TagString: GrabItem
@@ -1410,8 +1405,30 @@ MonoBehaviour:
   - {fileID: 3388154249378521920}
   rotateDoor: {fileID: 3022141556470423356}
   isGrabItemsEnabledOnStart: 1
+  willoadSceneOnTrigger: 0
   sceneIndexToLoad: 0
   isOpen: 0
+--- !u!65 &4491501709807979998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628910038752044723}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 5, z: 0.2}
+  m_Center: {x: 0, y: 2.5, z: 0.4}
 --- !u!1 &6651952518333545749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,7 +1459,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5218299190725551803}
-  - {fileID: 4288420695187241320}
   m_Father: {fileID: 3587731139440515461}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7346158780304065406
@@ -1581,7 +1597,6 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 2642475265283144219}
   collider: {fileID: 5990235023399205265}
-  parenter: {fileID: 0}
   grabItemType: 7
   parenterOffset: {x: 0, y: 5, z: 0}
   target: {fileID: 0}
