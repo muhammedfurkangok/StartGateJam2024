@@ -45,10 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673e5c52a8aa7004daa1375eca876ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subtitles: []
+  subtitles:
+  - subtitleType: 0
+    text: "Haydi Halil, bir hasta daha, her zaman yapt\u0131\u011F\u0131n gibi..."
+    audioClip: {fileID: 8300000, guid: c92d87b9b7e72f74cb1ba65f1a70b04c, type: 3}
+    displayDuration: 4
   typewriter: {fileID: 0}
   subtitleText: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: -7456524655920765288}
 --- !u!82 &-7456524655920765288
 AudioSource:
   m_ObjectHideFlags: 0

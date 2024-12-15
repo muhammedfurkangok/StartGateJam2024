@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9548f3d8dd448a2af754e9fac6308b8, type: 3}
   m_Name: GameConstants
   m_EditorClassIdentifier: 
-  playerWalkSpeed: 5
+  playerWalkSpeed: 2
   playerRunSpeed: 10
-  playerWalkAcceleration: 10
+  playerWalkAcceleration: 5
   playerRunAcceleration: 15
   playerDeceleration: 20
   playerMinLook: -90
   playerMaxLook: 90
   playerLookSensitivity: 10
   playerInspectSensitivity: 20
-  playerIdleNoiseAmplitude: 0.2
-  playerWalkNoiseAmplitude: 1
+  playerIdleNoiseAmplitude: 0.1
+  playerWalkNoiseAmplitude: 0.75
   playerRunNoiseAmplitude: 1
-  playerIdleNoiseFrequency: 1
+  playerIdleNoiseFrequency: 0.75
   playerWalkNoiseFrequency: 2
   playerRunNoiseFrequency: 1
   playerWalkNoiseChangeSpeed: 10

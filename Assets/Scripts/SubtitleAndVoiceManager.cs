@@ -4,19 +4,28 @@ using System.Collections.Generic;
 using Febucci.UI;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
+
+public enum SubtitleType
+{
+    Hospital1,
+    Hospital2,
+    Eye1,
+    Eye2,
+    EyeCloseDistance,
+    EyeDoNothing,
+}
+
+[Serializable]
+public class SubtitleEntry
+{
+    public SubtitleType subtitleType;
+    public string text;
+    public AudioClip audioClip;
+    public float displayDuration;
+}
 
 public class SubtitleAndVoiceManager : MonoBehaviour
 {
-    [Serializable]
-    public class SubtitleEntry
-    {
-        public string text;
-        public AudioClip audioClip;
-        public float displayDuration;
-        public UnityEvent onDisplay;
-    }
-
     [Header("Subtitles")]
     [SerializeField] private List<SubtitleEntry> subtitles;
 
@@ -27,6 +36,14 @@ public class SubtitleAndVoiceManager : MonoBehaviour
 
     private Coroutine subtitleCoroutine;
 
+    public static SubtitleAndVoiceManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
     private void Start()
     {
         if (subtitleText == null || audioSource == null)
@@ -36,21 +53,15 @@ public class SubtitleAndVoiceManager : MonoBehaviour
         }
 
         subtitleText.text = "";
-
-        PlaySubtitle(0);
     }
 
-    public void PlaySubtitle(int index)
+    public void PlaySubtitle(SubtitleType subtitleType)
     {
-        if (index < 0 || index >= subtitles.Count)
+        var index = subtitles.FindIndex(x => x.subtitleType == subtitleType);
+        if (index == -1)
         {
-            Debug.LogError("Invalid subtitle index.");
+            Debug.LogError("Subtitle type not found.");
             return;
-        }
-
-        if (subtitleCoroutine != null)
-        {
-            StopCoroutine(subtitleCoroutine);
         }
 
         subtitleCoroutine = StartCoroutine(DisplaySubtitle(subtitles[index]));
@@ -70,7 +81,6 @@ public class SubtitleAndVoiceManager : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         subtitleText.text = "";
-        entry.onDisplay.Invoke();
     }
 
     public void StopSubtitle()
