@@ -1816,10 +1816,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dff571479e4cc18e6928a65989858a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
+  gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
+  meshRenderer: {fileID: 1861005402}
+  collider: {fileID: 1861005401}
   neededGrabItemType: 0
   isCompleted: 0
   currentGrabItem: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2118999107
 GameObject:
   m_ObjectHideFlags: 0

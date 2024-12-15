@@ -52,7 +52,12 @@ MonoBehaviour:
   tabletMoveDownEase: 3
   tabletUpLocalY: 0
   tabletDownLocalY: -2
+  grabItemPositionColliderSizeMultiplier: 2
   grabItemSnapMaxVelocity: 2
   grabItemSnapDuration: 0.2
   grabItemSnapEase: 2
   grabItemSnapRotationEase: 3
+  snapColor: {r: 0.3932329, g: 0.8018868, b: 0.2004717, a: 0.5803922}
+  snapColorChangeDuration: 0.1
+  snapColorChangeEase: 3
+  transparentColor: {r: 0, g: 0, b: 0, a: 0}

@@ -69,9 +69,16 @@ namespace ScriptableObjects
         public float tabletDownLocalY;
 
         [Header("Grab Item Snap")]
+        public float grabItemPositionColliderSizeMultiplier;
         public float grabItemSnapMaxVelocity;
         public float grabItemSnapDuration;
         public Ease grabItemSnapEase;
         public Ease grabItemSnapRotationEase;
+        public Color snapColor;
+        public float snapColorChangeDuration;
+        public Ease snapColorChangeEase;
+
+        [Header("General")]
+        public Color transparentColor;
     }
 }
