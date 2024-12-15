@@ -8,17 +8,18 @@ using UnityEngine;
 public enum VoiceType
 {
     Hospital1,
-    Hospital2,
     Eye1,
     Eye2,
-    EyeCloseDistance,
-    EyeDoNothing,
     ChildRoom1,
     ChildRoom2,
     ChildRoom3,
     ChildRoom4,
-    ChildRoom5,
+    DoorRoomEnter,
+    DoorRoomCross,
+    DoorRoomMusic,
+    DoorRoomBone,
     LastRoom,
+    LessEye,
 }
 
 [Serializable]

@@ -50,34 +50,56 @@ MonoBehaviour:
     text: "Haydi Halil, bir hasta daha, her zaman yapt\u0131\u011F\u0131n gibi..."
     audioClip: {fileID: 8300000, guid: c92d87b9b7e72f74cb1ba65f1a70b04c, type: 3}
     displayDuration: 4
-  - voiceType: 2
+  - voiceType: 1
     text: "...Tamam. Bir kere daha buraday\u0131m. Sorunu bul, d\xFCzelt, d\xF6n...
       Basitmi\u015F gibi.\\n Hata yaparsam daha zor olur ama buraday\u0131m, hadi
       bakal\u0131m."
     audioClip: {fileID: 8300000, guid: 72e119abda73a8843b197d076b812419, type: 3}
     displayDuration: 14.58
-  - voiceType: 3
+  - voiceType: 2
     text: "Tablet?.. Kendine gel Halil! G\xF6z\xFCn burada olmal\u0131. Buradan her\u015Feyi
       takip ediyorum. \\nHastan\u0131n durumu, stress seviyesi, Yanl\u0131\u015F
-      yaparsam geri bildirimi buradan al\u0131r\u0131m. Do\u011Fru yaparsam, \u0130lerleriz"
+      yaparsam geri bildirimi buradan al\u0131r\u0131m. Do\u011Fru yaparsam, \u0130lerleriz.
+      Acele etme."
     audioClip: {fileID: 8300000, guid: c7bcee3d4828c8045a6fa06fd38d1f45, type: 3}
     displayDuration: 15
-  - voiceType: 6
-    text: "Sorunun bir k\u0131sm\u0131 burada.\xC7ocukluk An\u0131lar\u0131nda"
+  - voiceType: 3
+    text: "Sorunun bir k\u0131sm\u0131 burada olmal\u0131, \xE7ocukluk an\u0131lar\u0131nda."
     audioClip: {fileID: 8300000, guid: b460c96e36c83f3439a26d48fb276151, type: 3}
     displayDuration: 4
-  - voiceType: 7
+  - voiceType: 4
     text: "Buran\u0131n daha ayd\u0131nl\u0131k olmas\u0131 gerekirdi."
     audioClip: {fileID: 8300000, guid: 7eaec05664b6b3341873d0e62980f0e1, type: 3}
     displayDuration: 5
-  - voiceType: 8
+  - voiceType: 5
     text: Aha
     audioClip: {fileID: 8300000, guid: 6140c94dfe8ec704aacfe5745ebdc27b, type: 3}
     displayDuration: 1
-  - voiceType: 9
+  - voiceType: 6
     text: "Hmm..Para mutlulu\u011Fu nadiren sat\u0131n alabiliyor oysa ki."
     audioClip: {fileID: 8300000, guid: 9351c25d686e62b4eb8aa1f37bd01a4b, type: 3}
     displayDuration: 3
+  - voiceType: 7
+    text: "O kadar duygunun bir \xE7\u0131k\u0131\u015Fa ihtiyac\u0131 var, belki
+      bunlarla bir kap\u0131 in\u015Faa edebilirim."
+    audioClip: {fileID: 8300000, guid: 389d1f21b55f1544c8d9a3ab13e93ef2, type: 3}
+    displayDuration: 4.4
+  - voiceType: 10
+    text: Bir evcil hayvan demek...
+    audioClip: {fileID: 8300000, guid: 925dba0e8bc3d2c4d8924d16fa875d96, type: 3}
+    displayDuration: 1.45
+  - voiceType: 9
+    text: "M\xFCzi\u011Fe merakl\u0131 biri galiba?..."
+    audioClip: {fileID: 8300000, guid: a9f12c7f03c1cfb4a94d67a672589ab1, type: 3}
+    displayDuration: 1.6
+  - voiceType: 8
+    text: "\u0130nan\xE7 sahibi demek..."
+    audioClip: {fileID: 8300000, guid: f019038f6b377c242936b3fe04bacbe1, type: 3}
+    displayDuration: 1.65
+  - voiceType: 12
+    text: "Bunu hallettik, s\u0131ra sonrakinde."
+    audioClip: {fileID: 8300000, guid: 217b8aded0a02da4d887ec27eaa00b93, type: 3}
+    displayDuration: 2.2
   typewriter: {fileID: 0}
   subtitleText: {fileID: 0}
   audioSource: {fileID: -7456524655920765288}

@@ -2518,19 +2518,6 @@ PrefabInstance:
       propertyPath: subtitleText
       value: 
       objectReference: {fileID: 408643760}
-    - target: {fileID: 7867531444995452158, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
-      propertyPath: subtitles.Array.data[1].text
-      value: "...Tamam. Bir kere daha buraday\u0131m. Sorunu bul, d\xFCzelt, d\xF6n...
-        Basitmi\u015F gibi.\\n Hata yaparsam daha zor olur ama buraday\u0131m, hadi
-        bakal\u0131m."
-      objectReference: {fileID: 0}
-    - target: {fileID: 7867531444995452158, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
-      propertyPath: subtitles.Array.data[2].text
-      value: "Tablet?.. Kendine gel Halil! G\xF6z\xFCn burada olmal\u0131. Buradan
-        her\u015Feyi takip ediyorum. \\nHastan\u0131n durumu, stress seviyesi, Yanl\u0131\u015F
-        yaparsam geri bildirimi buradan al\u0131r\u0131m. Do\u011Fru yaparsam, \u0130lerleriz.
-        Acele etme."
-      objectReference: {fileID: 0}
     - target: {fileID: 8561078123423536672, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6486,14 +6473,6 @@ PrefabInstance:
       propertyPath: secondDoor
       value: 
       objectReference: {fileID: 567410826}
-    - target: {fileID: 8700730356211922738, guid: a2fb34b7f816ee245815bd51a9bb2924, type: 3}
-      propertyPath: firstDoorIndex
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8700730356211922738, guid: a2fb34b7f816ee245815bd51a9bb2924, type: 3}
-      propertyPath: secondDoorIndex
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

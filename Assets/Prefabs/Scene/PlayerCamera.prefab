@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6666617685806469293}
   - component: {fileID: 3584817400821248213}
   - component: {fileID: 2102247141463202021}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TabletMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2682535661686409303}
   - component: {fileID: 2905951867165515854}
   - component: {fileID: 6897886426179845368}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 1352326391984160175}
   - component: {fileID: 6611495024897987940}
   - component: {fileID: 3259368248837448284}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TabletCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6195013326197072880}
   - component: {fileID: 4471249511199296305}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tablet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6234806301952563572}
   - component: {fileID: 1599885288179356622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 1421143830550346755}
   - component: {fileID: 1029315914607924710}
   - component: {fileID: 4604593066550722532}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 8683686565581573371}
   - component: {fileID: 684944698167605936}
   - component: {fileID: 3000551353936998690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TabletFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 4388085689880199304}
   - component: {fileID: 2313314566472596474}
   - component: {fileID: 7801659778297156027}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 6421891035718666485}
   - component: {fileID: 6576465474831200676}
   - component: {fileID: 6363274827078016545}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 7747275790228086376}
   - component: {fileID: 9045554244036770822}
   - component: {fileID: 1738146365369649002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IntelligenceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1017,7 @@ GameObject:
   - component: {fileID: 5383621078980848513}
   - component: {fileID: 8199911950553999043}
   - component: {fileID: 2574321672747879801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1092,7 +1092,7 @@ GameObject:
   - component: {fileID: 7770390826373331076}
   - component: {fileID: 6459381763361618533}
   - component: {fileID: 6130954509415366426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1167,7 +1167,7 @@ GameObject:
   - component: {fileID: 6680811242447783753}
   - component: {fileID: 824162346754315362}
   - component: {fileID: 5713888237861694139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 7494217175271708558}
   - component: {fileID: 2037007098420123558}
   - component: {fileID: 3774003777608419986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,7 +1317,7 @@ GameObject:
   - component: {fileID: 3532117999747343932}
   - component: {fileID: 1217759529484588483}
   - component: {fileID: 397166700231939656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1392,7 +1392,7 @@ GameObject:
   - component: {fileID: 4690513072082311967}
   - component: {fileID: 2271994838681163362}
   - component: {fileID: 3090517783994469868}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1465,7 +1465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4392876995337806913}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TabletVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1501,7 +1501,7 @@ GameObject:
   - component: {fileID: 406347175819424815}
   - component: {fileID: 6406382505241292021}
   - component: {fileID: 2882566649208448123}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrainImages_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}

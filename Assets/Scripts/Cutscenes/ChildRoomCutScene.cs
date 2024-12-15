@@ -68,7 +68,7 @@ public class ChildRoomCutScene : MonoBehaviour
         blinkAnimator.SetTrigger("CutsceneClose");
         InputManager.Instance.isInputOverride = false;
         isPrismPuzzleSolved = true;
-        TabletManager.Instance.IncreaseIntelligence();
+        TabletManager.Instance.IncreaseIntelligence(2);
         if (isteddyPuzzleSolved && isPrismPuzzleSolved)
         {
             await UniTask.WaitForSeconds(1f);
@@ -87,7 +87,7 @@ public class ChildRoomCutScene : MonoBehaviour
         blinkAnimator.SetTrigger("CutsceneClose");
         InputManager.Instance.isInputOverride = false;
         isteddyPuzzleSolved = true;
-        TabletManager.Instance.IncreaseIntelligence();
+        TabletManager.Instance.IncreaseIntelligence(2);
         if (isteddyPuzzleSolved && isPrismPuzzleSolved)
         {
             await UniTask.WaitForSeconds(1f);

@@ -23,6 +23,8 @@ namespace Cutscenes
             {
                 secondDoor.gameObject.SetActive(false);
             }
+
+            VoiceAndSubtitleManager.Instance.Play(VoiceType.LessEye);
         }
     }
 }

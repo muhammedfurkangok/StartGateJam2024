@@ -78,16 +78,19 @@ public class DoorCompletionCheckManager : MonoBehaviour
 
     private void OnFirstDoorComplete()
     {
-        TabletManager.Instance.IncreaseIntelligence();
+        TabletManager.Instance.IncreaseIntelligence(1);
+        VoiceAndSubtitleManager.Instance.Play(VoiceType.DoorRoomCross);
     }
 
     private void OnSecondDoorComplete()
     {
-        TabletManager.Instance.IncreaseIntelligence();
+        TabletManager.Instance.IncreaseIntelligence(1);
+        VoiceAndSubtitleManager.Instance.Play(VoiceType.DoorRoomBone);
     }
 
     private void OnThirdDoorComplete()
     {
-        TabletManager.Instance.IncreaseIntelligence();
+        TabletManager.Instance.IncreaseIntelligence(1);
+        VoiceAndSubtitleManager.Instance.Play(VoiceType.DoorRoomMusic);
     }
 }

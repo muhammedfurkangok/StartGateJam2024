@@ -77,9 +77,9 @@ public class TabletManager : MonoBehaviour
         isTabletActive = !isTabletActive;
     }
 
-    public void IncreaseIntelligence()
+    public void IncreaseIntelligence(int increaseMultiplier)
     {
-        intelligenceLevel += 10;
+        intelligenceLevel += 10 * increaseMultiplier;
         intelligenceText.text = intelligenceLevel.ToString("F0") + "%";
 
         var intelligenceIndex = intelligenceLevel / 10;
