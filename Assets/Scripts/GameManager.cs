@@ -2,6 +2,9 @@
 
 public class GameManager : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private GameObject pauseMenu;
+
     [Header("Info")]
     [SerializeField] private bool isPaused;
 
@@ -29,11 +32,13 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         isPaused = true;
+        pauseMenu.SetActive(true);
     }
 
     private void ClosePauseMenu()
     {
         Time.timeScale = 1f;
         isPaused = false;
+        pauseMenu.SetActive(false);
     }
 }
