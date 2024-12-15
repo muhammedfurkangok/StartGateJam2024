@@ -14,6 +14,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float currentSpeed;
     [SerializeField] private bool isInspecting;
 
+    public bool IsInspecting() => isInspecting;
+
+    public static PlayerController Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
     private void Update()
     {
         HandleInspection();
@@ -110,6 +120,12 @@ public class PlayerController : MonoBehaviour
                 ? gameConstants.playerRunNoiseFrequency
                 : gameConstants.playerWalkNoiseFrequency
             : gameConstants.playerIdleNoiseFrequency;
+
+        if (isInspecting || TabletManager.Instance.IsTabletActive())
+        {
+            targetAmplitude = gameConstants.playerIdleNoiseAmplitude;
+            targetFrequency = gameConstants.playerIdleNoiseFrequency;
+        }
 
         var noiseChangeSpeed = isRunKey ? gameConstants.playerRunNoiseChangeSpeed : gameConstants.playerWalkNoiseChangeSpeed;
 

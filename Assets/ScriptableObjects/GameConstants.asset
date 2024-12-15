@@ -24,9 +24,9 @@ MonoBehaviour:
   playerIdleNoiseAmplitude: 0.2
   playerWalkNoiseAmplitude: 1
   playerRunNoiseAmplitude: 1
-  playerIdleNoiseFrequency: 0.5
-  playerWalkNoiseFrequency: 1
-  playerRunNoiseFrequency: 2
+  playerIdleNoiseFrequency: 1
+  playerWalkNoiseFrequency: 2
+  playerRunNoiseFrequency: 1
   playerWalkNoiseChangeSpeed: 10
   playerRunNoiseChangeSpeed: 15
   grabLayer:
