@@ -1,10 +1,14 @@
-﻿using ScriptableObjects;
+﻿using System;
+using DG.Tweening;
+using ScriptableObjects;
 using UnityEngine;
 
 public class GrabItemPosition : MonoBehaviour
 {
     [Header("References")]
+    [SerializeField] private GameConstants gameConstants;
     [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private BoxCollider collider;
 
     [Header("Parameters")]
     [SerializeField] private GrabItemType neededGrabItemType;
@@ -12,14 +16,25 @@ public class GrabItemPosition : MonoBehaviour
     [Header("Info")]
     [SerializeField] private bool isCompleted;
     [SerializeField] private GrabItem currentGrabItem;
+    [SerializeField] private Color defaultColor;
+
+    private Tween snapTween;
 
     public bool IsCompleted() => isCompleted;
     public GrabItem GetCurrentGrabItem() => currentGrabItem;
     public GrabItemType GetNeededGrabItemType() => neededGrabItemType;
-    public void SetCompleted()
+
+    private void Start()
     {
-        isCompleted = true;
-        meshRenderer.enabled = false;
+        defaultColor = meshRenderer.material.color;
+        collider.size *= gameConstants.grabItemPositionColliderSizeMultiplier;
+    }
+
+    public void SetCompleted(bool willBeCompleted)
+    {
+        isCompleted = willBeCompleted;
+        meshRenderer.material.DOColor(isCompleted ? gameConstants.transparentColor : defaultColor, gameConstants.snapColorChangeDuration)
+            .SetEase(gameConstants.snapColorChangeEase);
     }
 
     private void OnTriggerStay(Collider other)
@@ -30,6 +45,25 @@ public class GrabItemPosition : MonoBehaviour
         var grabItem = other.GetComponent<GrabItem>();
         currentGrabItem = grabItem;
 
+        PlayColorChangeAnimation(true);
         grabItem.TrySnap(this);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (isCompleted) return;
+        if (!other.CompareTag("GrabItem")) return;
+        if (other != currentGrabItem.GrabItemPositionOnly_GetCollider()) return;
+
+        PlayColorChangeAnimation(true);
+    }
+
+    public void PlayColorChangeAnimation(bool isDefault)
+    {
+        var color = isDefault ? defaultColor : gameConstants.snapColor;
+
+        snapTween?.Kill();
+        snapTween = meshRenderer.material.DOColor(color, gameConstants.snapColorChangeDuration)
+            .SetEase(gameConstants.snapColorChangeEase);
     }
 }

@@ -126,7 +126,9 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 4307563590688236845}
   collider: {fileID: 7219692729232034907}
+  parenter: {fileID: 0}
   grabItemType: 10
+  parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -188,7 +190,7 @@ GameObject:
   - component: {fileID: 3388154249378521920}
   - component: {fileID: 8946747620886238148}
   m_Layer: 7
-  m_Name: DoorChildReal
+  m_Name: DoorMain
   m_TagString: GrabItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,12 +204,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323432433631245855}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000037748954, y: 0.00000047683707, z: -1.7495572e-14, w: 1}
-  m_LocalPosition: {x: 0.059152286, y: -0.000000007911849, z: 0.06777297}
+  m_LocalRotation: {x: -0.000000037748954, y: 0.00000047683704, z: -1.7495572e-14, w: 1}
+  m_LocalPosition: {x: 1, y: -2.5, z: 0.065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 454888010823405250}
+  m_Father: {fileID: 4465908784451037551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8245938431370523061
 MeshFilter:
@@ -298,7 +300,9 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 3388154249378521920}
   collider: {fileID: 4286151287035884216}
+  parenter: {fileID: 4465908784451037551}
   grabItemType: 4
+  parenterOffset: {x: -2, y: 5, z: -0.065}
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -344,6 +348,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 3388154249378521920}
   extraGravity: 10
+--- !u!1 &502958138782326122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7446177601816427808}
+  m_Layer: 7
+  m_Name: DoorFrame0Parenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7446177601816427808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502958138782326122}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.125, y: 2.5, z: 0.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8234612049024444562}
+  m_Father: {fileID: 8986297064857386938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &868702975395869120
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +506,9 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 6006035367881155984}
   collider: {fileID: 8400080367333738700}
+  parenter: {fileID: 0}
   grabItemType: 8
+  parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -728,7 +766,9 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 3475865230440309552}
   collider: {fileID: 7517654241564095680}
+  parenter: {fileID: 0}
   grabItemType: 9
+  parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -774,6 +814,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 3475865230440309552}
   extraGravity: 10
+--- !u!1 &2022848964189028365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4465908784451037551}
+  m_Layer: 7
+  m_Name: DoorMainParenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4465908784451037551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022848964189028365}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5218299190725551803}
+  m_Father: {fileID: 454888010823405250}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2344280332262579310
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +972,9 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 171299737577632388}
   collider: {fileID: 3707592888640440221}
+  parenter: {fileID: 0}
   grabItemType: 11
+  parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -946,6 +1020,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 171299737577632388}
   extraGravity: 10
+--- !u!1 &2376701037943230748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8133627287597606028}
+  m_Layer: 7
+  m_Name: DoorFrame1Parenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8133627287597606028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376701037943230748}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.125, y: 2.5, z: 0.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5823908434704343243}
+  m_Father: {fileID: 8986297064857386938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5299359266439133501
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +1068,7 @@ GameObject:
   - component: {fileID: 8848694685325935525}
   - component: {fileID: 7351415640052610746}
   m_Layer: 7
-  m_Name: DoorFrameReal_1
+  m_Name: DoorFrameTop
   m_TagString: GrabItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1072,7 +1178,9 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 8848694685325935525}
   collider: {fileID: 1990821835745968714}
+  parenter: {fileID: 0}
   grabItemType: 5
+  parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -1134,7 +1242,7 @@ GameObject:
   - component: {fileID: 5108539773991252734}
   - component: {fileID: 6571233227000675319}
   m_Layer: 7
-  m_Name: DoorFrameVerticalOtherSide
+  m_Name: DoorFrame0
   m_TagString: GrabItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1149,11 +1257,11 @@ Transform:
   m_GameObject: {fileID: 5836438709069724448}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000003774895, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0591507, y: 0, z: 0.17256927}
+  m_LocalPosition: {x: -0.065, y: -2.5, z: 0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8986297064857386938}
+  m_Father: {fileID: 7446177601816427808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5607002911323354978
 MeshFilter:
@@ -1244,7 +1352,9 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 5108539773991252734}
   collider: {fileID: 7948957975233883976}
+  parenter: {fileID: 7446177601816427808}
   grabItemType: 6
+  parenterOffset: {x: 0, y: 5, z: 0}
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -1320,8 +1430,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4191862621673887535}
-  - {fileID: 5823908434704343243}
-  - {fileID: 8234612049024444562}
+  - {fileID: 8133627287597606028}
+  - {fileID: 7446177601816427808}
   - {fileID: 6961847828561523015}
   - {fileID: 2564934356243571902}
   m_Father: {fileID: 3587731139440515461}
@@ -1388,7 +1498,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5218299190725551803}
+  - {fileID: 4465908784451037551}
   - {fileID: 6964801270943076244}
   - {fileID: 7741619867371669572}
   - {fileID: 4288420695187241320}
@@ -1410,7 +1520,7 @@ GameObject:
   - component: {fileID: 2642475265283144219}
   - component: {fileID: 7623853182425599865}
   m_Layer: 7
-  m_Name: DoorFrameVertical_1
+  m_Name: DoorFrame1
   m_TagString: GrabItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1425,11 +1535,11 @@ Transform:
   m_GameObject: {fileID: 9039284603222070455}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000003774895, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9408474, y: 0.00000023841858, z: 0.17256927}
+  m_LocalPosition: {x: 0.2, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8986297064857386938}
+  m_Father: {fileID: 8133627287597606028}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4308153091538572266
 MeshFilter:
@@ -1520,7 +1630,9 @@ MonoBehaviour:
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 2642475265283144219}
   collider: {fileID: 101938659975716801}
+  parenter: {fileID: 0}
   grabItemType: 7
+  parenterOffset: {x: 0, y: 5, z: 0}
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0

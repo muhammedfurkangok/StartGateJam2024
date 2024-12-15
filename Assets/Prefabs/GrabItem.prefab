@@ -125,7 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConstants: {fileID: 11400000, guid: 0c62bafb65c502f44babf947ea3a35a8, type: 2}
   rigidbody: {fileID: 6218315651977820915}
+  collider: {fileID: 2771940982963012227}
+  parenter: {fileID: 0}
   grabItemType: 0
+  parenterOffset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0

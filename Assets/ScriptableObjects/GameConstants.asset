@@ -24,9 +24,9 @@ MonoBehaviour:
   playerIdleNoiseAmplitude: 0.2
   playerWalkNoiseAmplitude: 1
   playerRunNoiseAmplitude: 1
-  playerIdleNoiseFrequency: 0.5
-  playerWalkNoiseFrequency: 1
-  playerRunNoiseFrequency: 2
+  playerIdleNoiseFrequency: 1
+  playerWalkNoiseFrequency: 2
+  playerRunNoiseFrequency: 1
   playerWalkNoiseChangeSpeed: 10
   playerRunNoiseChangeSpeed: 15
   grabLayer:
@@ -42,6 +42,9 @@ MonoBehaviour:
   grabItemExitInspectEase: 3
   grabItemExitInspectRotationEase: 3
   grabThrowForce: 10
+  grabItemExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
   minIntelligence: 0
   maxIntelligence: 100
   tabletMoveDuration: 0.3
@@ -49,7 +52,12 @@ MonoBehaviour:
   tabletMoveDownEase: 3
   tabletUpLocalY: 0
   tabletDownLocalY: -2
+  grabItemPositionColliderSizeMultiplier: 2
   grabItemSnapMaxVelocity: 2
   grabItemSnapDuration: 0.2
   grabItemSnapEase: 2
   grabItemSnapRotationEase: 3
+  snapColor: {r: 0.3932329, g: 0.8018868, b: 0.2004717, a: 0.5803922}
+  snapColorChangeDuration: 0.1
+  snapColorChangeEase: 3
+  transparentColor: {r: 0, g: 0, b: 0, a: 0}

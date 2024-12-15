@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class GrabItem : MonoBehaviour
 {
-    [Header("References")] [SerializeField]
-    private GameConstants gameConstants;
-
+    [Header("References")]
+    [SerializeField] private GameConstants gameConstants;
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private Collider collider;
+    [SerializeField] private Transform parenter;
 
     [Header("Parameters")]
     [SerializeField] private GrabItemType grabItemType;
+    [SerializeField] private Vector3 parenterOffset;
 
     [Header("Info")]
     [SerializeField] private Transform target;
     [SerializeField] private bool isBeingInspected;
     [SerializeField] private bool isSnapped;
+    [SerializeField] private GrabItemPosition grabItemPosition;
     [SerializeField] private Quaternion preInspectRotation;
 
     private Tween enterInspectTween;
@@ -29,12 +31,27 @@ public class GrabItem : MonoBehaviour
     public bool IsBeingGrabbed() => target != null;
     public bool GetIsBeingInspected() => isBeingInspected;
     public float GetRigidbodyVelocityMagnitude() => rigidbody.linearVelocity.magnitude;
+    public Collider GrabItemPositionOnly_GetCollider() => collider;
 
     public void SetTarget(Transform target)
     {
         this.target = target;
-        rigidbody.useGravity = target == null;
-        if (target != null) isSnapped = false;
+
+        if (target != null)
+        {
+            if (isSnapped) grabItemPosition.SetCompleted(false);
+
+            isSnapped = false;
+            grabItemPosition = null;
+            rigidbody.useGravity = false;
+            collider.excludeLayers = gameConstants.grabItemExcludeLayers;
+        }
+
+        else
+        {
+            rigidbody.useGravity = true;
+            collider.excludeLayers = 0;
+        }
     }
 
     public void ThrowItem(Vector3 direction)
@@ -52,11 +69,35 @@ public class GrabItem : MonoBehaviour
         if (isBeingInspected && target != null) Inspect();
     }
 
+    private void FixedUpdate()
+    {
+        if (isBeingInspected) return;
+
+        if (target == null)
+        {
+            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized * (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
+            return;
+        }
+
+        rigidbody.isKinematic = false;
+
+        var direction = target.position - transform.position;
+        var distance = direction.magnitude;
+        direction.Normalize();
+
+        var desiredLinearVelocity = direction * (gameConstants.grabForce * distance);
+        rigidbody.linearVelocity = desiredLinearVelocity;
+
+        var torqueAxis = Vector3.Cross(Vector3.up, direction).normalized;
+        var angularMagnitude = desiredLinearVelocity.magnitude * gameConstants.grabAngularForce;
+        rigidbody.angularVelocity = torqueAxis * angularMagnitude;
+    }
+
     private void EnterInspectMode()
     {
         isBeingInspected = true;
         preInspectRotation = transform.rotation;
-        rigidbody.Sleep();
+        rigidbody.isKinematic = true;
 
         enterInspectTween?.Kill();
         exitInspectTween?.Kill();
@@ -72,7 +113,7 @@ public class GrabItem : MonoBehaviour
     private void ExitInspectMode()
     {
         isBeingInspected = false;
-        rigidbody.WakeUp();
+        rigidbody.isKinematic = false;
 
         enterInspectTween?.Kill();
         exitInspectTween?.Kill();
@@ -104,38 +145,21 @@ public class GrabItem : MonoBehaviour
         transform.rotation = rotationX * rotationY * transform.rotation;
     }
 
-    private void FixedUpdate()
-    {
-        if (isBeingInspected) return;
-
-        if (target == null)
-        {
-            rigidbody.linearVelocity -= rigidbody.linearVelocity.normalized *
-                                        (gameConstants.grabReleaseDeceleration * Time.fixedDeltaTime);
-            return;
-        }
-
-        var direction = target.position - transform.position;
-        var distance = direction.magnitude;
-        direction.Normalize();
-
-        var desiredLinearVelocity = direction * (gameConstants.grabForce * distance);
-        rigidbody.linearVelocity = desiredLinearVelocity;
-
-        var torqueAxis = Vector3.Cross(Vector3.up, direction).normalized;
-        var angularMagnitude = desiredLinearVelocity.magnitude * gameConstants.grabAngularForce;
-        rigidbody.angularVelocity = torqueAxis * angularMagnitude;
-    }
-
     public void TrySnap(GrabItemPosition grabItemPosition)
     {
         if (isSnapped) return;
-        if (IsBeingGrabbed()) return;
         if (grabItemPosition.IsCompleted()) return;
-        if (grabItemPosition.GetNeededGrabItemType() != grabItemType) return;
         if (rigidbody.linearVelocity.magnitude > gameConstants.grabItemSnapMaxVelocity) return;
+        if (grabItemPosition.GetNeededGrabItemType() != grabItemType) return;
+
+        if (IsBeingGrabbed())
+        {
+            grabItemPosition.PlayColorChangeAnimation(false);
+            return;
+        }
 
         isSnapped = true;
+        this.grabItemPosition = grabItemPosition;
 
         snapTween?.Kill();
         snapRotationTween?.Kill();
@@ -149,8 +173,21 @@ public class GrabItem : MonoBehaviour
         snapRotationTween = transform.DORotateQuaternion(Quaternion.identity, gameConstants.grabItemSnapDuration)
             .SetEase(gameConstants.grabItemSnapRotationEase);
 
-        grabItemPosition.SetCompleted();
-        rigidbody.useGravity = false;
-        rigidbody.Sleep();
+        grabItemPosition.SetCompleted(true);
+        rigidbody.isKinematic = true;
+    }
+
+    private void GoParenterPivot()
+    {
+        if (parenter == null) return;
+        transform.position += parenterOffset;
+        parenter.position -= parenterOffset;
+    }
+
+    private void GoNormalPivot()
+    {
+        if (parenter == null) return;
+        transform.position -= parenterOffset;
+        parenter.position += parenterOffset;
     }
 }
