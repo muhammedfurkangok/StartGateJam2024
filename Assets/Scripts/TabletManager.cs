@@ -47,6 +47,8 @@ public class TabletManager : MonoBehaviour
         if (!InputManager.Instance.IsTabletKeyDown()) return;
 
         ToggleTablet(false);
+
+        if (Input.GetKeyDown(KeyCode.P)) IncreaseIntelligence(1);
     }
 
     private void ToggleTablet(bool isComplete)

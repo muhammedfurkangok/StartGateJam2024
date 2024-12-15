@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstDoor: {fileID: 0}
-  firstDoorIndex: 2
+  firstDoorIndex: 3
   secondDoor: {fileID: 0}
-  secondDoorIndex: 3
+  secondDoorIndex: 4
