@@ -17,6 +17,7 @@ MonoBehaviour:
   playerWalkAcceleration: 5
   playerRunAcceleration: 15
   playerDeceleration: 20
+  playerWalkingSoundInterval: 0.2
   playerMinLook: -90
   playerMaxLook: 90
   playerLookSensitivity: 10

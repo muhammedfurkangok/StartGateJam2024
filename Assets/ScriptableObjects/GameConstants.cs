@@ -28,6 +28,7 @@ namespace ScriptableObjects
         public float playerWalkAcceleration;
         public float playerRunAcceleration;
         public float playerDeceleration;
+        public float playerWalkingSoundInterval;
 
         [Header("Player Look")]
         public float playerMinLook;
