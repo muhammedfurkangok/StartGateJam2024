@@ -45,6 +45,12 @@ public class GrabItemPosition : MonoBehaviour
         var grabItem = other.GetComponent<GrabItem>();
         currentGrabItem = grabItem;
 
+        if (grabItem.GetGrabItemType() != neededGrabItemType)
+        {
+            currentGrabItem = null;
+            return;
+        }
+
         PlayColorChangeAnimation(true);
         grabItem.TrySnap(this);
     }
@@ -53,6 +59,7 @@ public class GrabItemPosition : MonoBehaviour
     {
         if (isCompleted) return;
         if (!other.CompareTag("GrabItem")) return;
+        if (currentGrabItem == null) return;
         if (other != currentGrabItem.GrabItemPositionOnly_GetCollider()) return;
 
         PlayColorChangeAnimation(true);
@@ -60,6 +67,7 @@ public class GrabItemPosition : MonoBehaviour
 
     public void PlayColorChangeAnimation(bool isDefault)
     {
+        print("PlayColorChangeAnimation: " + isDefault);
         var color = isDefault ? defaultColor : gameConstants.snapColor;
 
         snapTween?.Kill();
