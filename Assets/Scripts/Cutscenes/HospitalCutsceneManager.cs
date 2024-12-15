@@ -2,6 +2,7 @@
 using DG.Tweening;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Cutscenes
 {
@@ -110,6 +111,8 @@ namespace Cutscenes
             await DOVirtual.Float(playerCamera.Lens.FieldOfView, narrowFov, narrowFovDuration, value =>
                     playerCamera.Lens.FieldOfView = value)
                 .SetEase(narrowFovEase);
+
+            SceneManager.LoadScene(1);
         }
     }
 }
