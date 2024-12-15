@@ -19,6 +19,7 @@ namespace Cutscenes
         [SerializeField] private CinemachineCamera playerCamera;
         [SerializeField] private Image fadeToBlackImage;
         [SerializeField] private TextMeshProUGUI finalText;
+        [SerializeField] private TextMeshProUGUI finalText2;
         [SerializeField] private TextMeshProUGUI thankYouText;
         [SerializeField] private Image crosshair;
 
@@ -47,7 +48,7 @@ namespace Cutscenes
 
         private async UniTask Cutscene()
         {
-            playerEyeAnimator.SetTrigger(CutsceneOpen);
+           
             InputManager.Instance.isInputOverride = true;
             VoiceAndSubtitleManager.Instance.Play(VoiceType.LastRoom);
 
@@ -61,7 +62,8 @@ namespace Cutscenes
 
             await finalEye.DOScale(0f, finalEyeDuration)
                 .SetEase(finalEyeEase);
-
+            playerEyeAnimator.SetTrigger("Sleep");
+            
             await UniTask.WaitForSeconds(waitBetweenEyeAndFadeDuration);
 
             crosshair.enabled = false;
