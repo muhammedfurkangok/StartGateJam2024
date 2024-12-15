@@ -12,6 +12,7 @@ public class GrabItemPosition : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] private GrabItemType neededGrabItemType;
+    [SerializeField] private GrabItemColor neededGrabItemColor;
 
     [Header("Info")]
     [SerializeField] private bool isCompleted;
@@ -23,6 +24,7 @@ public class GrabItemPosition : MonoBehaviour
     public bool IsCompleted() => isCompleted;
     public GrabItem GetCurrentGrabItem() => currentGrabItem;
     public GrabItemType GetNeededGrabItemType() => neededGrabItemType;
+    public GrabItemColor GetNeededGrabItemColor() => neededGrabItemColor;
 
     private void Start()
     {

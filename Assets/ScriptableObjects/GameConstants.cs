@@ -19,6 +19,13 @@ namespace ScriptableObjects
         DoorHingeDown,
     }
 
+    public enum GrabItemColor
+    {
+        Color1,
+        Color2,
+        Color3
+    }
+
     //[CreateAssetMenu(fileName = "GameConstants", menuName = "GameConstants", order = 0)]
     public class GameConstants : ScriptableObject
     {

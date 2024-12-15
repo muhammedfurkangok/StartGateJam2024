@@ -11,7 +11,7 @@ public class GrabItem : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] private GrabItemType grabItemType;
-    [SerializeField] private Vector3 parenterOffset;
+    [SerializeField] private GrabItemColor grabItemColor;
 
     [Header("Info")]
     [SerializeField] private Transform target;
@@ -33,6 +33,7 @@ public class GrabItem : MonoBehaviour
 
     public void SetTarget(Transform target)
     {
+        if (isSnapped) return;
         this.target = target;
 
         if (target != null)
@@ -163,10 +164,12 @@ public class GrabItem : MonoBehaviour
         snapTween = transform.DOMove(grabItemPosition.transform.position, gameConstants.grabItemSnapDuration)
             .SetEase(gameConstants.grabItemSnapEase);
 
-        snapRotationTween = transform.DORotateQuaternion(Quaternion.identity, gameConstants.grabItemSnapDuration)
+        snapRotationTween = transform.DORotateQuaternion(grabItemPosition.transform.rotation, gameConstants.grabItemSnapDuration)
             .SetEase(gameConstants.grabItemSnapRotationEase);
 
-        grabItemPosition.SetCompleted(true);
+        if (grabItemColor == grabItemPosition.GetNeededGrabItemColor())
+            grabItemPosition.SetCompleted(true);
+
         rigidbody.isKinematic = true;
     }
 }
