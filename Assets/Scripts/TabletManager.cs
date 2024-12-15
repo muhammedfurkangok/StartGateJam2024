@@ -19,6 +19,7 @@ public class TabletManager : MonoBehaviour
     [Header("Info")]
     [SerializeField] private bool isTabletActive;
 
+    public Transform GetTabletVisual() => tabletVisual.transform;
     public bool IsTabletActive() => isTabletActive;
 
     public static TabletManager Instance;

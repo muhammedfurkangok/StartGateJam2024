@@ -28,6 +28,11 @@ public class InputManager : MonoBehaviour
         playerInputActions.Player.Enable();
     }
 
+    private void OnDisable()
+    {
+        playerInputActions.Disable();
+    }
+
     public Vector2 GetMoveInput() => isInputOverride ? overrideMoveInput : playerInputActions.Player.Move.ReadValue<Vector2>();
     public Vector2 GetLookInput() => isInputOverride ? overrideLookInput : playerInputActions.Player.Look.ReadValue<Vector2>();
     public bool IsRunKey() => false;//playerInputActions.Player.Run.IsInProgress();

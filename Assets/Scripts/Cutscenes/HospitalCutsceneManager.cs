@@ -11,33 +11,40 @@ namespace Cutscenes
         private static readonly int CutsceneOpen = Animator.StringToHash("CutsceneOpen");
         private static readonly int CutsceneClose = Animator.StringToHash("CutsceneClose");
 
-        [Header("Hospital Scene References")]
+        [Header("References")]
         [SerializeField] private Animator playerEyeAnimator;
         [SerializeField] private CinemachineCamera playerCamera;
 
-        [Header("Hospital Scene Parameters")]
-        [SerializeField] private float lookUpInputTarget;
+        [Header("Look Up-Down and Walk Parameters")]
+        [SerializeField] private Vector3 lookUpTarget;
         [SerializeField] private float lookUpDuration;
-        [SerializeField] private float lookDownInputTarget;
+        [SerializeField] private Ease lookUpEase;
+        [SerializeField] private Vector3 lookDownTarget;
         [SerializeField] private float lookDownDuration;
         [SerializeField] private Ease lookDownEase;
-        [SerializeField] private float lookToZeroDuration;
-        [SerializeField] private Ease lookToZeroEase;
         [SerializeField] private float waitBetweenLookAndWalkDuration;
         [SerializeField] private float walkDuration;
+
+        [Header("Tablet Parameters")]
+        [SerializeField] private float tabletUpPosition;
+        [SerializeField] private float tabletUpDuration;
+        [SerializeField] private Ease tabletUpEase;
         [SerializeField] private float tabletWaitDuration;
-        [SerializeField] private float tabletWaitDuration2;
-        [SerializeField] private float lookRightInputTarget;
+        [SerializeField] private float tabletDownDuration;
+        [SerializeField] private Ease tabletDownEase;
+        [SerializeField] private float waitBetweenTabletAndHealthCheckDuration;
+
+        [Header("Look Down Parameters")]
+        [SerializeField] private Vector3 lookRightTarget;
         [SerializeField] private float lookRightDuration;
         [SerializeField] private Ease lookRightEase;
-        [SerializeField] private float lookToZeroDuration2;
-        [SerializeField] private Ease lookToZeroEase2;
-        [SerializeField] private float lookRightWaitDuration;
-        [SerializeField] private float lookLeftInputTarget;
+        [SerializeField] private float waitBetweenLookRightAndLookLeftDuration;
+        [SerializeField] private Vector3 lookLeftTarget;
         [SerializeField] private float lookLeftDuration;
         [SerializeField] private Ease lookLeftEase;
-        [SerializeField] private float lookToZeroDuration3;
-        [SerializeField] private Ease lookToZeroEase3;
+        [SerializeField] private float waitBetweenHealthCheckAndVoiceDuration;
+
+        [Header("Voice and Fov Parameters")]
         [SerializeField] private float voiceWaitDuration;
         [SerializeField] private float wideFov;
         [SerializeField] private float wideFovDuration;
@@ -56,16 +63,11 @@ namespace Cutscenes
             playerEyeAnimator.SetTrigger(CutsceneOpen);
             InputManager.Instance.isInputOverride = true;
 
-            InputManager.Instance.overrideLookInput = Vector2.up * lookUpInputTarget;
-            await UniTask.WaitForSeconds(lookUpDuration);
+            await playerCamera.transform.DORotate(lookUpTarget, lookUpDuration)
+                .SetEase(lookUpEase);
 
-            await DOVirtual.Float(InputManager.Instance.overrideLookInput.y, lookDownInputTarget, lookDownDuration,value =>
-                    InputManager.Instance.overrideLookInput = new Vector2(InputManager.Instance.overrideLookInput.x, value))
+            await playerCamera.transform.DORotate(lookDownTarget, lookDownDuration)
                 .SetEase(lookDownEase);
-
-            await DOVirtual.Float(InputManager.Instance.overrideLookInput.y, 0, lookToZeroDuration, value =>
-                    InputManager.Instance.overrideLookInput = new Vector2(InputManager.Instance.overrideLookInput.x, value))
-                .SetEase(lookToZeroEase);
 
             await UniTask.WaitForSeconds(waitBetweenLookAndWalkDuration);
 
@@ -74,31 +76,28 @@ namespace Cutscenes
             await UniTask.WaitForSeconds(walkDuration);
 
             InputManager.Instance.overrideMoveInput = Vector2.zero;
-            InputManager.Instance.OverrideTabletKeyDown().Forget();
+
+            var tabletStartPositionY = TabletManager.Instance.GetTabletVisual().localPosition.y;
+
+            await TabletManager.Instance.GetTabletVisual().DOLocalMoveY(tabletUpPosition, tabletUpDuration)
+                .SetEase(tabletUpEase);
 
             await UniTask.WaitForSeconds(tabletWaitDuration);
 
-            InputManager.Instance.OverrideTabletKeyDown().Forget();
+            await TabletManager.Instance.GetTabletVisual().DOLocalMoveY(tabletStartPositionY, tabletDownDuration)
+                .SetEase(tabletDownEase);
 
-            await UniTask.WaitForSeconds(tabletWaitDuration2);
+            await UniTask.WaitForSeconds(waitBetweenTabletAndHealthCheckDuration);
 
-            await DOVirtual.Float(InputManager.Instance.overrideLookInput.x, lookRightInputTarget, lookRightDuration, value =>
-                    InputManager.Instance.overrideLookInput = new Vector2(value, InputManager.Instance.overrideLookInput.y))
+            await playerCamera.transform.DORotate(lookRightTarget, lookRightDuration)
                 .SetEase(lookRightEase);
 
-            await DOVirtual.Float(InputManager.Instance.overrideLookInput.x, 0, lookToZeroDuration2, value =>
-                    InputManager.Instance.overrideLookInput = new Vector2(value, InputManager.Instance.overrideLookInput.y))
-                .SetEase(lookToZeroEase2);
+            await UniTask.WaitForSeconds(waitBetweenLookRightAndLookLeftDuration);
 
-            await UniTask.WaitForSeconds(lookRightWaitDuration);
-
-            await DOVirtual.Float(InputManager.Instance.overrideLookInput.x, lookLeftInputTarget, lookLeftDuration, value =>
-                    InputManager.Instance.overrideLookInput = new Vector2(value, InputManager.Instance.overrideLookInput.y))
+            await playerCamera.transform.DORotate(lookLeftTarget, lookLeftDuration)
                 .SetEase(lookLeftEase);
 
-            await DOVirtual.Float(InputManager.Instance.overrideLookInput.x, 0, lookToZeroDuration3, value =>
-                    InputManager.Instance.overrideLookInput = new Vector2(value, InputManager.Instance.overrideLookInput.y))
-                .SetEase(lookToZeroEase3);
+            await UniTask.WaitForSeconds(waitBetweenHealthCheckAndVoiceDuration);
 
             SubtitleAndVoiceManager.Instance.PlaySubtitle(SubtitleType.Hospital1);
 

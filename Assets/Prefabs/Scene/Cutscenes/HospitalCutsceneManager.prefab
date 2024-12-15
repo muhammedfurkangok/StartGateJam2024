@@ -46,28 +46,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerEyeAnimator: {fileID: 0}
   playerCamera: {fileID: 0}
-  lookUpInputTarget: 5
-  lookUpDuration: 1
-  lookDownInputTarget: -2
-  lookDownDuration: 0.4
+  lookUpTarget: {x: -5, y: 0, z: 0}
+  lookUpDuration: 2
+  lookUpEase: 3
+  lookDownTarget: {x: 0, y: 0, z: 0}
+  lookDownDuration: 0.5
   lookDownEase: 2
-  lookToZeroDuration: 0.5
-  lookToZeroEase: 2
   waitBetweenLookAndWalkDuration: 0
   walkDuration: 2.5
+  tabletUpPosition: 0
+  tabletUpDuration: 1
+  tabletUpEase: 2
   tabletWaitDuration: 1
-  tabletWaitDuration2: 0.2
-  lookRightInputTarget: 5
+  tabletDownDuration: 1
+  tabletDownEase: 3
+  waitBetweenTabletAndHealthCheckDuration: 0
+  lookRightTarget: {x: 0, y: 20, z: 0}
   lookRightDuration: 0.5
   lookRightEase: 2
-  lookToZeroDuration2: 0.5
-  lookToZeroEase2: 2
-  lookRightWaitDuration: 1
-  lookLeftInputTarget: -5
+  waitBetweenLookRightAndLookLeftDuration: 1
+  lookLeftTarget: {x: 0, y: 0, z: 0}
   lookLeftDuration: 0.5
   lookLeftEase: 2
-  lookToZeroDuration3: 0.5
-  lookToZeroEase3: 2
+  waitBetweenHealthCheckAndVoiceDuration: 0.1
   voiceWaitDuration: 4
   wideFov: 115
   wideFovDuration: 1
