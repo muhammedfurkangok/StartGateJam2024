@@ -37,7 +37,7 @@ public class TabletManager : MonoBehaviour
         tabletPosition.y = gameConstants.tabletDownLocalY;
         tabletVisual.transform.localPosition = tabletPosition;
 
-        intelligenceLevel = 30;
+        intelligenceLevel = PlayerPrefs.GetInt("intelligence", 30);
         intelligenceText.text = intelligenceLevel.ToString("F0") + "%";
     }
 
@@ -92,5 +92,7 @@ public class TabletManager : MonoBehaviour
         ToggleTablet(true);
 
         SoundManager.Instance.PlayOneShotSound(SoundType.Intel);
+
+        PlayerPrefs.SetInt("intelligence", intelligenceLevel);
     }
 }
