@@ -67,7 +67,6 @@ public class GrabItemPosition : MonoBehaviour
 
     public void PlayColorChangeAnimation(bool isDefault)
     {
-        print("PlayColorChangeAnimation: " + isDefault);
         var color = isDefault ? defaultColor : gameConstants.snapColor;
 
         snapTween?.Kill();
