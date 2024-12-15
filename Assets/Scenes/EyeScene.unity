@@ -245,6 +245,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 453715316339260935, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453715316339260935, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453715316339260935, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 453715316339260935, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 453715316339260935, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 618597808908605912, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -328,6 +348,34 @@ PrefabInstance:
     - target: {fileID: 6943619546071678428, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
       propertyPath: m_Name
       value: PlayerUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101774597797901838, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101774597797901838, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101774597797901838, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_margin.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101774597797901838, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101774597797901838, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101774597797901838, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101774597797901838, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4622,6 +4670,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7456524655920765288, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4314993444606335009, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
       propertyPath: m_Name
       value: SubtitleAndVoiceManager
@@ -4634,6 +4686,21 @@ PrefabInstance:
       propertyPath: subtitleText
       value: 
       objectReference: {fileID: 408643760}
+    - target: {fileID: 7867531444995452158, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
+      propertyPath: subtitles.Array.data[2].text
+      value: "Tablet?.. Kendine gel Halil! G\xF6z\xFCn burada olmal\u0131. Buradan
+        her\u015Feyi takip ediyorum. \\nHastan\u0131n durumu, stress seviyesi...
+        Yanl\u0131\u015F yaparsam geri bildirimi buradan al\u0131r\u0131m. Do\u011Fru
+        yaparsam... \u0130lerleriz. Acele etme."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867531444995452158, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
+      propertyPath: subtitles.Array.data[0].voiceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867531444995452158, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
+      propertyPath: subtitles.Array.data[1].voiceType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8561078123423536672, guid: d570f7f991e3d564b8fdce2b5cb71a86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
