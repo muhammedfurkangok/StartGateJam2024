@@ -7411,7 +7411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6809810252415956232, guid: 1e3cedb3881d871439b1ccabff3f25c7, type: 3}
       propertyPath: sceneIndexToLoad
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6809810252415956232, guid: 1e3cedb3881d871439b1ccabff3f25c7, type: 3}
       propertyPath: willoadSceneOnTrigger

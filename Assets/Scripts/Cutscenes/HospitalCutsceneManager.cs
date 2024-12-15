@@ -112,7 +112,7 @@ namespace Cutscenes
                     playerCamera.Lens.FieldOfView = value)
                 .SetEase(narrowFovEase);
 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }
