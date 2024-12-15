@@ -5,6 +5,8 @@ using UnityEngine;
 public enum SoundType
 {
     Explosion,
+    Fov,
+    Intel,
 }
 
 [Serializable]
