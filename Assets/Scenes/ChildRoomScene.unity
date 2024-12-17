@@ -22356,6 +22356,7 @@ GameObject:
   - component: {fileID: 7899671052712720317}
   - component: {fileID: 7899671052712720319}
   - component: {fileID: 7899671052712720318}
+  - component: {fileID: 7899671052712720320}
   m_Layer: 0
   m_Name: brokencloset
   m_TagString: Untagged
@@ -22554,8 +22555,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.69167477, y: 4.28, z: 0.9499999}
-  m_Center: {x: 0.029616816, y: 0, z: 0.45}
+  m_Size: {x: 1.86, y: 2.5716217, z: 1.51}
+  m_Center: {x: 0.0489671, y: 1.1110512, z: -0.01259622}
 --- !u!114 &7899671052712720319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22571,6 +22572,27 @@ MonoBehaviour:
   closetLeftDoor: {fileID: 154957544}
   closetRightDoor: {fileID: 1408062}
   isTriggered: 0
+--- !u!65 &7899671052712720320
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415902856086088967}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5154078, y: 2.5716217, z: 1.0376097}
+  m_Center: {x: 0.0489671, y: 1.1110512, z: -0.22957593}
 --- !u!23 &7913056583896112312
 MeshRenderer:
   m_ObjectHideFlags: 0

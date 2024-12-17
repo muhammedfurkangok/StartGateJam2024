@@ -104,7 +104,7 @@ public class GrabItem : MonoBehaviour
         snapTween?.Kill();
         snapRotationTween?.Kill();
 
-        enterInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetInspectPosition().position,
+        enterInspectTween = rigidbody.DOMove(PlayerGrabManager.Instance.GetInspectPosition().position,
                 gameConstants.grabItemEnterInspectDuration)
             .SetEase(gameConstants.grabItemEnterInspectEase);
     }
@@ -120,7 +120,7 @@ public class GrabItem : MonoBehaviour
         snapTween?.Kill();
         snapRotationTween?.Kill();
 
-        exitInspectTween = transform.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position,
+        exitInspectTween = rigidbody.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position,
                 gameConstants.grabItemExitInspectDuration)
             .SetEase(gameConstants.grabItemExitInspectEase);
     }
@@ -137,7 +137,7 @@ public class GrabItem : MonoBehaviour
         var rotationX = Quaternion.AngleAxis(-mouseX, Vector3.up);
         var rotationY = Quaternion.AngleAxis(mouseY, Vector3.right);
 
-        transform.rotation = rotationX * rotationY * transform.rotation;
+        rigidbody.MoveRotation(rigidbody.rotation * rotationX * rotationY);
     }
 
     public void TrySnap(GrabItemPosition grabItemPosition)

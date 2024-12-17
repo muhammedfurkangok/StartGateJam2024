@@ -75,6 +75,7 @@ public class TabletManager : MonoBehaviour
                         .SetEase(gameConstants.tabletMoveDownEase);
 
                     isPlayingCompleteAnimation = false;
+                    isTabletActive = !isTabletActive;
                 });
         }
 
