@@ -35,6 +35,7 @@ public class DoorCompletionCheckManager : MonoBehaviour
     {
         if (!firstDoorCompleted)
         {
+            var doorMainType = DoorMainType.None;
             var isAllFirstDoorItemsGrabbed = true;
             foreach (var grabItemPosition in firstDoorItemPositions)
             {
@@ -43,17 +44,24 @@ public class DoorCompletionCheckManager : MonoBehaviour
                     isAllFirstDoorItemsGrabbed = false;
                     break;
                 }
+
+                if (grabItemPosition.GetCurrentGrabItem().GetDoorMainType() != DoorMainType.None)
+                {
+                    doorMainType = grabItemPosition.GetCurrentGrabItem().GetDoorMainType();
+                }
             }
 
             if (isAllFirstDoorItemsGrabbed)
             {
+                if (doorMainType == DoorMainType.None) throw new Exception("DoorMainType is None");
                 firstDoorCompleted = true;
-                OnFirstDoorComplete();
+                OnFirstDoorComplete(doorMainType);
             }
         }
 
         if (!secondDoorCompleted)
         {
+            var doorMainType = DoorMainType.None;
             var isAllSecondDoorItemsGrabbed = true;
             foreach (var grabItemPosition in secondDoorItemPositions)
             {
@@ -62,17 +70,24 @@ public class DoorCompletionCheckManager : MonoBehaviour
                     isAllSecondDoorItemsGrabbed = false;
                     break;
                 }
+
+                if (grabItemPosition.GetCurrentGrabItem().GetDoorMainType() != DoorMainType.None)
+                {
+                    doorMainType = grabItemPosition.GetCurrentGrabItem().GetDoorMainType();
+                }
             }
 
             if (isAllSecondDoorItemsGrabbed)
             {
+                if (doorMainType == DoorMainType.None) throw new Exception("DoorMainType is None");
                 secondDoorCompleted = true;
-                OnSecondDoorComplete();
+                OnSecondDoorComplete(doorMainType);
             }
         }
 
         if (!thirdDoorCompleted)
         {
+            var doorMainType = DoorMainType.None;
             var isAllThirdDoorItemsGrabbed = true;
             foreach (var grabItemPosition in thirdDoorItemPositions)
             {
@@ -81,12 +96,18 @@ public class DoorCompletionCheckManager : MonoBehaviour
                     isAllThirdDoorItemsGrabbed = false;
                     break;
                 }
+
+                if (grabItemPosition.GetCurrentGrabItem().GetDoorMainType() != DoorMainType.None)
+                {
+                    doorMainType = grabItemPosition.GetCurrentGrabItem().GetDoorMainType();
+                }
             }
 
             if (isAllThirdDoorItemsGrabbed)
             {
+                if (doorMainType == DoorMainType.None) throw new Exception("DoorMainType is None");
                 thirdDoorCompleted = true;
-                OnThirdDoorComplete();
+                OnThirdDoorComplete(doorMainType);
             }
         }
 
@@ -97,24 +118,24 @@ public class DoorCompletionCheckManager : MonoBehaviour
         }
     }
 
-    private void OnFirstDoorComplete()
+    private void OnFirstDoorComplete(DoorMainType doorMainType)
     {
         TabletManager.Instance.IncreaseIntelligence(1);
-        VoiceAndSubtitleManager.Instance.Play(VoiceType.DoorRoomCross);
+        VoiceAndSubtitleManager.Instance.Play(GetVoiceTypeFromDoorMainType(doorMainType));
         firstDoorParticle.StartPathing();
     }
 
-    private void OnSecondDoorComplete()
+    private void OnSecondDoorComplete(DoorMainType doorMainType)
     {
         TabletManager.Instance.IncreaseIntelligence(1);
-        VoiceAndSubtitleManager.Instance.Play(VoiceType.DoorRoomBone);
+        VoiceAndSubtitleManager.Instance.Play(GetVoiceTypeFromDoorMainType(doorMainType));
         secondDoorParticle.StartPathing();
     }
 
-    private void OnThirdDoorComplete()
+    private void OnThirdDoorComplete(DoorMainType doorMainType)
     {
         TabletManager.Instance.IncreaseIntelligence(1);
-        VoiceAndSubtitleManager.Instance.Play(VoiceType.DoorRoomMusic);
+        VoiceAndSubtitleManager.Instance.Play(GetVoiceTypeFromDoorMainType(doorMainType));
         thirdDoorParticle.StartPathing();
     }
 
@@ -133,5 +154,13 @@ public class DoorCompletionCheckManager : MonoBehaviour
 
         blinkAnimator.SetTrigger("CutsceneClose");
         InputManager.Instance.isInputOverride = false;
+    }
+
+    private VoiceType GetVoiceTypeFromDoorMainType(DoorMainType doorMainType)
+    {
+        if (doorMainType == DoorMainType.Religion) return VoiceType.DoorRoomCross;
+        if (doorMainType == DoorMainType.Dog) return VoiceType.DoorRoomBone;
+        if (doorMainType == DoorMainType.Music) return VoiceType.DoorRoomMusic;
+        throw new Exception("DoorMainType is None");
     }
 }

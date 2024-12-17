@@ -10843,6 +10843,7 @@ MonoBehaviour:
   collider: {fileID: 171803100}
   grabItemType: 7
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -11016,6 +11017,7 @@ MonoBehaviour:
   collider: {fileID: 200803716}
   grabItemType: 4
   grabItemColor: 0
+  doorMainType: 3
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -16252,6 +16254,7 @@ MonoBehaviour:
   collider: {fileID: 270006387}
   grabItemType: 8
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -16838,6 +16841,7 @@ MonoBehaviour:
   collider: {fileID: 364211226}
   grabItemType: 5
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -18817,6 +18821,7 @@ MonoBehaviour:
   collider: {fileID: 819266410}
   grabItemType: 11
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -19508,6 +19513,7 @@ MonoBehaviour:
   collider: {fileID: 905770828}
   grabItemType: 4
   grabItemColor: 0
+  doorMainType: 2
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -19891,6 +19897,7 @@ MonoBehaviour:
   collider: {fileID: 978067235}
   grabItemType: 11
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -20119,6 +20126,7 @@ MonoBehaviour:
   collider: {fileID: 997560531}
   grabItemType: 7
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -20494,6 +20502,7 @@ MonoBehaviour:
   collider: {fileID: 1072280763}
   grabItemType: 6
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -20833,6 +20842,7 @@ MonoBehaviour:
   collider: {fileID: 1122706409}
   grabItemType: 10
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -26496,6 +26506,7 @@ MonoBehaviour:
   collider: {fileID: 1332818961}
   grabItemType: 5
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -26744,6 +26755,7 @@ MonoBehaviour:
   collider: {fileID: 1442869250}
   grabItemType: 9
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -27560,6 +27572,7 @@ MonoBehaviour:
   collider: {fileID: 1629213765}
   grabItemType: 6
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -27833,6 +27846,7 @@ MonoBehaviour:
   collider: {fileID: 1651081446}
   grabItemType: 9
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -33108,6 +33122,7 @@ MonoBehaviour:
   collider: {fileID: 1750655414}
   grabItemType: 10
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -34218,6 +34233,7 @@ MonoBehaviour:
   collider: {fileID: 1926363187}
   grabItemType: 8
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -40692,6 +40708,7 @@ MonoBehaviour:
   collider: {fileID: 1990821834635645954}
   grabItemType: 5
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -40909,6 +40926,7 @@ MonoBehaviour:
   collider: {fileID: 3707592889679466965}
   grabItemType: 11
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -41055,6 +41073,7 @@ MonoBehaviour:
   collider: {fileID: 7517654240522969736}
   grabItemType: 9
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -41727,6 +41746,7 @@ MonoBehaviour:
   collider: {fileID: 5990235024440848345}
   grabItemType: 7
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -41791,6 +41811,7 @@ MonoBehaviour:
   collider: {fileID: 4209824915954885869}
   grabItemType: 6
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -41841,6 +41862,7 @@ MonoBehaviour:
   collider: {fileID: 8411611184408323502}
   grabItemType: 4
   grabItemColor: 0
+  doorMainType: 1
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -41980,6 +42002,7 @@ MonoBehaviour:
   collider: {fileID: 8400080368373292676}
   grabItemType: 8
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -42115,6 +42138,7 @@ MonoBehaviour:
   collider: {fileID: 7219692730340792851}
   grabItemType: 10
   grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0

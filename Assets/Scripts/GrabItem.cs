@@ -2,6 +2,14 @@
 using ScriptableObjects;
 using UnityEngine;
 
+public enum DoorMainType
+{
+    None,
+    Religion,
+    Music,
+    Dog,
+}
+
 public class GrabItem : MonoBehaviour
 {
     [Header("References")]
@@ -12,6 +20,7 @@ public class GrabItem : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] private GrabItemType grabItemType;
     [SerializeField] private GrabItemColor grabItemColor;
+    [SerializeField] private DoorMainType doorMainType;
 
     [Header("Info")]
     [SerializeField] private Transform target;
@@ -31,6 +40,7 @@ public class GrabItem : MonoBehaviour
     public float GetRigidbodyVelocityMagnitude() => rigidbody.linearVelocity.magnitude;
     public Collider GrabItemPositionOnly_GetCollider() => collider;
     public bool IsSnapped() => isSnapped;
+    public DoorMainType GetDoorMainType() => doorMainType;
 
     public void SetTarget(Transform target)
     {
