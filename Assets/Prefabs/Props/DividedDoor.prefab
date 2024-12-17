@@ -127,7 +127,8 @@ MonoBehaviour:
   rigidbody: {fileID: 4307563590688236845}
   collider: {fileID: 7219692729232034907}
   grabItemType: 10
-  parenterOffset: {x: 0, y: 0, z: 0}
+  grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -285,7 +286,8 @@ MonoBehaviour:
   rigidbody: {fileID: 3388154249378521920}
   collider: {fileID: 8411611185449415654}
   grabItemType: 4
-  parenterOffset: {x: -2, y: 5, z: -0.065}
+  grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -479,7 +481,8 @@ MonoBehaviour:
   rigidbody: {fileID: 6006035367881155984}
   collider: {fileID: 8400080367333738700}
   grabItemType: 8
-  parenterOffset: {x: 0, y: 0, z: 0}
+  grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -551,13 +554,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120849431727511681}
   serializedVersion: 2
-  m_LocalRotation: {x: 3.5527137e-15, y: -0.0000006854533, z: -1.6254613e-14, w: 1}
-  m_LocalPosition: {x: -0.0641176, y: 1.2456033, z: 0.18339121}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: -0.31660882}
+  m_LocalScale: {x: 1.3182, y: 1.3182, z: 1.3182}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5218299190725551803}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &6839541145547073442
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -738,7 +741,8 @@ MonoBehaviour:
   rigidbody: {fileID: 3475865230440309552}
   collider: {fileID: 7517654241564095680}
   grabItemType: 9
-  parenterOffset: {x: 0, y: 0, z: 0}
+  grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -911,7 +915,8 @@ MonoBehaviour:
   rigidbody: {fileID: 171299737577632388}
   collider: {fileID: 3707592888640440221}
   grabItemType: 11
-  parenterOffset: {x: 0, y: 0, z: 0}
+  grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -1084,7 +1089,8 @@ MonoBehaviour:
   rigidbody: {fileID: 8848694685325935525}
   collider: {fileID: 1990821835745968714}
   grabItemType: 5
-  parenterOffset: {x: 0, y: 0, z: 0}
+  grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -1236,7 +1242,8 @@ MonoBehaviour:
   rigidbody: {fileID: 5108539773991252734}
   collider: {fileID: 4209824914848494245}
   grabItemType: 6
-  parenterOffset: {x: 0, y: 5, z: 0}
+  grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
@@ -1598,7 +1605,8 @@ MonoBehaviour:
   rigidbody: {fileID: 2642475265283144219}
   collider: {fileID: 5990235023399205265}
   grabItemType: 7
-  parenterOffset: {x: 0, y: 5, z: 0}
+  grabItemColor: 0
+  doorMainType: 0
   target: {fileID: 0}
   isBeingInspected: 0
   isSnapped: 0
