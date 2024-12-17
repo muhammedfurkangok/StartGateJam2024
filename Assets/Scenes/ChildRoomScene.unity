@@ -8598,14 +8598,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCamera
       objectReference: {fileID: 0}
-    - target: {fileID: 2102247141463202021, guid: be172a3514a240f4ba945f0da3ee600f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 7c5c0aad5d6d01b44957574cc894b7b8, type: 2}
-    - target: {fileID: 3000551353936998690, guid: be172a3514a240f4ba945f0da3ee600f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 494664bb32b270443b9359e9504532b7, type: 2}
     - target: {fileID: 3510213627991642627, guid: be172a3514a240f4ba945f0da3ee600f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.25
@@ -8645,14 +8637,6 @@ PrefabInstance:
     - target: {fileID: 3510213627991642627, guid: be172a3514a240f4ba945f0da3ee600f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806996209563674039, guid: be172a3514a240f4ba945f0da3ee600f, type: 3}
-      propertyPath: AmplitudeGain
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6806996209563674039, guid: be172a3514a240f4ba945f0da3ee600f, type: 3}
-      propertyPath: FrequencyGain
-      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8161391610373400462, guid: be172a3514a240f4ba945f0da3ee600f, type: 3}
       propertyPath: Target.TrackingTarget
@@ -10886,6 +10870,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2066855243330931097, guid: f3739ee3637261d40bc8385fa8b59532, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426566904239791808, guid: f3739ee3637261d40bc8385fa8b59532, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426566904239791808, guid: f3739ee3637261d40bc8385fa8b59532, type: 3}
+      propertyPath: m_Size.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6380384903877940958, guid: f3739ee3637261d40bc8385fa8b59532, type: 3}
@@ -14621,8 +14613,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 453715316339260935, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 618597808908605912, guid: 95d9cc6665fb3774ca7fe8b12586a92c, type: 3}
       propertyPath: m_Pivot.x
@@ -22221,6 +22213,10 @@ PrefabInstance:
       value: TargetLight
       objectReference: {fileID: 0}
     - target: {fileID: 8066155709900608400, guid: 410d372d94e2d134e9f9cf38a9360b6f, type: 3}
+      propertyPath: prism
+      value: 
+      objectReference: {fileID: 7041913341656904401}
+    - target: {fileID: 8066155709900608400, guid: 410d372d94e2d134e9f9cf38a9360b6f, type: 3}
       propertyPath: lightObject
       value: 
       objectReference: {fileID: 478925431}
@@ -22265,6 +22261,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6875603191141184912, guid: 4b26913771ea4e24399fa07dafa7aa82, type: 3}
+--- !u!114 &7041913341656904401 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2729082489750228814, guid: 6073149455b6e8946ade9a0a3c9259a5, type: 3}
+  m_PrefabInstance: {fileID: 7502406953138603426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943413702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f157d55bc254aefaf789d0f3bf06012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &7128752094473622659
 MeshFilter:
   m_ObjectHideFlags: 0

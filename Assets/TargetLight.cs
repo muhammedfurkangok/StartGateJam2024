@@ -4,6 +4,9 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class TargetLight : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private GrabItem prism;
+
     [SerializeField] private bool isCompleted;
     public bool isAnimDone;
 
@@ -28,6 +31,7 @@ public class TargetLight : MonoBehaviour
     {
         if (isCompleted && !isAnimDone)
         {
+            prism.SetTarget(null);
             isAnimDone = true;
             LightAnimTrigger();
         }

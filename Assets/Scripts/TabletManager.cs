@@ -88,7 +88,7 @@ public class TabletManager : MonoBehaviour
         for (var i = 0; i < sprites.Length; i++)
         {
             var sprite = sprites[i];
-            if (i > intelligenceIndex) sprite.DOFade(1, gameConstants.tabletAlphaDuration).SetEase(gameConstants.tabletAlphaEase);
+            if (i < intelligenceIndex) sprite.DOFade(1, gameConstants.tabletAlphaDuration).SetEase(gameConstants.tabletAlphaEase);
         }
 
         ToggleTablet(true);
