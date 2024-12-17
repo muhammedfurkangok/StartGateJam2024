@@ -41,7 +41,7 @@ public class ChildRoomCutScene : MonoBehaviour
         blinkAnimator.SetTrigger("CutsceneOpen");
         cinemachineVirtualCamera.transform.DOLookAt(endSequenceLookPosition.transform.position, 1f);
         endSequenceDoor.transform.DOLocalMoveY(0, 1f);
-        await UniTask.WaitForSeconds(4f);
+        await UniTask.WaitForSeconds(1f);
         blinkAnimator.SetTrigger("CutsceneClose");
         InputManager.Instance.isInputOverride = false;
     }
