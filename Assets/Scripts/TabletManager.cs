@@ -59,20 +59,22 @@ public class TabletManager : MonoBehaviour
         if (isTabletActive)
         {
             tabletVisual.transform.DOLocalMoveY(gameConstants.tabletDownLocalY, gameConstants.tabletMoveDuration)
-                .SetEase(gameConstants.tabletMoveDownEase)
-                .OnComplete(() => tabletVisual.gameObject.SetActive(false));
+                .SetEase(gameConstants.tabletMoveDownEase);
         }
 
         else
         {
-            tabletVisual.gameObject.SetActive(true);
             tabletVisual.transform.DOLocalMoveY(gameConstants.tabletUpLocalY, gameConstants.tabletMoveDuration)
                 .SetEase(gameConstants.tabletMoveUpEase)
                 .OnComplete(async () =>
                 {
                     if (!isComplete) return;
                     await UniTask.WaitForSeconds(gameConstants.tabletAlphaDuration);
-                    ToggleTablet(true);
+
+                    await tabletVisual.transform.DOLocalMoveY(gameConstants.tabletDownLocalY, gameConstants.tabletMoveDuration)
+                        .SetEase(gameConstants.tabletMoveDownEase);
+
+                    isPlayingCompleteAnimation = false;
                 });
         }
 
@@ -91,6 +93,7 @@ public class TabletManager : MonoBehaviour
             if (i < intelligenceIndex) sprite.DOFade(1, gameConstants.tabletAlphaDuration).SetEase(gameConstants.tabletAlphaEase);
         }
 
+        isPlayingCompleteAnimation = true;
         ToggleTablet(true);
 
         SoundManager.Instance.PlayOneShotSound(SoundType.Intel);
