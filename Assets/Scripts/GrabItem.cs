@@ -27,7 +27,7 @@ public class GrabItem : MonoBehaviour
 
     public GrabItemType GetGrabItemType() => grabItemType;
     public bool IsBeingGrabbed() => target != null;
-    public bool GetIsBeingInspected() => isBeingInspected;
+    public bool IsBeingInspected() => isBeingInspected;
     public float GetRigidbodyVelocityMagnitude() => rigidbody.linearVelocity.magnitude;
     public Collider GrabItemPositionOnly_GetCollider() => collider;
     public bool IsSnapped() => isSnapped;
@@ -104,9 +104,24 @@ public class GrabItem : MonoBehaviour
         snapTween?.Kill();
         snapRotationTween?.Kill();
 
-        enterInspectTween = rigidbody.DOMove(PlayerGrabManager.Instance.GetInspectPosition().position,
-                gameConstants.grabItemEnterInspectDuration)
-            .SetEase(gameConstants.grabItemEnterInspectEase);
+        var inspectPosition = PlayerGrabManager.Instance.GetInspectPosition();
+        var distanceWithInspectPosition = Vector3.Distance(transform.position, inspectPosition.position);
+        Physics.Raycast(transform.position, inspectPosition.position - transform.position, out var hit);
+
+        var distanceWithHit = hit.distance;
+        var canGoToInspectPosition = distanceWithInspectPosition < distanceWithHit;
+        if (!canGoToInspectPosition)
+        {
+            print("hit: " + hit.collider.name);
+            return;
+        }
+
+        else
+        {
+            enterInspectTween = rigidbody.DOMove(inspectPosition.position,
+                    gameConstants.grabItemEnterInspectDuration)
+                .SetEase(gameConstants.grabItemEnterInspectEase);
+        }
     }
 
     private void ExitInspectMode()
@@ -120,9 +135,23 @@ public class GrabItem : MonoBehaviour
         snapTween?.Kill();
         snapRotationTween?.Kill();
 
-        exitInspectTween = rigidbody.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position,
-                gameConstants.grabItemExitInspectDuration)
-            .SetEase(gameConstants.grabItemExitInspectEase);
+        var holdPosition = PlayerGrabManager.Instance.GetHoldPosition();
+        var distanceWithHoldPosition = Vector3.Distance(transform.position, holdPosition.position);
+        Physics.Raycast(transform.position, holdPosition.position - transform.position, out var hit);
+
+        var distanceWithHit = hit.distance;
+        var canGoToHoldPosition = distanceWithHoldPosition < distanceWithHit;
+        if (!canGoToHoldPosition)
+        {
+            print("hit: " + hit.collider.name);
+            return;
+        }
+
+        else
+        {
+            exitInspectTween = rigidbody.DOMove(PlayerGrabManager.Instance.GetHoldPosition().position, gameConstants.grabItemExitInspectDuration)
+                .SetEase(gameConstants.grabItemExitInspectEase);
+        }
     }
 
     private void Inspect()
