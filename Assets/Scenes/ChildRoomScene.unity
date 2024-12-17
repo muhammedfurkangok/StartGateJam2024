@@ -22055,6 +22055,7 @@ GameObject:
   - component: {fileID: 5955729617726564415}
   - component: {fileID: 7280309715594274714}
   - component: {fileID: 4822278044569998160}
+  - component: {fileID: 7280309715594274715}
   m_Layer: 0
   m_Name: small_closet
   m_TagString: Untagged
@@ -22287,6 +22288,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6479782820279300741}
+  m_Mesh: {fileID: -6159618192603241882, guid: b2499a4128a3bbf418180a6c3f071bfb, type: 3}
+--- !u!64 &7280309715594274715
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479782820279300741}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: -6159618192603241882, guid: b2499a4128a3bbf418180a6c3f071bfb, type: 3}
 --- !u!33 &7323365469725021858
 MeshFilter:
