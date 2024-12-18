@@ -33407,9 +33407,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1213677816802433784, guid: 8f2d4d1b7662a524a927e3380579fb63, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: 'm_Cameras.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1880776423}
     - target: {fileID: 3193974906219491888, guid: 8f2d4d1b7662a524a927e3380579fb63, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -34017,6 +34017,11 @@ Transform:
 --- !u!4 &1880776422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3741221941836681030, guid: be172a3514a240f4ba945f0da3ee600f, type: 3}
+  m_PrefabInstance: {fileID: 1880776418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1880776423 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9188985081007706604, guid: be172a3514a240f4ba945f0da3ee600f, type: 3}
   m_PrefabInstance: {fileID: 1880776418}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1884187054 stripped
